@@ -8,7 +8,7 @@ export default function Hero() {
       <div className="max-w-screen-xl px-4 pt-10 lg:pt-16 lg:px-12 z-1">
         <Link href="/docs" className="inline-flex items-center px-4 py-2 rounded-full border border-neutral-200 bg-white px-4 py-1.5 text-sm font-medium text-neutral-700 shadow-sm dark:border-neutral-800 dark:bg-neutral-900/50 dark:text-neutral-300 mb-8">
           <span className="animate-pulse mr-2 h-2 w-2 bg-orange-600 rounded-full" />
-          <span>Install Reviactyl Now! It's Free.</span>
+          <span>Install Reviactyl Now! It&apos;s Free.</span>
         </Link>
         <div className="block md:hidden">
         <h1 className="text-5xl font-bold tracking-tight text-neutral-900 dark:text-white sm:text-6xl lg:text-7xl">

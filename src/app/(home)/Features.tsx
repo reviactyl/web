@@ -37,7 +37,7 @@ const features = [
 
 export default function Features() {
   return (
-    <section className="bg-fd-background">
+    <section className="bg-gradient-to-b from-fd-background/80 to-fd-background border-t border-b rounded-xl border-black/20 dark:border-zinc-800 mt-2 mb-2">
       <div className="flex w-full items-center justify-center border-x px-2 py-12 md:px-0 md:py-16 lg:py-20">
         <h2 className="text-pretty text-center text-2xl font-bold dark:opacity-90 dark:drop-shadow-lg sm:text-4xl md:text-5xl lg:text-6xl">
           Why users
