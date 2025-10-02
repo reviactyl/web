@@ -18,7 +18,7 @@ export default function Sponsors() {
             </span>{" "}
             <Link
               className="text-link"
-              href="https://github.com/sponsors/bijju089"
+              href="https://github.com/sponsors/reviactyl"
             >
               Support our work by donating to Reviactyl.
             </Link>
