@@ -24,6 +24,10 @@ export function baseOptions(): BaseLayoutProps {
         text: 'Documentation',
         url: '/docs',
       },
+      {
+        text: 'Get Help',
+        url: '/discord',
+      },
     ],
     githubUrl: 'https://github.com/reviactyl/panel',
   };
