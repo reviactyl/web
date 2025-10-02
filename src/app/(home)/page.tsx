@@ -1,6 +1,7 @@
 import Features from './Features';
 import Hero from './Hero';
 import type { Metadata } from "next";
+import Sponsors from './Sponsors';
 
 export const metadata: Metadata = {
 	openGraph: {
@@ -17,6 +18,7 @@ export default function HomePage() {
       <div className="relative z-10 border border-black/20 dark:border-zinc-800 m-4 rounded-xl">
       <Hero />
       <Features />
+      <Sponsors />
       </div>
     </main>
   );
