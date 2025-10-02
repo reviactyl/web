@@ -1,4 +1,4 @@
-import Hero from '@/components/Hero';
+import Hero from './Hero';
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -11,8 +11,11 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <main>
+    <main className="relative h-full w-full">
+      <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]" />
+      <div className="relative z-10 border bg-black/20 dark:border-zinc-800 m-4 rounded-xl">
       <Hero />
+      </div>
     </main>
   );
 }
