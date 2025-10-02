@@ -26,7 +26,7 @@ export default function Hero() {
         </h1>
         <p className="mt-3 max-w-md  text-neutral-600 dark:text-neutral-400 text-xl md:text-2xl font-medium md:max-w-3xl leading-relaxed">
           The first and only free pterodactyl theme with features that even paid
-          themes on the market don't have.
+          themes on the market don&apos;t have.
         </p>
         </div>
         <div className="mt-8 mb-8 flex flex-col sm:flex-row gap-4">
