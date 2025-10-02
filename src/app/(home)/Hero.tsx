@@ -31,7 +31,7 @@ export default function Hero() {
         </div>
         <div className="mt-8 mb-8 flex flex-col sm:flex-row gap-4">
           <Link
-            href="https://docs.reviactyl.dev/"
+            href="/docs"
             className="inline-flex items-center justify-center text-sm font-medium ring-offset-fd-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fd-ring disabled:pointer-events-none disabled:opacity-50 bg-gradient-to-b from-fd-primary to-fd-primary/60 text-fd-primary-foreground shadow-fd-background/20 hover:bg-fd-primary/90 h-11 px-6 rounded-full"
           >
             <span className="relative flex items-center justify-center gap-2 text-white dark:text-black">
