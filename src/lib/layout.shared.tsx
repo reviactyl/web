@@ -18,17 +18,6 @@ export function baseOptions(): BaseLayoutProps {
         </>
       ),
     },
-    // see https://fumadocs.dev/docs/ui/navigation/links
-    links: [
-      {
-        text: 'Documentation',
-        url: '/docs',
-      },
-      {
-        text: 'Get Help',
-        url: '/discord',
-      },
-    ],
     githubUrl: 'https://github.com/reviactyl/panel',
   };
 }

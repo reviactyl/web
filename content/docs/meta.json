@@ -1,0 +1,10 @@
+{
+  "root": true,
+  "pages": [
+    "---Project---",
+    "index",
+    "---Installation---",
+    "fresh-installation",
+    "migrating-from-pterodactyl"
+  ]
+}

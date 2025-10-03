@@ -45,7 +45,7 @@ export async function generateMetadata(
   if (!page) notFound();
 
   return {
-    title: page.data.title + ' | Reviactyl Documentation',
+    title: page.data.title + ' | Reviactyl Docs',
     description: page.data.description,
   };
 }
