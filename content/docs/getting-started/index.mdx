@@ -15,42 +15,14 @@ Pterodactyl runs on a wide range of operating systems, so pick whichever you are
   If you are planning on running this software on an OpenVZ based system you will — most likely — not be successful.
 </Callout>
 
-<table>
-  <thead>
-    <tr>
-      <th width="241" align="center">Operating System</th>
-      <th width="117" align="center">Status</th>
-      <th align="center">Notes</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td align="center">Ubuntu 22.04</td>
-      <td align="center">Fully Supported</td>
-      <td align="center">Requires additional repositories for PHP</td>
-    </tr>
-    <tr>
-      <td align="center">Ubuntu 24.04</td>
-      <td align="center">Fully Supported</td>
-      <td align="center">MariaDB can be installed without the repo setup script.</td>
-    </tr>
-    <tr>
-      <td align="center">Debian 11</td>
-      <td align="center">Fully Supported</td>
-      <td align="center">Reviactyl is tested primarily on Debian. This is our preferred choice of OS</td>
-    </tr>
-    <tr>
-      <td align="center">Debian 12</td>
-      <td align="center">Fully Supported</td>
-      <td align="center">Reviactyl is tested primarily on Debian. This is our preferred choice of OS</td>
-    </tr>
-    <tr>
-      <td align="center">RHEL / Rocky Linux / AlmaLinux</td>
-      <td align="center">Fully Supported</td>
-      <td align="center">Extra repos are required.</td>
-    </tr>
-  </tbody>
-</table>
+| Operating System                     | Status           | Notes                                                                 |
+|-------------------------------------|----------------|----------------------------------------------------------------------|
+| Ubuntu 22.04                         | Fully Supported | Requires additional repositories for PHP                               |
+| Ubuntu 24.04                         | Fully Supported | MariaDB can be installed without the repo setup script.               |
+| Debian 11                            | Fully Supported | Reviactyl is tested primarily on Debian. This is our preferred choice of OS |
+| Debian 12                            | Fully Supported | Reviactyl is tested primarily on Debian. This is our preferred choice of OS |
+| RHEL / Rocky Linux / AlmaLinux       | Fully Supported | Extra repos are required.                                             |
+
 
 ## Dependencies
 
@@ -119,9 +91,10 @@ chmod -R 755 storage/* bootstrap/cache/
   ```
 
   ```bash
-  CREATE USER 'pterodactyl'@'127.0.0.1' IDENTIFIED BY 'yourPassword';
+  # It's mandatory to use a secure password. Generate one at https://www.avast.com/random-password-generator
+  CREATE USER 'reviactyl'@'127.0.0.1' IDENTIFIED BY 'yourPassword';
   CREATE DATABASE panel;
-  GRANT ALL PRIVILEGES ON panel.* TO 'pterodactyl'@'127.0.0.1' WITH GRANT OPTION;
+  GRANT ALL PRIVILEGES ON panel.* TO 'reviactyl'@'127.0.0.1' WITH GRANT OPTION;
   exit
   ```
 </Callout>
