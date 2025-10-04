@@ -3,7 +3,7 @@
   "pages": [
     "---Project---",
     "index",
-    "---Panel Installation---",
+    "---Panel---",
     "panel/getting-started",
     "panel/migrating-from-pterodactyl"
   ]
