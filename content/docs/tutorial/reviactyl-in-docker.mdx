@@ -1,0 +1,143 @@
+---
+title: Panel in Docker
+icon: Container
+---
+
+Reviactyl provides pre-built Docker images via GitHub Packages. `ghcr.io/reviactyl/panel:latest` is the current latest release, and `ghcr.io/reviactyl/panel:develop` is built automatically from the current `develop` (canary) branch. Deploying the panel in Docker is still a work in progress. While the plan is to make Docker the preferred installation method, we currently recommend the [standard deployment instructions](/docs/panel/getting-started)
+
+This guide requires Docker CE. (Docker Compose has been included in the Docker CLI since v2. Docker Compose v1 is unsupported.) For instructions on installing and configuring Docker, see the [installation guide](/docs/tutorial/installing-docker).
+
+## Using Portainer
+
+This part is optional but Portainer is a great tool for managing docker.
+
+```bash
+docker run -d -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
+```
+Go to `http://<ip>:9443` in your browser and setup your local account.
+
+
+## Basics
+
+The easiest deployment method is using the standard `compose.yml` file.
+
+The following docker compose file has been labeled and has simple explanations of what each line does.
+
+### Create compose.yml
+
+```bash
+nano compose.yml
+```
+
+```yaml
+version: '3.8'
+x-common:
+  database:
+    &db-environment
+    # Do not remove the "&db-password" from the end of the line below, it is important
+    # for Panel functionality.
+    MYSQL_PASSWORD: &db-password "CHANGE_ME"
+    MYSQL_ROOT_PASSWORD: "CHANGE_ME_TOO"
+  panel:
+    &panel-environment
+    APP_URL: "http://example.com"
+    # A list of valid timezones can be found here: http://php.net/manual/en/timezones.php
+    APP_TIMEZONE: "UTC"
+    APP_SERVICE_AUTHOR: "noreply@example.com"
+    # Uncomment the line below and set to a non-empty value if you want to use Let's Encrypt
+    # to generate an SSL certificate for the Panel.
+    # LE_EMAIL: ""
+  mail:
+    &mail-environment
+    MAIL_FROM: "noreply@example.com"
+    MAIL_DRIVER: "smtp"
+    MAIL_HOST: "mail"
+    MAIL_PORT: "1025"
+    MAIL_USERNAME: ""
+    MAIL_PASSWORD: ""
+    MAIL_ENCRYPTION: "true"
+
+#
+# ------------------------------------------------------------------------------------------
+# DANGER ZONE BELOW
+#
+# The remainder of this file likely does not need to be changed. Please only make modifications
+# below if you understand what you are doing.
+#
+services:
+  database:
+    image: mariadb:10.5
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - "/srv/reviactyl/database:/var/lib/mysql"
+    environment:
+      <<: *db-environment
+      MYSQL_DATABASE: "panel"
+      MYSQL_USER: "reviactyl"
+  cache:
+    image: redis:alpine
+    restart: always
+  panel:
+    image: ghcr.io/reviactyl/panel:latest
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    links:
+      - database
+      - cache
+    volumes:
+      - "/srv/reviactyl/var/:/app/var/"
+      - "/srv/reviactyl/nginx/:/etc/nginx/http.d/"
+      - "/srv/reviactyl/certs/:/etc/letsencrypt/"
+      - "/srv/reviactyl/logs/:/app/storage/logs"
+    environment:
+      <<: [*panel-environment, *mail-environment]
+      DB_PASSWORD: *db-password
+      APP_ENV: "production"
+      APP_ENVIRONMENT_ONLY: "false"
+      CACHE_DRIVER: "redis"
+      SESSION_DRIVER: "redis"
+      QUEUE_DRIVER: "redis"
+      REDIS_HOST: "cache"
+      DB_HOST: "database"
+      DB_PORT: "3306"
+networks:
+  default:
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+```
+
+### Starting
+
+From the directory in which the compose file is located, run:
+
+```bash
+docker compose up -d
+```
+
+### Back Up Your Encryption Key
+
+The first time the container starts, it will generate an `APP_KEY` which is used as an encryption key. This will be saved automatically, but you should save a copy in a secure place in case you need it later.
+
+```bash
+docker compose logs panel | grep 'Generated app key:'
+```
+
+### Stopping
+
+The panel will automatically restart if the container crashes or the host restarts.  If you need to non-destructively stop the panel for any reason, navigate back to the directory containing `compose.yml` and run:
+
+```sh
+docker compose down
+```
+
+### Uninstalling
+
+To uninstall the panel, navigate to the directory containing `docker-compose.yml` and run:
+
+```bash
+docker compose down -v
+```

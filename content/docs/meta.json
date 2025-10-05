@@ -5,6 +5,13 @@
     "index",
     "---Panel---",
     "panel/getting-started",
-    "panel/migrating-from-pterodactyl"
+    "panel/webserver-configuration",
+    "panel/additional-configuration",
+    "panel/updating-the-panel",
+    "panel/migrating-from-pterodactyl",
+    "---Tutorial---",
+    "tutorial/installing-docker",
+    "tutorial/reviactyl-in-docker",
+    "tutorial/troubleshooting"
   ]
 }
