@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { InlineTOC } from 'fumadocs-ui/components/inline-toc';
 import defaultMdxComponents from 'fumadocs-ui/mdx';
 import { blog } from '@/lib/source';
+import Footer from '../../Footer';
 
 export default async function Page(props: {
   params: Promise<{ slug: string }>;
@@ -14,31 +15,44 @@ export default async function Page(props: {
   const Mdx = page.data.body;
 
   return (
-    <>
-      <div className="container rounded-xl border py-12 md:px-8">
+    <main className="relative h-full w-full">
+      <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]" />
+      <div className="relative z-10 border border-black/20 dark:border-zinc-800 m-4 rounded-xl">
+      <div className="bg-[radial-gradient(125%_125%_at_50%_10%,_#ffffff_40%,_#ffcccc_100%)] dark:bg-[radial-gradient(125%_125%_at_50%_10%,_#000000_40%,_#2b0707_100%)] rounded-xl border py-12 md:px-8">
         <h1 className="mb-2 text-3xl font-bold">{page.data.title}</h1>
         <p className="mb-4 text-fd-muted-foreground">{page.data.description}</p>
-        <Link href="/blog">Back</Link>
+          <Link
+            href="/blog"
+            className="inline-flex items-center justify-center text-sm font-medium ring-offset-fd-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fd-ring disabled:pointer-events-none disabled:opacity-50 border hover:bg-fd-accent h-8 px-3 rounded-xl bg-fd-background"
+          >
+            <span className="relative flex items-center justify-center gap-2 hover:text-fd-accent-foreground">
+              Back
+            </span>
+          </Link>
       </div>
-      <article className="container flex flex-col px-4 py-8">
-        <div className="prose min-w-0">
-          <InlineTOC items={page.data.toc} />
+      <article className="flex flex-col mx-auto w-full py-8 lg:flex-row bg-gradient-to-b from-fd-background/80 to-fd-background border-t border-b rounded-xl border-black/20 dark:border-zinc-800 mt-2">
+        <div className="prose min-w-0 flex-1 p-4">
           <Mdx components={defaultMdxComponents} />
         </div>
-        <div className="flex flex-col gap-4 text-sm">
+        <div className="flex flex-col gap-4 border-l p-4 text-sm lg:w-[250px]">
+          <div>
+            <InlineTOC items={page.data.toc} />
+          </div>
           <div>
             <p className="mb-1 text-fd-muted-foreground">Written by</p>
             <p className="font-medium">{page.data.author}</p>
           </div>
           <div>
-            <p className="mb-1 text-sm text-fd-muted-foreground">At</p>
+            <p className="mb-1 text-sm text-fd-muted-foreground">Posted At</p>
             <p className="font-medium">
               {new Date(page.data.date).toDateString()}
             </p>
           </div>
         </div>
       </article>
-    </>
+    </div>
+    <Footer />
+    </main>
   );
 }
 
@@ -55,7 +69,7 @@ export async function generateMetadata(props: {
   const page = blog.getPage([params.slug]);
   if (!page) notFound();
   return {
-    title: page.data.title,
+    title: page.data.title + ' | Reviactyl',
     description: page.data.description,
   };
 }
