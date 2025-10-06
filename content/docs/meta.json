@@ -12,6 +12,8 @@
     "---Tutorial---",
     "tutorial/installing-docker",
     "tutorial/reviactyl-in-docker",
+    "tutorial/creating-ssl-certificates",
+    "tutorial/mysql-setup",
     "tutorial/troubleshooting"
   ]
 }

@@ -3,6 +3,10 @@ title: Getting Started
 icon: Box
 ---
 
+<Callout type="warning" title="Please Read Before Proceeding">
+  Only use this guide if you don't have a panel already. If you already have Pterodactyl installation, then follow the [migration guide](/docs/panel/migrating-from-pterodactyl).
+</Callout>
+
 This Panel is designed to run on your own web server. You will need to have root access to your server in order to run and use this panel.
 
 You are expected to understand how to read documentation to use this Panel. This panel does not exist as a drag-and-drop service to run your servers. It is a highly complex system requiring multiple dependencies and administrators willing to spend some time learning how to use it. **If you expect to be able to install this with no understanding of basic linux system administration you should stop and turn around now.**
@@ -90,9 +94,8 @@ chmod -R 755 storage/* bootstrap/cache/
   # MySQL
   mysql -u root -p
   ```
-
-  ```bash
-  # It's mandatory to use a secure password. Generate one at https://www.avast.com/random-password-generator
+It's mandatory to use a secure password. Generate one at https://www.avast.com/random-password-generator
+  ```sql
   CREATE USER 'reviactyl'@'127.0.0.1' IDENTIFIED BY 'yourPassword';
   CREATE DATABASE panel;
   GRANT ALL PRIVILEGES ON panel.* TO 'reviactyl'@'127.0.0.1' WITH GRANT OPTION;
