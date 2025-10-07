@@ -7,6 +7,6 @@ export async function GET() {
     wings: "1.11.13",
     sftp: "1.0.5",
     discord: "https://reviactyl.dev/discord",
-    donations: "https://github.com/sponsors/bijju089",
+    donations: "https://github.com/sponsors/reviactyl",
   });
 }
