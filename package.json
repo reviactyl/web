@@ -10,6 +10,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@revicons/react": "^1.0.0",
     "fumadocs-core": "15.7.12",
     "fumadocs-mdx": "11.10.0",
     "fumadocs-ui": "15.7.12",
