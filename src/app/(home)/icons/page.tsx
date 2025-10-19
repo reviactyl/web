@@ -81,7 +81,7 @@ export default function Page() {
         <div className="bg-[radial-gradient(125%_125%_at_50%_10%,_#ffffff_40%,_#ffcccc_100%)] dark:bg-[radial-gradient(125%_125%_at_50%_10%,_#000000_40%,_#2b0707_100%)] rounded-xl border py-12 md:px-8">
           <header className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
             <div className="flex items-center gap-4">
-              <h1 className="mb-2 text-3xl font-bold">Revicons</h1>
+              <h1 className="mb-2 text-3xl font-bold">Icon Library</h1>
             </div>
 
             <div className="flex items-center gap-3">
