@@ -11,6 +11,10 @@ export default function Layout({ children }: LayoutProps<'/'>) {
         url: '/docs',
       },
       {
+        text: 'Demo',
+        url: 'https://demo.reviactyl.dev/',
+      },
+      {
         text: 'Blog',
         url: '/blog',
       },
