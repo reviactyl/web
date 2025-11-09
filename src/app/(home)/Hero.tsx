@@ -7,13 +7,13 @@ export default function Hero() {
     <section className="bg-[radial-gradient(125%_125%_at_50%_10%,_#ffffff_40%,_#ffcccc_100%)] dark:bg-[radial-gradient(125%_125%_at_50%_10%,_#000000_40%,_#2b0707_100%)] rounded-xl">
       <div className="max-w-screen-xl px-4 pt-10 lg:pt-16 lg:px-12 z-1">
         <Link href="/docs" className="inline-flex items-center px-4 py-2 rounded-full border border-neutral-200 bg-white px-4 py-1.5 text-sm font-medium text-neutral-700 shadow-sm dark:border-neutral-800 dark:bg-neutral-900/50 dark:text-neutral-300 mb-8">
-          <span className="animate-pulse mr-2 h-2 w-2 bg-orange-600 rounded-full" />
+          <span className="animate-pulse mr-2 h-2 w-2 bg-blue-600 rounded-full" />
           <span>Install Reviactyl Now! It&apos;s Free.</span>
         </Link>
         <div className="block md:hidden">
         <h1 className="text-5xl font-bold tracking-tight text-neutral-900 dark:text-white sm:text-6xl lg:text-7xl">
           Pterodactyl{" "}
-          <span className="bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent dark:from-orange-400 dark:to-red-400">Refined.</span>
+          <span className="bg-gradient-to-r from-neutral-600 to-blue-600 bg-clip-text text-transparent dark:from-neutral-400 dark:to-blue-400">Refined.</span>
         </h1>
         <p className="mt-3 max-w-md  text-neutral-600 dark:text-neutral-400 text-xl md:text-2xl font-medium md:max-w-3xl leading-relaxed">
           Experience Pterodactyl Like Never Before.
@@ -22,7 +22,7 @@ export default function Hero() {
         <div className="hidden md:block">
         <h1 className="text-5xl font-bold tracking-tight text-neutral-900 dark:text-white sm:text-6xl lg:text-7xl">
           Experience Pterodactyl{" "}
-          <span className="bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent dark:from-orange-400 dark:to-red-400">Like Never Before.</span>
+          <span className="bg-gradient-to-r from-neutral-600 to-blue-600 bg-clip-text text-transparent dark:from-neutral-400 dark:to-blue-400">Like Never Before.</span>
         </h1>
         <p className="mt-3 max-w-md  text-neutral-600 dark:text-neutral-400 text-xl md:text-2xl font-medium md:max-w-3xl leading-relaxed">
           The first and only free pterodactyl theme with features that even paid
