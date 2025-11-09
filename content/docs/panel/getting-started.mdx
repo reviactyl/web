@@ -4,188 +4,45 @@ icon: Box
 ---
 
 <Callout type="warning" title="Please Read Before Proceeding">
-  Only use this guide if you don't have a panel already. If you already have Pterodactyl installation, then follow the [migration guide](/docs/panel/migrating-from-pterodactyl).
+  We require **Pterodactyl Panel** to be installed before running Reviactyl Installation.
 </Callout>
 
 This Panel is designed to run on your own web server. You will need to have root access to your server in order to run and use this panel.
 
-You are expected to understand how to read documentation to use this Panel. This panel does not exist as a drag-and-drop service to run your servers. It is a highly complex system requiring multiple dependencies and administrators willing to spend some time learning how to use it. **If you expect to be able to install this with no understanding of basic linux system administration you should stop and turn around now.**
-
-## Supported OSeS
-
-Pterodactyl runs on a wide range of operating systems, so pick whichever you are most familiar with.
-
-<Callout type="error" title="OpenVZ Support">
-  Reviactyl does not support most OpenVZ systems due to incompatibilities with Docker.  
-  If you are planning on running this software on an OpenVZ based system you will — most likely — not be successful.
-</Callout>
-
-| Operating System                     | Status           | Notes                                                                 |
-|-------------------------------------|----------------|----------------------------------------------------------------------|
-| Ubuntu 22.04                         | Fully Supported | Requires additional repositories for PHP                               |
-| Ubuntu 24.04                         | Fully Supported | MariaDB can be installed without the repo setup script.               |
-| Debian 11                            | Fully Supported | Reviactyl is tested primarily on Debian. This is our preferred choice of OS |
-| Debian 12                            | Fully Supported | Reviactyl is tested primarily on Debian. This is our preferred choice of OS |
-| RHEL / Rocky Linux / AlmaLinux       | Fully Supported | Extra repos are required.                                             |
-
-
 ## Dependencies
+Without these the installation will fail.
+- `curl`, `tar`, `unzip`, `git`
+- **Latest Version of Pterodactyl Panel**
 
-- PHP `8.2` or `8.3` (recommended) with the following extensions: `cli`, `openssl`, `gd`, `mysql`, `PDO`, `mbstring`, `tokenizer`, `bcmath`, `xml` or `dom`, `curl`, `zip`, and `fpm` if you are planning to use NGINX.
-- MySQL `5.7.22` and higher (MySQL `8` recommended) **or** MariaDB `10.2` and higher.
-- Redis (`redis-server`)
-- A webserver (Apache, NGINX, Caddy, etc.)
-- `curl`
-- `tar`
-- `unzip`
-- `git`
-- `composer` v2
+## CLI Installation
 
-#### Example Dependency Installation
+Reviactyl v2.1.x and above now require Reviactyl CLI for installation.
+```bash
+bash <(curl -s https://raw.githubusercontent.com/reviactyl/cli/refs/heads/main/install-cli.sh)
+```
+
+## Obtaining Installation Key
+
+Reviactyl CLI v2.x requires Installation key to function.
+You can generate your installation key [from here](https://linkvertise.com/1275679/42EXaOv8rHyU?o=sharing)
+
+### Linking Key with CLI
+
+After obtaining key (Ex; `RCYL00000000000000000`), You can add it to CLI using
+```bash
+reviactyl license
+```
+Afterwards you will be prompted to enter the Key.
+
+## Installing Reviactyl Panel
+
+Run this command inside pterodactyl directory (Example; `/var/www/pterodactyl/`)
+```bash
+reviactyl install
+```
+## Uninstalling Reviactyl Panel
 
 ```bash
-# Add "add-apt-repository" command
-apt -y install software-properties-common curl apt-transport-https ca-certificates gnupg
-
-# Add additional repositories for PHP (Ubuntu 22.04)
-LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php
-
-# Add Redis official APT repository
-curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
-echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list
-
-# Update repositories list
-apt update
-
-# Install Dependencies
-apt -y install php8.3 php8.3-{common,cli,gd,mysql,mbstring,bcmath,xml,fpm,curl,zip} mariadb-server nginx tar unzip git redis-server
+reviactyl uninstall
 ```
-
-## Installing Composer
-
-Composer is a dependency manager for PHP that allows us to ship everything you'll need code wise to operate the Panel. You'll need composer installed before continuing in this process.
-
-```bash
-curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
-```
-
-## Download Files
-
-```bash
-mkdir -p /var/www/reviactyl
-cd /var/www/reviactyl
-```
-
-```bash
-curl -Lo panel.tar.gz https://github.com/reviactyl/panel/releases/latest/download/panel.tar.gz
-tar -xzvf panel.tar.gz
-chmod -R 755 storage/* bootstrap/cache/
-```
-
-## Installation
-
-<Callout type="info" title="Database Configuration">
-  You will need a database setup and a user with the correct permissions created for that database before continuing.  
-
-  ```bash
-  # MariaDB (v11.0.0+)
-  mariadb -u root -p
-
-  # MySQL
-  mysql -u root -p
-  ```
-It's mandatory to use a secure password. Generate one at https://www.avast.com/random-password-generator
-  ```sql
-  CREATE USER 'reviactyl'@'127.0.0.1' IDENTIFIED BY 'yourPassword';
-  CREATE DATABASE panel;
-  GRANT ALL PRIVILEGES ON panel.* TO 'reviactyl'@'127.0.0.1' WITH GRANT OPTION;
-  exit
-  ```
-</Callout>
-
-```bash
-cp .env.example .env
-COMPOSER_ALLOW_SUPERUSER=1 composer install --no-dev --optimize-autoloader
-php artisan key:generate --force
-```
-
-<Callout type="warning" title="Backup Your APP_KEY">
-  Back up your encryption key (`APP_KEY` in the `.env` file).  
-  If you lose it, all encrypted data is irrecoverable, even with database backups.
-
-  ```bash
-  grep APP_KEY /var/www/reviactyl/.env
-  ```
-</Callout>
-
-## Environment Configuration
-
-```bash
-php artisan p:environment:setup
-php artisan p:environment:database
-php artisan p:environment:mail
-```
-
-## Database Setup
-
-```bash
-php artisan migrate --seed --force
-```
-
-## Create your First User
-
-```bash
-php artisan p:user:make
-```
-
-## Set Permissions
-
-```bash
-# If using NGINX, Apache or Caddy (not on RHEL / Rocky Linux / AlmaLinux)
-chown -R www-data:www-data /var/www/reviactyl/*
-
-# If using NGINX on RHEL / Rocky Linux / AlmaLinux
-chown -R nginx:nginx /var/www/reviactyl/*
-
-# If using Apache on RHEL / Rocky Linux / AlmaLinux
-chown -R apache:apache /var/www/reviactyl/*
-```
-
-## Queue Listeners
-
-#### Crontab Configuration
-
-```bash
-* * * * * php /var/www/reviactyl/artisan schedule:run >> /dev/null 2>&1
-```
-
-### Create Queue Worker
-
-```ini
-# /etc/systemd/system/reviq.service
-[Unit]
-Description=Reviactyl Queue Worker
-After=redis-server.service
-
-[Service]
-User=www-data
-Group=www-data
-Restart=always
-ExecStart=/usr/bin/php /var/www/reviactyl/artisan queue:work --queue=high,standard,low --sleep=3 --tries=3
-StartLimitInterval=180
-StartLimitBurst=30
-RestartSec=5s
-
-[Install]
-WantedBy=multi-user.target
-```
-
-<Callout type="info">
-If you are using RHEL, Rocky Linux, or AlmaLinux, replace `redis-server.service` with `redis.service`.  
-If you are not using Redis, remove the `After=` line.
-</Callout>
-
-```bash
-sudo systemctl enable --now redis-server
-sudo systemctl enable --now reviq.service
-```
+This script installs Pterodactyl panel and removes Reviactyl panel.
