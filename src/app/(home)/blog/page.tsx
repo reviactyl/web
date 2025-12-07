@@ -27,11 +27,16 @@ export default function Home() {
           <Link
             key={post.url}
             href={post.url}
-            className="block bg-fd-secondary rounded-lg shadow-md overflow-hidden p-6"
+            className="block bg-fd-secondary rounded-lg shadow-md overflow-hidden"
           >
+            <div>
+              <img className="rounded-t-base" src={post.data.image} alt={post.data.title} />
+            </div>
+            <div className="p-6">
             <h2 className="text-xl font-semibold mb-2">{post.data.title}</h2>
             <p className="text-sm text-fd-muted-foreground mb-2">{post.data.description}</p>
             <p className="text-sm text-fd-muted-foreground">{post.data.author} &bull; {new Date(post.data.date).toDateString()}</p>
+            </div>
           </Link>
         ))}
       </div>
