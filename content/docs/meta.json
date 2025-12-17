@@ -5,6 +5,8 @@
     "index",
     "---Panel---",
     "panel/getting-started",
+    "panel/automatic-installation",
+    "panel/manual-installation",
     "---Tutorial---",
     "tutorial/reviactyl-in-docker",
     "tutorial/troubleshooting"

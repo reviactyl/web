@@ -1,0 +1,41 @@
+---
+title: Automatic Installation
+icon: Box
+---
+
+<Callout type="warning" title="Please Read Before Proceeding">
+  We require **Pterodactyl Panel** to be installed before running Reviactyl Installation.
+</Callout>
+
+## CLI Installation
+
+Reviactyl v2.1.x and above now require Reviactyl CLI for installation.
+```bash
+bash <(curl -s https://raw.githubusercontent.com/reviactyl/cli/refs/heads/main/install-cli.sh)
+```
+
+## Obtaining Installation Key
+
+Reviactyl CLI v2.x requires Installation key to function.
+You can generate your installation key [from here](https://linkvertise.com/1275679/42EXaOv8rHyU?o=sharing)
+
+### Linking Key with CLI
+
+After obtaining key (Ex; `RCYL00000000000000000`), You can add it to CLI using
+```bash
+reviactyl license
+```
+Afterwards you will be prompted to enter the Key.
+
+## Installing Reviactyl Panel
+
+Run this command inside pterodactyl directory (Example; `/var/www/pterodactyl/`)
+```bash
+reviactyl install
+```
+## Uninstalling Reviactyl Panel
+
+```bash
+reviactyl uninstall
+```
+This script installs Pterodactyl panel and removes Reviactyl panel.
