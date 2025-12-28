@@ -1,0 +1,23 @@
+{
+  "title": "Reviactyl",
+  "description": "Reviactyl Panel Documentation",
+  "icon": "reviactyl",
+  "root": true,
+  "defaultOpen": true,
+  "pages": [
+    "---Project---",
+    "index",
+    "---Getting Started---",
+    "getting-started/fresh-installation",
+    "getting-started/webserver-configuration",
+    "getting-started/additional-configuration",
+    "getting-started/updating-the-panel",
+    "getting-started/migrating-from-pterodactyl",
+    "---Tutorial---",
+    "tutorial/installing-docker",
+    "tutorial/reviactyl-in-docker",
+    "tutorial/creating-ssl-certificates",
+    "tutorial/mysql-setup",
+    "tutorial/troubleshooting"
+  ]
+}

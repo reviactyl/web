@@ -1,0 +1,10 @@
+{
+  "title": "Blueprint",
+  "description": "Blueprint port for Reviactyl",
+  "icon": "bpfw",
+  "pages": [
+    "---Guides---",
+    "index"
+  ],
+  "root": true
+}
