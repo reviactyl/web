@@ -6,9 +6,9 @@ export default function Hero() {
   return (
     <section className="bg-[radial-gradient(125%_125%_at_50%_10%,_#ffffff_40%,_#ffcccc_100%)] dark:bg-[radial-gradient(125%_125%_at_50%_10%,_#000000_40%,_#2b0707_100%)] rounded-xl">
       <div className="max-w-screen-xl px-4 pt-10 lg:pt-16 lg:px-12 z-1">
-        <Link href="/docs" className="inline-flex items-center px-4 py-2 rounded-full border border-neutral-200 bg-white px-4 py-1.5 text-sm font-medium text-neutral-700 shadow-sm dark:border-neutral-800 dark:bg-neutral-900/50 dark:text-neutral-300 mb-8">
+        <Link href="/docs/blueprint" className="inline-flex items-center px-4 py-2 rounded-full border border-neutral-200 bg-white px-4 py-1.5 text-sm font-medium text-neutral-700 shadow-sm dark:border-neutral-800 dark:bg-neutral-900/50 dark:text-neutral-300 mb-8">
           <span className="animate-pulse mr-2 h-2 w-2 bg-blue-600 rounded-full" />
-          <span>Install Reviactyl Now! It&apos;s Free.</span>
+          <span>Reviactyl now supports blueprint-addons!</span>
         </Link>
         <div className="block md:hidden">
         <h1 className="text-5xl font-bold tracking-tight text-neutral-900 dark:text-white sm:text-6xl lg:text-7xl">

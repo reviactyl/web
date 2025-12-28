@@ -1,7 +1,7 @@
 {
   "title": "Blueprint",
   "description": "Blueprint port for Reviactyl",
-  "icon": "bpfw",
+  "icon": "blueprint",
   "pages": [
     "---Guides---",
     "index"

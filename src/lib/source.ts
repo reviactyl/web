@@ -3,7 +3,7 @@ import { loader } from 'fumadocs-core/source';
 import { icons } from 'lucide-react';
 import { createElement } from 'react';
 import { createMDXSource } from 'fumadocs-mdx';
-
+import { Blueprint, Reviactyl } from '@/components/Logo';
 // See https://fumadocs.vercel.app/docs/headless/source-api for more info
 export const source = loader({
   // it assigns a URL to your pages
@@ -13,6 +13,12 @@ export const source = loader({
   icon(icon) {
     if (!icon) {
       return;
+    }
+    switch (icon) {
+      case 'reviactyl':
+        return Reviactyl();
+      case 'blueprint':
+        return Blueprint()
     }
     if (icon in icons) return createElement(icons[icon as keyof typeof icons]);
   },
