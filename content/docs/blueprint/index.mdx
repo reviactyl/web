@@ -3,7 +3,12 @@ title: Installing Blueprint
 icon: Book
 ---
 
-# Define Panel directory
+<Callout type="error" title="Compatible Versions">
+  We've maintained our own blueprint fork to make it compatible with Reviactyl.
+  Requires **Reviactyl v2.1.2 and Above**.
+</Callout>
+
+## Define Panel directory
 Define your panel directory, we'll use this later in the guide. If your Reviactyl webserver is not located in this directory, change the path.
 
 ```bash
@@ -12,7 +17,7 @@ Define your panel directory, we'll use this later in the guide. If your Reviacty
 export PTERODACTYL_DIRECTORY=/var/www/pterodactyl
 ```
 
-# Download and install Blueprint
+## Download and install Blueprint
 Download the latest version of Blueprint onto your server by either downloading the latest release from GitHub or running the commands below (which will save the file as release.zip and extract it).
 
 ```bash
@@ -27,7 +32,7 @@ wget "$(curl -s https://api.github.com/repos/reviactyl/blueprint/releases/latest
 unzip -o release.zip
 ```
 
-# Dependencies
+## Dependencies
 Blueprint, just like Pterodactyl, relies on a few dependencies to function. Install them through the commands below.
 
 ```bash
@@ -47,7 +52,7 @@ npm i -g yarn
 yarn install
 ```
 
-# Configure Blueprint
+## Configure Blueprint
 This step allows Blueprint to function and know where itself and Pterodactyl are located and which permissions to use. Create a file called .blueprintrc inside of your Pterodactyl directory to begin.
 
 ```bash
@@ -63,7 +68,7 @@ OWNERSHIP="www-data:www-data";
 USERSHELL="/bin/bash";' > $PTERODACTYL_DIRECTORY/.blueprintrc
 ```
 
-# Run Blueprint
+## Run Blueprint
 All that's left is giving blueprint.sh execute permissions and running it. Blueprint will then do the necessary commands to operate correctly automatically.
 
 ```bash
@@ -75,6 +80,6 @@ bash $PTERODACTYL_DIRECTORY/blueprint.sh
 ```
 Optionally you can enable Bash autocompletion by adding `source blueprint;` into your .bashrc (or .zshrc when using ZSH).
 
-# That's it!
+## That's it!
 You've completed the Blueprint installation guide! [Browse our extensions](https://blueprint.zip/) list or check out another guide.
 
