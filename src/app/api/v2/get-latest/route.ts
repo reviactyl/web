@@ -1,6 +1,13 @@
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
+interface GitHubRelease {
+  tag_name: string;
+  prerelease: boolean;
+  draft: boolean;
+  published_at: string;
+}
+
 export async function GET() {
   try {
     const res = await fetch(
@@ -15,15 +22,15 @@ export async function GET() {
 
     if (!res.ok) {
       return Response.json(
-        { error: "GitHub API error" },
+        { version: "Unavailable" },
         { status: res.status }
       );
     }
 
-    const releases = await res.json();
+    const releases: GitHubRelease[] = await res.json();
 
     const latestStable = releases.find(
-      (r: any) => !r.prerelease && !r.draft
+      (r) => !r.prerelease && !r.draft
     );
 
     if (!latestStable) {
@@ -44,7 +51,7 @@ export async function GET() {
     });
   } catch {
     return Response.json(
-      { version: "Unavailable" },
+      { version: "v0 (Unknown)" },
       { status: 500 }
     );
   }
