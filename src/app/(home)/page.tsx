@@ -7,8 +7,8 @@ import Footer from './Footer';
 
 export const metadata: Metadata = {
 	openGraph: {
-		title: "Reviactyl - Free Theme For Pterodactyl",
-		description: "Reviactyl is an open, fast, and free pterodactyl theme. It's the first and only open source Pterodactyl Theme to have features that even paid themes don't.",
+		title: "Reviactyl - Modern, Open & Powerful Panel",
+		description: "Reviactyl is an open, fast, and powerful pterodactyl fork. We designed our panel in such a way that it's easy for users to navigate. Reviactyl is built to be compatible with pterodactyl-native and blueprint addons.",
 		images: [{ url: "/banner.png" }],
 	},
 };

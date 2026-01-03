@@ -17,7 +17,7 @@ const firaCode = Fira_Code({
 
 export const metadata: Metadata = {
   title: "Reviactyl",
-  description: "Manage your servers like never before.",
+  description: "Fast, Open & Powerful pterodactyl fork. Now compatible with pterodactyl-native & blueprint addons.",
 };
 
 export default function Layout({ children }: LayoutProps<'/'>) {
