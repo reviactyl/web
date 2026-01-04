@@ -18,6 +18,12 @@
     "tutorial/reviactyl-in-docker",
     "tutorial/creating-ssl-certificates",
     "tutorial/mysql-setup",
-    "tutorial/troubleshooting"
+    "tutorial/troubleshooting",
+    "---Legal---",
+    "legal/terms",
+    "legal/privacy",
+    "legal/refunds",
+    "legal/support",
+    "legal/project-license"
   ]
 }
