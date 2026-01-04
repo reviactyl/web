@@ -1,7 +1,9 @@
+import PanelStars from "@/components/PanelStars";
 import PanelVersion from "@/components/PanelVersion";
 import Link from "next/link";
 import React from "react";
 import { FaArrowRight, FaBookMedical, FaGithub } from "react-icons/fa";
+import { FaStar } from "react-icons/fa6";
 
 export default function Hero() {
   return (
@@ -36,7 +38,7 @@ export default function Hero() {
         </p>
 
         <p className="hidden md:inline mt-2 max-w-3xl leading-relaxed text-neutral-600 dark:text-neutral-400 text-md">
-          The latest version is <span className="font-semibold text-white">Panel <PanelVersion /></span>
+          The latest version is <span className="font-semibold text-black dark:text-white">Panel <PanelVersion /></span>
         </p>
 
         <div className="mt-8 mb-8 flex flex-col sm:flex-row gap-4">
@@ -48,6 +50,7 @@ export default function Hero() {
               <FaBookMedical /> Documentation
             </span>
           </Link>
+          <div className="flex flex-col items-center gap-1">
           <Link
             href="https://github.com/reviactyl/panel"
             className="inline-flex items-center justify-center text-sm font-medium ring-offset-fd-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fd-ring disabled:pointer-events-none disabled:opacity-50 border hover:bg-fd-accent h-11 px-6 rounded-full bg-fd-background"
@@ -56,6 +59,10 @@ export default function Hero() {
               <FaGithub /> Star on Github <FaArrowRight className="text-gray-500" />
             </span>
           </Link>
+          <div className="inline-flex text-sm items-center gap-1 text-black/50 dark:text-white/50">
+          <FaStar className="text-yellow-500" /> <span className="text-black dark:text-white font-bold"><PanelStars /></span> stars on github.
+          </div>
+          </div>
         </div>
         <div className="relative inline-block group">
           <img

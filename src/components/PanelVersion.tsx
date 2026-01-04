@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 export default function PanelVersion() {
-  const [version, setVersion] = useState("Loading...");
+  const [version, setVersion] = useState("v0");
 
   useEffect(() => {
     fetch("/api/v2/get-latest")
