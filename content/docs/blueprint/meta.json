@@ -4,7 +4,8 @@
   "icon": "blueprint",
   "pages": [
     "---Guides---",
-    "index"
+    "index",
+    "installing-blueprint"
   ],
   "root": true
 }
