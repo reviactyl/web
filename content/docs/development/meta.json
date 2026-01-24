@@ -1,0 +1,12 @@
+{
+  "title": "Development",
+  "description": "Guide for Developers",
+  "icon": "dev",
+  "pages": [
+    "---Introduction---",
+    "index",
+    "---Panel---",
+    "components"
+  ],
+  "root": true
+}

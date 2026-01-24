@@ -23,3 +23,15 @@ export function Blueprint() {
     />
   );
 }
+
+export function Development() {
+  return (
+    <Image
+      src="/dev.png"
+      alt="Development"
+      width={64}
+      height={64}
+      priority
+    />
+  );
+}
