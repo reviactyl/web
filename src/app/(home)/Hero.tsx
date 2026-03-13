@@ -35,7 +35,7 @@ export default function Hero() {
           <span className="hidden md:inline relative group cursor-help">
             Feature-packed, compatible with pterodactyl-native* and blueprint* addons, and more powerful than other forks. What else you need?
              <span className="pointer-events-none absolute bottom-full left-1/2 mb-2 hidden -translate-x-1/2 rounded-xl bg-white/80 dark:bg-black/80 border border-white dark:border-black px-2 py-1 text-xs text-white group-hover:block">
-             Reviactyl supports most of the addons out of the box. But some addons may conflict and not render properly, before you go on and blame on addon developers please take a help from us. Blueprint or Pterodactyl won't provide support for issue with ReBlueprint or Reviactyl. You have to ask for help at your discord server directly.
+             Reviactyl supports most of the addons out of the box. But some addons may conflict and not render properly, before you go on and blame on addon developers please take a help from us. Blueprint or Pterodactyl won&apos;t provide support for issue with ReBlueprint or Reviactyl. You have to ask for help at your discord server directly.
              </span>
           </span>
         </p>
