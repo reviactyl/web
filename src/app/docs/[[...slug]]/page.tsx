@@ -9,9 +9,20 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { createRelativeLink } from 'fumadocs-ui/mdx';
 import { getMDXComponents } from '@/mdx-components';
+import Portal from '@/components/Portal';
 
-export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
-  const params = await props.params;
+type Props = {
+  params: {
+    slug?: string[];
+  };
+};
+
+export default async function Page({ params }: Props) {
+  // render potalr
+  if (!params.slug || params.slug.length === 0) {
+    return <Portal />;
+  }
+
   const page = source.getPage(params.slug);
   if (!page) notFound();
 
@@ -21,10 +32,10 @@ export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
     <DocsPage toc={page.data.toc} full={page.data.full}>
       <DocsTitle>{page.data.title}</DocsTitle>
       <DocsDescription>{page.data.description}</DocsDescription>
+
       <DocsBody>
         <MDXContent
           components={getMDXComponents({
-            // this allows you to link to other pages with relative file paths
             a: createRelativeLink(source, page),
           })}
         />
@@ -38,9 +49,15 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata(
-  props: PageProps<'/docs/[[...slug]]'>,
+  { params }: Props
 ): Promise<Metadata> {
-  const params = await props.params;
+  if (!params.slug || params.slug.length === 0) {
+    return {
+      title: 'Documentation | Reviactyl',
+      description: 'Reviactyl documentation portal',
+    };
+  }
+
   const page = source.getPage(params.slug);
   if (!page) notFound();
 
