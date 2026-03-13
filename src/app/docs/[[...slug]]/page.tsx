@@ -12,18 +12,20 @@ import { getMDXComponents } from '@/mdx-components';
 import Portal from '@/components/Portal';
 
 type Props = {
-  params: {
+  params: Promise<{
     slug?: string[];
-  };
+  }>;
 };
 
 export default async function Page({ params }: Props) {
-  // render potalr
-  if (!params.slug || params.slug.length === 0) {
+  const resolvedParams = await params;
+
+  // render portal
+  if (!resolvedParams.slug || resolvedParams.slug.length === 0) {
     return <Portal />;
   }
 
-  const page = source.getPage(params.slug);
+  const page = source.getPage(resolvedParams.slug);
   if (!page) notFound();
 
   const MDXContent = page.data.body;
@@ -48,17 +50,17 @@ export async function generateStaticParams() {
   return source.generateParams();
 }
 
-export async function generateMetadata(
-  { params }: Props
-): Promise<Metadata> {
-  if (!params.slug || params.slug.length === 0) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const resolvedParams = await params;
+
+  if (!resolvedParams.slug || resolvedParams.slug.length === 0) {
     return {
       title: 'Documentation | Reviactyl',
       description: 'Reviactyl documentation portal',
     };
   }
 
-  const page = source.getPage(params.slug);
+  const page = source.getPage(resolvedParams.slug);
   if (!page) notFound();
 
   return {
