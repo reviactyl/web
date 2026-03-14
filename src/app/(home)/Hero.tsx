@@ -1,8 +1,10 @@
 "use client"
+import PanelInstalls from "@/components/PanelInstalls";
 import PanelVersion from "@/components/PanelVersion";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
+import { FaArrowTurnUp } from "react-icons/fa6";
 
 export default function Hero() {
   const [version, setVersion] = useState("v0");
@@ -44,7 +46,7 @@ export default function Hero() {
           </span>
         </p>
 
-        <div className="mt-8 mb-8 flex flex-col sm:flex-row gap-4">
+        <div className="flex flex-col items-center gap-1 mt-8 mb-8">
           <Link
             href="/docs"
             className="group relative inline-flex h-[calc(48px+8px)] cursor-pointer items-center justify-center rounded-full bg-fd-secondary/70 py-1 pl-6 text-lg shadow-lg pr-14"
@@ -58,6 +60,10 @@ export default function Hero() {
               </div>
             </div>
           </Link>
+          <div className="inline-flex text-sm items-center gap-1 text-black/50 dark:text-white/50">
+            <span className="text-black dark:text-white font-bold"><PanelInstalls /></span> total installations
+            <FaArrowTurnUp />
+          </div>
         </div>
       </div>
     </section>
