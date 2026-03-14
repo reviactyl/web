@@ -6,7 +6,7 @@ export default function PanelVersion() {
   const [version, setVersion] = useState("v0");
 
   useEffect(() => {
-    fetch("/api/v2/get-latest")
+    fetch("/api/v26/get-latest")
       .then(res => res.json())
       .then(data => setVersion(data.version))
       .catch(() => setVersion("v0"));

@@ -48,6 +48,7 @@ export async function GET() {
 
     return Response.json({
       version: `${latestStable.tag_name} (${date})`,
+      version_number: latestStable.tag_name,
     });
   } catch {
     return Response.json(
