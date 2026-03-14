@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import Link from 'next/link';
+import Image from 'next/image';
 import { InlineTOC } from 'fumadocs-ui/components/inline-toc';
 import defaultMdxComponents from 'fumadocs-ui/mdx';
 import { blog } from '@/lib/source';
@@ -23,7 +23,7 @@ export default async function Page(props: {
           <div className="py-12 px-4 bg-gradient-to-b from-fd-background/80 to-fd-background border-t border-b rounded-xl border-black/20 dark:border-zinc-800">
         <h1 className="mb-2 text-6xl font-semibold">{page.data.title}</h1>
           </div>
-          <img className="border-t border-b rounded-xl border-black/20 dark:border-zinc-800" src={page.data.image} alt={page.data.title} />
+          <Image className="border-t border-b rounded-xl border-black/20 dark:border-zinc-800" src={page.data.image} alt={page.data.title} width={800} height={400} />
           <div className="p-4 !pt-0 bg-gradient-to-b from-fd-background/80 to-fd-background border-t border-b rounded-xl border-black/20 dark:border-zinc-800">
           <Mdx components={defaultMdxComponents} />
           </div>

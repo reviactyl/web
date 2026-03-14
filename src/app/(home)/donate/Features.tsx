@@ -1,6 +1,6 @@
 import React from "react";
 import { FaHeadphonesAlt, FaStar } from "react-icons/fa";
-import { FaBoltLightning, FaBook, FaBoxesPacking, FaBoxesStacked, FaCodeFork, FaLock, FaPaintRoller } from "react-icons/fa6";
+import { FaBoltLightning } from "react-icons/fa6";
 
 const features = [
   {

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import PanelStars from "@/components/PanelStars";
 import PanelVersion from "@/components/PanelVersion";
 import Link from "next/link";
@@ -68,10 +69,12 @@ export default function Hero() {
           </div>
         </div>
         <div className="relative inline-block group">
-          <img
+          <Image
             className="mx-auto rounded-lg shadow-xl border-gray-800 z-1"
             src="/dashboard.png"
             alt="preview"
+            width={800}
+            height={600}
           />
         </div>
       </div>

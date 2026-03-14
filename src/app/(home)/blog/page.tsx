@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { blog } from '@/lib/source';
 import Footer from '../Footer';
@@ -30,7 +31,7 @@ export default function Home() {
             className="block bg-fd-secondary rounded-lg shadow-md overflow-hidden"
           >
             <div>
-              <img className="rounded-t-base" src={post.data.image} alt={post.data.title} />
+              <Image className="rounded-t-base" src={post.data.image} alt={post.data.title} width={300} height={200} />
             </div>
             <div className="p-6">
             <h2 className="text-xl font-semibold mb-2">{post.data.title}</h2>
