@@ -13,8 +13,22 @@ export function baseOptions(): BaseLayoutProps {
     nav: {
       title: (
         <>
-          <Image width="24" height="24" src="/icon.png" alt="Reviactyl Icon" />
-          Reviactyl
+        <Image
+          src="/logo.png"
+          alt="Reviactyl Logo"
+          width={276}
+          height={64}
+          priority
+          className="h-10 hidden dark:block w-auto"
+        />
+        <Image
+          src="/logo-darker.png"
+          alt="Reviactyl Logo"
+          width={276}
+          height={64}
+          priority
+          className="h-10 block dark:hidden w-auto"
+        />
         </>
       ),
     },
