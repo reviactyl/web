@@ -1,27 +1,27 @@
 import React from "react";
-import { FaBook, FaBoxesPacking, FaBoxesStacked, FaCodeFork, FaLock, FaPaintRoller } from "react-icons/fa6";
+import { FaBatteryFull, FaCodeFork, FaLaravel, FaLock, FaPuzzlePiece, FaReact } from "react-icons/fa6";
 
 const features = [
   {
-    icon: <FaBoxesStacked />,
-    title: "Addon Compatibility",
+    icon: <FaPuzzlePiece />,
+    title: "Extensions API",
     description:
-      "Reviactyl is compatible with almost every addon that was made for Pterodactyl panel.",
+      "Reviactyl provides a robust Extensions API that allows developers to create and integrate custom functionality seamlessly.",
   },
   {
     icon: <FaLock />,
     title: "Security First",
-    description: "Reviactyl is most secure panel as we actively work on patching vulerabilities. ",
+    description: "Security is a first-class citizen on this platform with bcrypt hashing, AES-256-CBC encryption, and HTTPS support out of the box.",
   },
   {
-    icon: <FaPaintRoller />,
+    icon: <FaReact />,
     title: "Modern Design",
-    description: "Reviactyl offers better and more accessible UI design that doesn't feel outdated.",
+    description: "Save the furious clicking and screaming for Overwatch. Reviactyl's interface is designed so well that even Sukuna would be impressed.",
   },
   {
-    icon: <FaBook />,
-    title: "User-Friendly Guides",
-    description: "We have spent hours refining our user and administration guides. From installation to even about modifying source files.",
+    icon: <FaLaravel />,
+    title: "Modern Tooling",
+    description: "Built on a modern stack utilizing the best design practices that make it easy to jump in and make modifications.",
   },
   {
     icon: <FaCodeFork />,
@@ -29,9 +29,9 @@ const features = [
     description: "Reviactyl is open-source, allowing community contributions and customization to improve server managing experience.",
   },
   {
-    icon: <FaBoxesPacking />,
-    title: "Feature-Packed",
-    description: "Reviactyl offers top-notch features such as Client-Side Theme Selector, Designify Theme Editor, Custom Branding, and much more.",
+    icon: <FaBatteryFull />,
+    title: "Batteries Included",
+    description: "Reviactyl offers top-notch features such as Client-Side Theme Selector, Designify Editor, Server Metrics, and much more.",
   },
 ];
 
@@ -40,9 +40,7 @@ export default function Features() {
     <section className="bg-gradient-to-b from-fd-background/80 to-fd-background border-t border-b rounded-xl border-black/20 dark:border-zinc-800 mt-2 mb-2">
       <div className="flex w-full items-center justify-center border-x px-2 py-12 md:px-0 md:py-16 lg:py-20">
         <h2 className="text-pretty text-center text-2xl font-bold dark:opacity-90 dark:drop-shadow-lg sm:text-4xl md:text-5xl lg:text-6xl">
-          Why users
-          <br />
-          Prefer Reviactyl?
+          Why Reviactyl?
         </h2>
       </div>
 
