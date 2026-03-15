@@ -84,6 +84,15 @@ export default function Hero() {
             <FaArrowTurnUp />
           </div>
         </div>
+        <div className="relative inline-block group">
+          <Image
+            className="mx-auto rounded-lg shadow-xl border-gray-800 z-1"
+            src="/dashboard.png"
+            alt="preview"
+            width={800}
+            height={600}
+          />
+        </div>
       </div>
     </section>
   );
