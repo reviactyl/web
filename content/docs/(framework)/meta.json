@@ -7,6 +7,8 @@
   "pages": [
     "---Project---",
     "index",
+    "terminology",
+    "community",
     "---Panel---",
     "panel/fresh-installation",
     "panel/webserver-configuration",
