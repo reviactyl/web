@@ -9,7 +9,6 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { createRelativeLink } from 'fumadocs-ui/mdx';
 import { getMDXComponents } from '@/mdx-components';
-import Portal from '@/components/Portal';
 
 type Props = {
   params: Promise<{
@@ -19,11 +18,6 @@ type Props = {
 
 export default async function Page({ params }: Props) {
   const resolvedParams = await params;
-
-  // render portal
-  if (!resolvedParams.slug || resolvedParams.slug.length === 0) {
-    return <Portal />;
-  }
 
   const page = source.getPage(resolvedParams.slug);
   if (!page) notFound();
@@ -52,13 +46,6 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const resolvedParams = await params;
-
-  if (!resolvedParams.slug || resolvedParams.slug.length === 0) {
-    return {
-      title: 'Documentation | Reviactyl',
-      description: 'Reviactyl documentation portal',
-    };
-  }
 
   const page = source.getPage(resolvedParams.slug);
   if (!page) notFound();
