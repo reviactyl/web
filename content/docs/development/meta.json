@@ -6,7 +6,9 @@
     "---Introduction---",
     "index",
     "---Panel---",
-    "components"
+    "components",
+    "---Extensions---",
+    "extensions/index"
   ],
   "root": true
 }

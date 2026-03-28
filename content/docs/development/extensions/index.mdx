@@ -1,0 +1,128 @@
+---
+title: Getting Started
+icon: Book
+description: This page is for someone who has never built a panel extension before.
+---
+
+# What is an extension here?
+
+In this project, an extension is a package that can add:
+
+- Frontend Routes
+- Frontend Content
+- Backend Routes
+- Artisan Commands
+- Scheduler Jobs
+- Boot-time PHP Hooks
+
+Each extension is identified by a unique **ID** and described by `extension.json`.
+
+# Creating an Extension
+
+Run `php artisan d:extensions:init` inside your panel directory (`/var/www/reviactyl` by default) to create the basic files for your new extension. This will create the `extension.json`.
+
+Alternatively, you can extend Reviactyl's Example Extension at [reviactyl-community/example-extension](https://github.com/reviactyl-community/example-extension).
+
+# Basic Extension Structure
+
+A practical extension root looks like this:
+
+```bash
+my-extension/
+├── extension.json
+├── backend/
+│   ├── routes/
+│   │   ├── client.php
+│   │   ├── admin.php
+│   │   ├── api.php
+│   │   └── web.php
+│   └── hooks/
+│       └── boot.php
+├── frontend/
+│   ├── src/
+│   │   ├── index.tsx
+│   │   └── pages/
+│   │       └── DashboardPage.tsx
+│   └── dist/
+│       └── (compiled)
+├── public/
+│   └── images/
+├── private/
+├── data/
+└── cache/
+```
+
+### extension.json
+
+| Field           | Required | Description |
+|----------------|----------|------------|
+| `id`             | Yes      | Identifier for the extension. Must follow slug format (letters, numbers, `_`, `-`). |
+| `name`           | Yes      | Human-readable name of the extension. |
+| `version`        | Yes      | Current version of the extension (eg, `0.1.0`). |
+| `description`    | No       | Short description of what the extension does. |
+| `author`         | No       | Name of the extension author. |
+| `website`        | No       | URL to the extension’s website or documentation. |
+| `update_url`     | No       | URL used to check for updates (can be `null`). |
+| `api_version`    | Yes      | API version the extension is built for. Must be a supported value. |
+| `target_version` | No       | Target panel version the extension is compatible with. |
+
+# Build Frontend files
+
+If you keep source in `frontend/src`, compile to `frontend/dist`:
+
+```bash
+php artisan d:extensions:watch my-extension --once
+```
+
+Or watch continuously while developing:
+
+```bash
+php artisan d:extensions:watch my-extension
+```
+
+# Compiling Extensions
+
+Package your extension:
+
+```bash
+php artisan d:extensions:compile
+```
+
+## Local Development (symlink flow)
+
+For local development without repeated packaging:
+
+```bash
+php artisan d:extensions:dev my-extension --enable
+```
+
+This command links:
+
+- `extensions/<id>` -> your source directory
+- `public/extensions/<id>/frontend` -> your source `frontend` directory (if present)
+
+Use unlink when done:
+
+```bash
+php artisan d:extensions:dev my-extension --unlink
+```
+
+# Verify extension state
+
+Useful commands:
+
+```bash
+php artisan extensions:list
+php artisan extensions:info my-extension
+php artisan extensions:disable my-extension
+php artisan extensions:enable my-extension
+```
+
+# Newbie checklist before blaming the system
+
+- `extension.json` exists at package root.
+- `api_version` includes `RCYL_v26`.
+- frontend modules referenced in manifest actually exist.
+- module paths in manifest point to JS files (`frontend/dist/*.js`) for runtime loading.
+- extension is enabled.
+- no path traversal (`../`) in package content.
