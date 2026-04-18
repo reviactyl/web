@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 export async function GET() {
   return NextResponse.json({
     status: "OK",
-    panel: "2.2.3",
+    panel: "2.2.5",
     wings: "1.12.1",
     sftp: "1.0.5",
     cli: "2.1.1",
