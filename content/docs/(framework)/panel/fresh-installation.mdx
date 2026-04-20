@@ -29,7 +29,7 @@ This guide primarily focuses on **Ubuntu 24.04 LTS**. Extra Dependencies may or 
 
 ## Dependencies
 
-- PHP `8.2`, `8.3`, `8.4` or `8.5` (recommended) with the following extensions: `cli`, `openssl`, `gd`, `mysql`, `PDO`, `mbstring`, `tokenizer`, `bcmath`, `xml` or `dom`, `curl`, `zip`, `intl`, and `fpm` if you are planning to use NGINX.
+- PHP `8.2`, `8.3`, `8.4` or `8.5` (recommended) with the following extensions: `cli`, `openssl`, `gd`, `mysql`, `PDO`, `mbstring`, `tokenizer`, `bcmath`, `xml` or `dom`, `curl`, `zip`, `pgsql`, `sqlite3`, `redis`, `intl`, and `fpm` if you are planning to use NGINX.
 - MySQL `9` **or** MariaDB `11` **or** PostgreSQL `18`
 - Redis (`redis-server`)
 - A webserver (Apache, NGINX, Caddy, etc.)
@@ -56,7 +56,13 @@ echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://pack
 apt update
 
 # Install Dependencies
-apt -y install php8.5 php8.5-{common,cli,gd,mysql,mbstring,bcmath,xml,fpm,curl,zip,intl,redis,pgsql} mariadb-server nginx tar unzip git redis-server postgresql postgresql-contrib
+apt -y install php8.5 php8.5-{common,cli,gd,mbstring,bcmath,xml,fpm,curl,zip,intl,redis,sqlite3} nginx tar unzip git redis-server
+
+# Install MySQL/MariaDB Dependencies (Optional)
+apt install -y php8.5-mysql mariadb-server
+
+# Install PostgreSQL Dependencies (Optional)
+apt install -y php8.5-pgsql postgresql postgresql-contrib
 ```
 
 ## Installing Composer
