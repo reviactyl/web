@@ -13,12 +13,9 @@ You are expected to understand how to read documentation to use this Panel. This
 
 ## Supported OSeS
 
-Pterodactyl runs on a wide range of operating systems, so pick whichever you are most familiar with.
+Reviactyl runs on a wide range of operating systems, so pick whichever you are most familiar with.
 
-<Callout type="error" title="OpenVZ Support">
-  Reviactyl does not support most OpenVZ systems due to incompatibilities with Docker.  
-  If you are planning on running this software on an OpenVZ based system you will — most likely — not be successful.
-</Callout>
+This guide primarily focuses on **Ubuntu 24.04 LTS**. Extra Dependencies may or may not needed if you're using different supported OSeS.
 
 | Operating System                     | Status           | Notes                                                                 |
 |-------------------------------------|----------------|----------------------------------------------------------------------|
@@ -26,13 +23,14 @@ Pterodactyl runs on a wide range of operating systems, so pick whichever you are
 | Ubuntu 24.04                         | Fully Supported | MariaDB can be installed without the repo setup script.               |
 | Debian 11                            | Fully Supported | Reviactyl is tested primarily on Debian. This is our preferred choice of OS |
 | Debian 12                            | Fully Supported | Reviactyl is tested primarily on Debian. This is our preferred choice of OS |
+| Debian 12                            | Fully Supported | Reviactyl is tested primarily on Debian. This is our preferred choice of OS |
 | RHEL / Rocky Linux / AlmaLinux       | Fully Supported | Extra repos are required.                                             |
 
 
 ## Dependencies
 
-- PHP `8.2` or `8.3` (recommended) with the following extensions: `cli`, `openssl`, `gd`, `mysql`, `PDO`, `mbstring`, `tokenizer`, `bcmath`, `xml` or `dom`, `curl`, `zip`, `intl`, and `fpm` if you are planning to use NGINX.
-- MySQL `5.7.22` and higher (MySQL `8` recommended) **or** MariaDB `10.2` and higher.
+- PHP `8.2`, `8.3`, `8.4` or `8.5` (recommended) with the following extensions: `cli`, `openssl`, `gd`, `mysql`, `PDO`, `mbstring`, `tokenizer`, `bcmath`, `xml` or `dom`, `curl`, `zip`, `intl`, and `fpm` if you are planning to use NGINX.
+- MySQL `9` **or** MariaDB `11` **or** PostgreSQL `18`
 - Redis (`redis-server`)
 - A webserver (Apache, NGINX, Caddy, etc.)
 - `curl`
@@ -58,7 +56,7 @@ echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://pack
 apt update
 
 # Install Dependencies
-apt -y install php8.3 php8.3-{common,cli,gd,mysql,mbstring,bcmath,xml,fpm,curl,zip,intl} mariadb-server nginx tar unzip git redis-server
+apt -y install php8.5 php8.5-{common,cli,gd,mysql,mbstring,bcmath,xml,fpm,curl,zip,intl,redis,pgsql} mariadb-server nginx tar unzip git redis-server postgresql postgresql-contrib
 ```
 
 ## Installing Composer
