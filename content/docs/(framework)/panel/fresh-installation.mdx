@@ -82,25 +82,6 @@ chmod -R 755 storage/* bootstrap/cache/
 
 ## Installation
 
-<Callout type="info" title="Database Configuration">
-  You will need a database setup and a user with the correct permissions created for that database before continuing.  
-
-  ```bash
-  # MariaDB (v11.0.0+)
-  mariadb -u root -p
-
-  # MySQL
-  mysql -u root -p
-  ```
-It's mandatory to use a secure password. Generate one at https://www.avast.com/random-password-generator
-  ```sql
-  CREATE USER 'reviactyl'@'127.0.0.1' IDENTIFIED BY 'yourPassword';
-  CREATE DATABASE panel;
-  GRANT ALL PRIVILEGES ON panel.* TO 'reviactyl'@'127.0.0.1' WITH GRANT OPTION;
-  exit
-  ```
-</Callout>
-
 ```bash
 cp .env.example .env
 COMPOSER_ALLOW_SUPERUSER=1 composer install --no-dev --optimize-autoloader
