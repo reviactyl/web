@@ -68,7 +68,7 @@ server {
 
     location ~ \.php$ {
         fastcgi_split_path_info ^(.+\.php)(/.+)$;
-        fastcgi_pass unix:/run/php/php8.3-fpm.sock;
+        fastcgi_pass unix:/run/php/php8.5-fpm.sock;
         fastcgi_index index.php;
         include fastcgi_params;
         fastcgi_param PHP_VALUE "upload_max_filesize = 100M \n post_max_size=100M";
@@ -118,7 +118,7 @@ server {
 
     location ~ \.php$ {
         fastcgi_split_path_info ^(.+\.php)(/.+)$;
-        fastcgi_pass unix:/run/php/php8.3-fpm.sock;
+        fastcgi_pass unix:/run/php/php8.5-fpm.sock;
         fastcgi_index index.php;
         include fastcgi_params;
         fastcgi_param PHP_VALUE "upload_max_filesize = 100M \n post_max_size=100M";
@@ -156,7 +156,7 @@ a2dissite 000-default default-ssl 000-default-le-ssl
 
 Now, you should paste the contents of the file below, replacing `<domain>` with your domain name being used in a file called `reviactyl.conf` and place the file in `/etc/apache2/sites-available`, or — if on RHEL, Rocky Linux, or AlmaLinux, `/etc/httpd/conf.d/`.
 
-Note: When using Apache, make sure you have the `libapache2-mod-php8.3` package installed or else PHP will not display on your webserver.
+Note: When using Apache, make sure you have the `libapache2-mod-php8.5` package installed or else PHP will not display on your webserver.
 
 <Tabs items={['With SSL', 'Without SSL']}>
   <Tab value="With SSL">
@@ -261,7 +261,7 @@ You should paste the contents of the file below, replacing `<domain>` with your 
 
     file_server
 
-    php_fastcgi unix//run/php/php8.3-fpm.sock {
+    php_fastcgi unix//run/php/php8.5-fpm.sock {
         root /var/www/reviactyl/public
         index index.php
 
@@ -320,7 +320,7 @@ You should paste the contents of the file below, replacing `<domain>` with your 
 
     file_server
 
-    php_fastcgi unix//run/php/php8.3-fpm.sock {
+    php_fastcgi unix//run/php/php8.5-fpm.sock {
         root /var/www/reviactyl/public
         index index.php
 
