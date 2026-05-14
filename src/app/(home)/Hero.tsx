@@ -43,9 +43,9 @@ export default function Hero() {
         </motion.div>
         <h1 className="text-5xl font-bold tracking-tight text-neutral-900 dark:text-white sm:text-6xl lg:text-[5.5rem] lg:leading-[1.0]">
           <span className="block md:hidden">
-            Pterodactyl<br />
+            Managing<br />
             <span className="bg-gradient-to-r from-neutral-600 to-blue-600 bg-clip-text text-transparent dark:from-neutral-400 dark:to-blue-400">
-              Refined.
+              Made Easier!
             </span>
           </span>
 
@@ -86,11 +86,11 @@ export default function Hero() {
         </div>
         <div className="relative inline-block group">
           <Image
-            className="mx-auto rounded-lg shadow-xl border-gray-800 z-1"
-            src="/dashboard.png"
+            className="mx-auto rounded-lg z-1"
+            src="/dashboard-preview.png"
             alt="preview"
-            width={800}
-            height={600}
+            width={1920}
+            height={1080}
           />
         </div>
       </div>

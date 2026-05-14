@@ -9,8 +9,8 @@ import Info from './Info';
 export const metadata: Metadata = {
 	openGraph: {
 		title: "Reviactyl - Modern, Open & Powerful Panel",
-		description: "Reviactyl is an open, fast, and powerful pterodactyl fork. We designed our panel in such a way that it's easy for users to navigate. Reviactyl is built to be compatible with pterodactyl-native and blueprint addons.",
-		images: [{ url: "/banner.png" }],
+		description: "Reviactyl is a fast, open-source, and powerful alternative to Pterodactyl Panel. Manage your game servers with ease and efficiency.",
+		images: [{ url: "/og-banner.png" }],
 	},
 };
 
