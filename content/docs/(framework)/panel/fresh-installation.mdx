@@ -103,26 +103,6 @@ php artisan key:generate --force
   ```
 </Callout>
 
-## Environment Configuration
-
-```bash
-php artisan p:environment:setup
-php artisan p:environment:database
-php artisan p:environment:mail
-```
-
-## Database Setup
-
-```bash
-php artisan migrate --seed --force
-```
-
-## Create your First User
-
-```bash
-php artisan p:user:make
-```
-
 ## Set Permissions
 
 ```bash
@@ -135,6 +115,10 @@ chown -R nginx:nginx /var/www/reviactyl/*
 # If using Apache on RHEL / Rocky Linux / AlmaLinux
 chown -R apache:apache /var/www/reviactyl/*
 ```
+
+## Environment Configuration
+
+Now you can visit your panel (ie. https://panel.example.com/) and follow the setup wizard.
 
 ## Queue Listeners
 

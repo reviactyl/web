@@ -1,0 +1,88 @@
+---
+title: Migrating From Wings
+icon: CloudDownload
+---
+
+This guide is for people looking to migrate from the Pterodactyl Wings to Reviactyl Agent. Please see the install guide if you are trying to install Agent for the first time on a new node.
+
+<Callout type="warning">
+You should only install Agent if you are running **Reviactyl v26.x**. <br />
+For older versions like **v2.2.x**, staying on Wings is sufficient.
+</Callout>
+
+You'll have a brief offline period as you perform this process, however no running game processes will be affected. Plus, chances are your Panel will be offline (or in maintenance mode) during this so your users should not notice anything out of the ordinary.
+
+## Installing Agent
+
+The first step for installing Agent is to ensure we have the required directory structure setup. To do so,
+run the commands below, which will create the base directory and download the agent executable.
+
+```bash
+sudo mkdir -p /etc/reviactyl
+curl -L -o /usr/local/bin/agent "https://github.com/reviactyl/agent/releases/latest/download/agent_linux_$([[ "$(uname -m)" == "x86_64" ]] && echo "amd64" || echo "arm64")"
+sudo chmod u+x /usr/local/bin/agent
+```
+
+## Copy the Configuration Files
+
+```bash
+cp /etc/pterodactyl/config.yml /etc/reviactyl/config.yml
+```
+
+## Remove Pterodactyl Wings
+
+Now that Agent is installed, we need to remove all of the old wings code from the server since it is not being used anymore.
+
+```bash
+# Disable old Wings Service
+systemctl disable --now wings
+
+# Remove the old Wings Service
+rm /etc/systemd/system/wings.service
+
+# Remove the old wings configuration
+rm /etc/pterodactyl/config.yml
+```
+
+## Daemonizing Agent
+
+Running Agent in the background is a simple task, just make sure that it runs without errors before doing
+this. Place the contents below in a file called `agent.service` in the `/etc/systemd/system` directory.
+
+```ini
+[Unit]
+Description=Reviactyl Agent
+After=docker.service
+Requires=docker.service
+PartOf=docker.service
+
+[Service]
+User=root
+WorkingDirectory=/etc/reviactyl
+LimitNOFILE=4096
+PIDFile=/var/run/agent/daemon.pid
+ExecStart=/usr/local/bin/agent
+Restart=on-failure
+StartLimitInterval=180
+StartLimitBurst=30
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Then, run the commands below to reload systemd and start Agent.
+
+```bash
+sudo systemctl enable --now agent
+```
+
+## Restart Process
+
+Finally, restart the agent process. Your running servers will not be affected and any open connections to the instance will re-connect automatically.
+
+```bash
+systemctl restart agent
+```
+
+*Told ya! It's easy and straight forward*!
