@@ -3,11 +3,11 @@ import { NextResponse } from 'next/server';
 export async function GET() {
   return NextResponse.json({
     status: "OK",
-    panel: "2.2.3",
-    wings: "1.12.1",
+    panel: "26.05.0",
+    wings: "26.05.0",
     sftp: "1.0.5",
     cli: "2.1.1",
-    discord: "https://reviactyl.dev/discord",
+    discord: "https://www.reviactyl.app/discord",
     donations: "https://github.com/sponsors/reviactyl",
   });
 }
