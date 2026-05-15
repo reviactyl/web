@@ -9,6 +9,7 @@
     "index",
     "terminology",
     "community",
+    "release-cycle",
     "---Panel---",
     "panel/fresh-installation",
     "panel/webserver-configuration",
