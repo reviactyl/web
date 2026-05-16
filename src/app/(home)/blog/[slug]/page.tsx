@@ -20,10 +20,9 @@ export default async function Page(props: {
       <div className="relative z-10 border border-black/20 dark:border-zinc-800 m-4 rounded-xl">
       <article className="flex flex-col mx-auto w-full lg:flex-row gap-x-2">
         <div className="prose min-w-0 flex-1 gap-y-2">
-          <div className="py-12 px-4 bg-gradient-to-b from-fd-background/80 to-fd-background border-t border-b rounded-xl border-black/20 dark:border-zinc-800">
+          <div className="py-12 px-4 bg-gradient-to-b from-fd-background/80 to-fd-background border-t border-b rounded-xl mb-2 border-black/20 dark:border-zinc-800">
         <h1 className="mb-2 text-6xl font-semibold">{page.data.title}</h1>
           </div>
-          <Image className="border-t border-b rounded-xl border-black/20 dark:border-zinc-800" src={page.data.image} alt={page.data.title} width={800} height={400} />
           <div className="p-4 !pt-0 bg-gradient-to-b from-fd-background/80 to-fd-background border-t border-b rounded-xl border-black/20 dark:border-zinc-800">
           <Mdx components={defaultMdxComponents} />
           </div>

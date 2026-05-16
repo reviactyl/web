@@ -1,0 +1,289 @@
+---
+title: Introducing Reviactyl 26.05 "Fission Falcon"
+author: Reviactyl
+description: Reviactyl 26.05 is our first major step into the future of game and application management software.
+image: /blog/reviactyl-banner.png
+date: 2026-05-15
+---
+
+import { FaArrowRight, FaCloudArrowDown, FaDisplay, FaStar, FaHeart, FaGlobe } from 'react-icons/fa6';
+
+<div className="flex justify-center">
+  <img
+    src="/blog/reviactyl-banner.png"
+    alt="Reviactyl Dashboard"
+    className="rounded-lg h-60"
+  />
+</div>
+
+**Reviactyl 26.05 "Fission Falcon" is our first great step into the future of game and application management software.** <br />
+Built on the modern technologies developers already love; Laravel 13, React 19, TailwindCSS, and Vite. <br />
+This release focuses on performance, customization, accessibility, and creating a better experience for both server owners and hosting providers.
+
+<a
+  href="/docs"
+  className="group relative inline-flex h-12 cursor-pointer items-center justify-center rounded-full bg-green-800/70 py-1 pl-6 pr-14 text-lg no-underline shadow-lg hover:no-underline"
+>
+  <span className="relative flex items-center justify-center gap-2 text-fd-accent-foreground">
+    Install Reviactyl v26.05
+  </span>
+
+  <div className="absolute right-1 inline-flex h-10 w-12 items-center justify-end rounded-full border bg-green-500/20 transition-[width] group-hover:w-[calc(100%-8px)]">
+    <div className="mr-3.5 flex items-center justify-center">
+      <FaArrowRight className="h-5 w-5 text-fd-accent-foreground" />
+    </div>
+  </div>
+</a>
+
+<a
+  href="/docs/panel/migrating-from-pterodactyl"
+  className="group relative inline-flex h-12 cursor-pointer items-center justify-center rounded-full bg-fd-secondary/70 py-1 pl-6 pr-14 text-lg no-underline shadow-lg hover:no-underline"
+>
+  <span className="relative flex items-center justify-center gap-2 text-fd-accent-foreground">
+    Upgrade from Pterodactyl
+  </span>
+
+  <div className="absolute right-1 inline-flex h-10 w-12 items-center justify-end rounded-full border bg-fd-accent transition-[width] group-hover:w-[calc(100%-8px)]">
+    <div className="mr-3.5 flex items-center justify-center">
+      <FaCloudArrowDown className="h-5 w-5 text-fd-accent-foreground" />
+    </div>
+  </div>
+</a>
+
+<a
+  href="https://demo.reviactyl.dev/"
+  className="group relative inline-flex h-12 cursor-pointer items-center justify-center rounded-full bg-pink-800/70 py-1 pl-6 pr-14 text-lg no-underline shadow-lg hover:no-underline"
+>
+  <span className="relative flex items-center justify-center gap-2 text-fd-accent-foreground">
+    View Live Demo
+  </span>
+
+  <div className="absolute right-1 inline-flex h-10 w-12 items-center justify-end rounded-full border bg-pink-500/20 transition-[width] group-hover:w-[calc(100%-8px)]">
+    <div className="mr-3.5 flex items-center justify-center">
+      <FaDisplay className="h-5 w-5 text-fd-accent-foreground" />
+    </div>
+  </div>
+</a>
+
+<a
+  href="https://github.com/reviactyl/panel"
+  className="group relative inline-flex h-12 cursor-pointer items-center justify-center rounded-full bg-yellow-800/70 py-1 pl-6 pr-14 text-lg no-underline shadow-lg hover:no-underline"
+>
+  <span className="relative flex items-center justify-center gap-2 text-fd-accent-foreground">
+    Star Reviactyl on GitHub
+  </span>
+
+  <div className="absolute right-1 inline-flex h-10 w-12 items-center justify-end rounded-full border bg-yellow-500/20 transition-[width] group-hover:w-[calc(100%-8px)]">
+    <div className="mr-3.5 flex items-center justify-center">
+      <FaStar className="h-5 w-5 text-fd-accent-foreground" />
+    </div>
+  </div>
+</a>
+
+
+<hr />
+
+# A More Modern Foundation
+
+With Reviactyl 26.05, large parts of the platform have been modernized internally. <br />
+The backend now runs on Laravel 13, while the frontend has been upgraded to React 19. We have also replaced webpack with Vite, significantly improving development speed and frontend performance. <br />
+The admin experience has also evolved with the adoption of FilamentPHP, allowing a cleaner and more maintainable management interface. <br />
+These upgrades provide a stronger foundation for future features, extensions, and ecosystem growth. 
+
+<img src="/blog/live-monitoring.png" alt="Reviactyl Dashboard" className="rounded-lg mt-4 h-90 border border-zinc-200 dark:border-zinc-700 invert dark:invert-0" />
+
+# Installation Is Easier Than Ever
+
+Reviactyl 26.05 introduces a new installation process that is more streamlined and user-friendly. <br />
+The new Setup Wizard guides administrators through the installation process, helping reduce setup complexity for both beginners and experienced users. <br />
+Additionally, we have improved the documentation to provide more comprehensive and easy-to-follow guides for installation, configuration, and troubleshooting. <br />
+
+This allows users to choose the database that best fits their needs and infrastructure.
+
+<img src="/blog/installation-wizard.png" alt="Reviactyl Installer" className="rounded-lg mt-4 h-90 border border-zinc-200 dark:border-zinc-700" />
+
+# Multi-DB Support
+
+Reviactyl 26.05 introduces support for multiple database engines, including **MySQL**, **PostgreSQL**, **SQLite**, and **MariaDB**. <br />
+This allows users to choose the database that best fits their needs and infrastructure, providing greater flexibility and compatibility with existing systems. <br />
+The installation process has been updated to allow users to select their preferred database engine, and the platform has been optimized to work seamlessly with all supported databases. <br />
+This enhancement ensures that Reviactyl can be easily integrated into a wide range of hosting environments and setups, making it more accessible to a broader audience.
+
+# Customization Across the Entire Panel
+
+One of the major focuses of Fission Falcon is personalization. <br />
+Users can now configure different navbar and sidebar layouts with four available UI styles. <br />
+Server cards can also be displayed in either Grid Mode or Row Mode depending on user preference.
+
+Additional customization improvements include:
+- Customizable Sidebar Links
+- Customizable Error Pages (404, 403, 500)
+- New Avatar Styles including Gravatar and DiceBear options
+- RTL Support for right-to-left languages
+- New color schemes for better accessibility and contrast
+- Larger font sizes and improved spacing for better readability
+- Layout options for both the navbar and sidebar, allowing users to choose between different arrangements and styles.
+
+<img src="/blog/designify.png" alt="Designify Editor" className="rounded-lg mt-4 h-90 border border-zinc-200 dark:border-zinc-700" />
+
+<a
+  href="https://ko-fi.com/reviactyl"
+  className="group relative inline-flex h-12 cursor-pointer items-center justify-center rounded-full bg-pink-800/70 py-1 pl-6 pr-14 text-lg no-underline shadow-lg hover:no-underline"
+>
+  <span className="relative flex items-center justify-center gap-2 text-fd-accent-foreground">
+    Support Reviactyl on Ko-Fi
+  </span>
+
+  <div className="absolute right-1 inline-flex h-10 w-12 items-center justify-end rounded-full border bg-pink-500/20 transition-[width] group-hover:w-[calc(100%-8px)]">
+    <div className="mr-3.5 flex items-center justify-center">
+      <FaHeart className="h-5 w-5 text-fd-accent-foreground" />
+    </div>
+  </div>
+</a>
+
+<a
+  href="https://github.com/sponsors/reviactyl/"
+  className="group relative inline-flex h-12 cursor-pointer items-center justify-center rounded-full bg-fd-secondary/70 py-1 pl-6 pr-14 text-lg no-underline shadow-lg hover:no-underline"
+>
+  <span className="relative flex items-center justify-center gap-2 text-fd-accent-foreground">
+    Sponsor Reviactyl on GitHub
+  </span>
+
+  <div className="absolute right-1 inline-flex h-10 w-12 items-center justify-end rounded-full border bg-fd-accent/20 transition-[width] group-hover:w-[calc(100%-8px)]">
+    <div className="mr-3.5 flex items-center justify-center">
+      <FaHeart className="h-5 w-5 text-fd-accent-foreground" />
+    </div>
+  </div>
+</a>
+
+<hr />
+
+# Categories, Sorting and Server Filters
+
+Reviactyl 26.05 introduces new features for categorizing and sorting servers, making it easier for users to manage and organize their server lists. <br />
+Users can now create custom categories and assign servers to them, allowing for better organization and quicker access to specific groups of servers. <br />
+Additionally, new sorting options have been added, enabling users to sort their servers by various criteria such as name, creation date, or custom attributes. <br />
+These enhancements provide a more efficient and personalized experience for users managing multiple servers within the Reviactyl.
+
+<img src="/blog/server-categories.png" alt="Reviactyl Client Dashboard" className="rounded-lg mt-4 h-90 border border-zinc-200 dark:border-zinc-700" />
+
+# Expanding the Ecosystem
+
+Reviactyl 26.05 introduces the new Extensions API, opening the door for deeper customization and community-driven integrations.
+
+This release also adds:
+
+- Server Categories
+- Egg & Server Category Filters
+- Public Server Status Pages
+- Multi-Announcements Support
+- Historical Server Metrics
+- Server and Node Monitoring
+
+Together, these features improve organization, observability, and scalability across larger deployments.
+
+# A Better Experience for Everyone
+
+Fission Falcon introduces many improvements focused directly on end users.
+
+Authentication and account management have been expanded with:
+
+- User Registration System
+- Social Login support for Discord, Google, and GitHub
+- Turnstile Captcha Support
+- Default Language configuration
+- GeoLocate language auto-selection
+
+The file manager experience has also improved with:
+
+- File Manager Search
+- Video & Image Preview Support
+- Force Server Kill functionality for emergency actions
+
+These additions make everyday workflows smoother and more intuitive.
+
+<img src="/blog/file-manager.png" alt="Reviactyl File Manager" className="rounded-lg mt-4 h-90 border border-zinc-200 dark:border-zinc-700" />
+
+# Localization and Accessibility
+
+Reviactyl continues to expand its international accessibility.
+
+This release adds official support for:
+- Arabic **RTL Supported**
+- Turkish
+- German
+- Vietnamese
+- Kannada
+
+Alongside many additional community translations contributed through Crowdin.
+
+<a
+  href="https://translate.reviactyl.dev/"
+  className="group relative inline-flex h-12 cursor-pointer items-center justify-center rounded-full bg-fd-secondary/70 py-1 pl-6 pr-14 text-lg no-underline shadow-lg hover:no-underline"
+>
+  <span className="relative flex items-center justify-center gap-2 text-fd-accent-foreground">
+    Translate Reviactyl on Crowdin
+  </span>
+
+  <div className="absolute right-1 inline-flex h-10 w-12 items-center justify-end rounded-full border bg-fd-accent/20 transition-[width] group-hover:w-[calc(100%-8px)]">
+    <div className="mr-3.5 flex items-center justify-center">
+      <FaGlobe className="h-5 w-5 text-fd-accent-foreground" />
+    </div>
+  </div>
+</a>
+
+<hr />
+
+# Introducing Reviactyl Agent
+
+Reviactyl 26.05 officially introduces support for Reviactyl Agent, formerly known as Reviactyl Wings.
+
+This transition represents the beginning of a more unified and scalable infrastructure layer for future Reviactyl deployments.
+
+More improvements around the agent ecosystem will continue throughout the Reviactyl 26 release cycle.
+
+**Pterodactyl Wings users can easily migrate to Reviactyl Agent with our new migration guide in the documentation.** <br />
+Note that using Pterodactyl Wings with Reviactyl 26.05 is not recommended and may lead to unexpected issues, so we encourage all users to migrate to Reviactyl Agent as soon as possible. <br />
+Migration is a simple process, and our documentation provides step-by-step instructions to ensure a smooth transition. <br />
+We are committed to supporting our users throughout this transition and will continue to provide updates and improvements to the Reviactyl Agent ecosystem in the coming months.
+
+<a
+  href="/docs/agent/installing-agent"
+  className="group relative inline-flex h-12 cursor-pointer items-center justify-center rounded-full bg-green-800/70 py-1 pl-6 pr-14 text-lg no-underline shadow-lg hover:no-underline"
+>
+  <span className="relative flex items-center justify-center gap-2 text-fd-accent-foreground">
+    Install Agent v26.05
+  </span>
+
+  <div className="absolute right-1 inline-flex h-10 w-12 items-center justify-end rounded-full border bg-green-500/20 transition-[width] group-hover:w-[calc(100%-8px)]">
+    <div className="mr-3.5 flex items-center justify-center">
+      <FaArrowRight className="h-5 w-5 text-fd-accent-foreground" />
+    </div>
+  </div>
+</a>
+
+<a
+  href="/docs/agent/migrating-from-wings"
+  className="group relative inline-flex h-12 cursor-pointer items-center justify-center rounded-full bg-fd-secondary/70 py-1 pl-6 pr-14 text-lg no-underline shadow-lg hover:no-underline"
+>
+  <span className="relative flex items-center justify-center gap-2 text-fd-accent-foreground">
+    Upgrade from Wings
+  </span>
+
+  <div className="absolute right-1 inline-flex h-10 w-12 items-center justify-end rounded-full border bg-fd-accent transition-[width] group-hover:w-[calc(100%-8px)]">
+    <div className="mr-3.5 flex items-center justify-center">
+      <FaCloudArrowDown className="h-5 w-5 text-fd-accent-foreground" />
+    </div>
+  </div>
+</a>
+
+<hr />
+
+# Looking Ahead
+
+Fission Falcon is only the beginning. <br />
+Reviactyl26 lays the groundwork for a faster, more customizable, and more extensible platform designed for the future of game and application management. <br />
+Over the coming months, we will continue refining the platform based on community feedback while expanding the ecosystem around Reviactyl Agent, extensions, monitoring, and deployment tooling. <br />
+Thank you to every contributor, translator, tester, and community member who helped shape this release. 
+
+**Welcome to Reviactyl 26.05 "Fission Falcon" family.**

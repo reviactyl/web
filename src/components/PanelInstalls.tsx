@@ -13,7 +13,7 @@ export default function PanelInstalls() {
   }, []);
 
   if (installs === null) {
-    return <>1500</>;
+    return <>2000</>;
   }
 
   return <>{installs.toLocaleString()}</>;
