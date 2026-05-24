@@ -4,7 +4,7 @@ export async function GET() {
   return NextResponse.json({
     status: "OK",
     panel: "2.2.5",
-    wings: "1.12.1",
+    wings: "1.12.2",
     sftp: "1.0.5",
     cli: "2.1.1",
     v26: "true",
