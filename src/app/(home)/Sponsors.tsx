@@ -30,8 +30,11 @@ export default function Sponsors() {
       <div className="flex items-center md:min-h-44">
         <div className="flex w-full flex-col justify-center gap-4 p-4 md:flex-row md:gap-12 md:p-6">
           <span className="flex items-center gap-x-2">
-            <Link href="https://tietokettu.net/" className="border border-zinc-800 rounded-xl px-4">
+            <Link href="https://tietokettu.net/" className="px-4">
               <Image src={'/sponsor_tietokettu.png'} className="filter grayscale" height="74" width="74" alt={'TieToKettu'} />
+            </Link>
+            <Link href="https://cloudexa-hosting.com/" className="px-4">
+              <Image src={'/sponsor_cloudexa.webp'} className="filter grayscale" height="74" width="100" alt={'CloudExa'} />
             </Link>
             <Link href="https://github.com/sponsors/reviactyl/" className="border border-zinc-800 rounded-xl p-4">
               <LuPlus className="text-4xl text-zinc-800" />
