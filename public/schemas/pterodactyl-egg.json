@@ -1,0 +1,203 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pterodactyl.app/schemas/pterodactyl-egg.json",
+  "title": "Pterodactyl Egg Schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "_comment",
+    "meta",
+    "exported_at",
+    "name",
+    "author",
+    "description",
+    "features",
+    "docker_images",
+    "file_denylist",
+    "startup",
+    "config",
+    "scripts",
+    "variables"
+  ],
+  "properties": {
+    "_comment": {
+      "type": "string",
+      "description": "Auto-generated warning comment."
+    },
+    "meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "update_url"],
+      "properties": {
+        "version": {
+          "type": "string",
+          "oneOf": [
+            { "const": "PTDL_v1" },
+            { "const": "PTDL_v2" }
+          ]
+        },
+        "update_url": {
+          "type": ["string", "null"]
+        }
+      }
+    },
+    "exported_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 191
+    },
+    "image": {
+      "type": ["string", "null"]
+    },
+    "author": {
+      "type": "string",
+      "format": "email"
+    },
+    "description": {
+      "type": ["string", "null"]
+    },
+    "features": {
+      "type": ["array", "null"],
+      "items": {
+        "type": "string"
+      }
+    },
+    "docker_images": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "string"
+      },
+      "propertyNames": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 191
+      }
+    },
+    "file_denylist": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "startup": {
+      "type": "string"
+    },
+    "config": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["files", "startup", "logs", "stop"],
+      "properties": {
+        "files": {
+          "type": "string",
+          "description": "JSON-encoded file configuration"
+        },
+        "startup": {
+          "type": "string",
+          "description": "JSON-encoded startup configuration"
+        },
+        "logs": {
+          "type": "string",
+          "description": "JSON-encoded log configuration"
+        },
+        "stop": {
+          "type": "string"
+        }
+      }
+    },
+    "scripts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["installation"],
+      "properties": {
+        "installation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["script", "container", "entrypoint"],
+          "properties": {
+            "script": {
+              "type": "string"
+            },
+            "container": {
+              "type": "string"
+            },
+            "entrypoint": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "variables": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/eggVariable"
+      }
+    }
+  },
+  "$defs": {
+    "eggVariable": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "description",
+        "env_variable",
+        "default_value",
+        "user_viewable",
+        "user_editable",
+        "rules",
+        "field_type"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 191
+        },
+        "description": {
+          "type": "string"
+        },
+        "env_variable": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 191,
+          "pattern": "^[A-Za-z0-9_]+$",
+          "not": {
+            "enum": [
+              "SERVER_MEMORY",
+              "SERVER_IP",
+              "SERVER_PORT",
+              "ENV",
+              "HOME",
+              "USER",
+              "STARTUP",
+              "SERVER_UUID",
+              "UUID"
+            ]
+          }
+        },
+        "default_value": {
+          "type": "string"
+        },
+        "user_viewable": {
+          "type": "boolean"
+        },
+        "user_editable": {
+          "type": "boolean"
+        },
+        "rules": {
+          "type": "string"
+        },
+        "field_type": {
+          "type": "string",
+          "const": "text"
+        }
+      }
+    }
+  }
+}
