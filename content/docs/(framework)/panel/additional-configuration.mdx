@@ -11,11 +11,11 @@ When changing Reviactyl's backup storage method, users may still download or del
 
 ### Using Local Backups
 
-By default, Reviactyl uses local storage via Wings for backups. That said, this method of backup storage can be explicitly set with the following configuration in the `.env` file:
+By default, Reviactyl uses local storage via Agent for backups. That said, this method of backup storage can be explicitly set with the following configuration in the `.env` file:
 
 ```dotenv
 # Sets your panel to use local storage via Wings for backups
-APP_BACKUP_DRIVER=wings
+APP_BACKUP_DRIVER=agent
 ```
 Do note that, when using local storage via Wings, the destination for backups is set in Wings' `config.yml` with the following setting key:
 
