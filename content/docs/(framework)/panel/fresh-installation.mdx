@@ -15,16 +15,20 @@ You are expected to understand how to read documentation to use this Panel. This
 
 Reviactyl runs on a wide range of operating systems, so pick whichever you are most familiar with.
 
-This guide primarily focuses on **Ubuntu 24.04 LTS**. Extra Dependencies may or may not needed if you're using different supported OSeS.
+This guide primarily focuses on **Ubuntu 26.04 LTS**. Extra Dependencies may or may not needed if you're using different supported OSeS.
 
 | Operating System                     | Status           | Notes                                                                 |
 |-------------------------------------|----------------|----------------------------------------------------------------------|
 | Ubuntu 22.04                         | Fully Supported | Requires additional repositories for PHP                               |
 | Ubuntu 24.04                         | Fully Supported | MariaDB can be installed without the repo setup script.               |
-| Debian 11                            | Fully Supported | Reviactyl is tested primarily on Debian. This is our preferred choice of OS |
-| Debian 12                            | Fully Supported | Reviactyl is tested primarily on Debian. This is our preferred choice of OS |
-| Debian 12                            | Fully Supported | Reviactyl is tested primarily on Debian. This is our preferred choice of OS |
+| Ubuntu 26.04                         | Fully Supported | MariaDB can be installed without the repo setup script.               |
+| Debian 11                            | Fully Supported | Requires additional packages and configuration.                       |
+| Debian 12                            | Fully Supported | Requires additional packages and configuration.                       |
+| Debian 12                            | Fully Supported | Requires additional packages and configuration.                       |
+| Debian 13                            | Fully Supported | Requires additional packages and configuration.                       |
 | RHEL / Rocky Linux / AlmaLinux       | Fully Supported | Extra repos are required.                                             |
+| MacOS 15 and above                   | Partially Supported | Extra configuration needed. (Only for development, not recommended for production.) |
+| Windows 10 & Above                   | Not Supported* | Panel may behave weirdly. (Use macOS or Supported Linux Distros / or WSL)     |
 
 
 ## Dependencies
@@ -58,10 +62,10 @@ apt update
 # Install Dependencies
 apt -y install php8.5 php8.5-{common,cli,gd,mbstring,bcmath,xml,fpm,curl,zip,intl,redis,sqlite3} nginx tar unzip git redis-server
 
-# Install MySQL/MariaDB Dependencies (Optional)
+# Install MySQL/MariaDB Dependencies (If using MySQL or MariaDB)
 apt install -y php8.5-mysql mariadb-server
 
-# Install PostgreSQL Dependencies (Optional)
+# Install PostgreSQL Dependencies (If using PostgreSQL)
 apt install -y php8.5-pgsql postgresql postgresql-contrib
 ```
 
