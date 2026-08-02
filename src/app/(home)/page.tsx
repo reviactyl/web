@@ -2,6 +2,7 @@ import Features from './Features';
 import Hero from './Hero';
 import type { Metadata } from "next";
 import Sponsors from './Sponsors';
+import Comparison from './Comparison';
 import End from './End';
 import Footer from './Footer';
 import Info from './Info';
@@ -22,6 +23,7 @@ export default function HomePage() {
       <Hero />
       <Info />
       <Features />
+      <Comparison />
       <Sponsors />
       <End />
       </div>
