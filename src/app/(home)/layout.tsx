@@ -1,9 +1,11 @@
 import { HomeLayout } from 'fumadocs-ui/layouts/home';
 import { baseOptions } from '@/lib/layout.shared';
+import Navbar from './Navbar';
 
 export default function Layout({ children }: LayoutProps<'/'>) {
+  const base = baseOptions();
   return <HomeLayout 
-  {...baseOptions()} 
+  {...base} 
   links={
     [
       {
@@ -24,6 +26,10 @@ export default function Layout({ children }: LayoutProps<'/'>) {
       },
     ]
   }
+  nav={{
+    ...base.nav,
+    component: <Navbar />,
+  }}
   >
   {children}
   </HomeLayout>;
