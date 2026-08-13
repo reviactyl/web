@@ -3,6 +3,43 @@ title: Additional Configuration
 icon: Cog
 ---
 
+## OAuth
+
+Reviactyl allows you to connect to OAuth providers such as Discord, Google, and GitHub.
+
+### Discord
+
+1. **Open [Discord Developer Portal](https://discord.com/developers/applications).**
+2. **Click "New Application", name your application, and select "Create".**
+3. **Navigate to the "OAuth2" tab and select "Add Redirect". <br />**
+   Enter the following URL as the redirect URL: `https://panel.example.com/auth/login/discord/callback`.
+4. **Reset the client secret to generate a new one.**
+5. **Go to your Paymenter Admin Panel → Settings → OAuth.**
+6. **Select "Discord" as the provider and enter the Client ID and Client Secret from the Discord Developer Portal.**
+7. **Click "Save" to apply the changes.**
+
+### Google
+1. **Open [Google Cloud Console](https://console.cloud.google.com/).**
+2. **Create a new project or select an existing one.**
+3. **Navigate to "APIs & Services" → "Credentials".**
+4. **Click "Create Credentials" and select "OAuth client ID".**
+5. **Configure the consent screen and set the application type to "Web application".**
+6. **Add the following redirect URI: `https://panel.example.com/auth/login/google/callback`.**
+7. **Save the changes and note down the Client ID and Client Secret.**
+8. **Go to your Paymenter Admin Panel → Settings → OAuth.**
+9. **Select "Google" as the provider and enter the Client ID and Client Secret from the Google Cloud Console.**
+10. **Click "Save" to apply the changes.**
+
+### GitHub
+1. **Open [GitHub Developer Settings](https://github.com/settings/profile)**.
+2. **Click "New OAuth App" and fill in the required details.**
+3. **Set the "Authorization callback URL" to `https://panel.example.com/auth/login/github/callback`.**
+4. **Save the changes and note down the Client ID and Client Secret.**
+5. **Go to your Paymenter Admin Panel → Settings → OAuth.**
+6. **Select "GitHub" as the provider and enter the Client ID and Client Secret from GitHub Developer Settings.**
+7. **Click "Save" to apply the changes.**
+
+
 ## Backups
 
 Reviactyl allows users to create backups of their servers. In order to create backups, a backup storage method has to be configured.
