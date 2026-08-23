@@ -6,6 +6,7 @@ import Comparison from './Comparison';
 import End from './End';
 import Footer from './Footer';
 import Info from './Info';
+import Extensions from './Extensions';
 
 export const metadata: Metadata = {
 	openGraph: {
@@ -24,6 +25,7 @@ export default function HomePage() {
       <Info />
       <Features />
       <Comparison />
+      <Extensions />
       <Sponsors />
       <End />
       </div>
