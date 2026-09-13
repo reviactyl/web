@@ -8,7 +8,7 @@ export async function GET() {
     sftp: "1.0.5",
     cli: "2.1.1",
     v26: "true",
-    discord: "https://reviactyl.dev/discord",
+    discord: "https://reviactyl.app/discord",
     donations: "https://github.com/sponsors/reviactyl",
   });
 }

@@ -8,7 +8,7 @@ interface TelemetryStats {
 export async function GET() {
   try {
     const res = await fetch(
-      "https://telemetry.reviactyl.dev/stats.json",
+      "https://telemetry.reviactyl.app/stats.json",
       {
         headers: {
           "User-Agent": "ReviactylFetch",

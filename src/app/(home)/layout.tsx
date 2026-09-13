@@ -14,7 +14,7 @@ export default function Layout({ children }: LayoutProps<'/'>) {
       },
       {
         text: 'Demo',
-        url: 'https://demo.reviactyl.dev/',
+        url: 'https://demo.reviactyl.app/',
       },
       {
         text: 'Blog',

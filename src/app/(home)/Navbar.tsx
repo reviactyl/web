@@ -15,7 +15,7 @@ const navLinks = [
   { label: "Extensions", href: "https://rextstore.app/", external: true, icon: FaBoxArchive, iconColor: "text-blue-500 dark:text-blue-400" },
   { label: "Sponsor (Ko-fi)", href: "https://ko-fi.com/reviactyl", external: true, icon: FaCoffee, iconColor: "text-red-500 dark:text-red-400" },
   { label: "Sponsor (GitHub)", href: "https://github.com/sponsors/reviactyl/", external: true, icon: FaHeart, iconColor: "text-red-500 dark:text-red-400" },
-  { label: "Live Demo", href: "https://demo.reviactyl.dev/", external: true, icon: FaComputer, iconColor: "text-blue-500 dark:text-blue-400" },
+  { label: "Live Demo", href: "https://demo.reviactyl.app/", external: true, icon: FaComputer, iconColor: "text-blue-500 dark:text-blue-400" },
   { label: "Get Help", href: "/discord", icon: FaDiscord, iconColor: "text-blue-800 dark:text-blue-600 w-5", external: true },
 ];
 
