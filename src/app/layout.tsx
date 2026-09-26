@@ -1,12 +1,12 @@
 import '@/app/global.css';
 import { RootProvider } from 'fumadocs-ui/provider';
-import { Poppins, Fira_Code } from "next/font/google";
+import { Inter, Fira_Code } from "next/font/google";
 import type { Metadata } from "next";
 
-const poppins = Poppins({
-  variable: "--font-poppins",
+const inter = Inter({
+  variable: "--font-sans",
   subsets: ["latin"],
-  weight: ["700"],
+  weight: ["500", "600", "700"],
 });
 
 const firaCode = Fira_Code({
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 
 export default function Layout({ children }: LayoutProps<'/'>) {
   return (
-    <html lang="en" className={`${poppins.variable} ${firaCode.variable} antialiased`} suppressHydrationWarning>
+    <html lang="en" className={`${inter.variable} ${firaCode.variable} antialiased`} suppressHydrationWarning>
       <body className="flex flex-col min-h-screen">
         <RootProvider>{children}</RootProvider>
       </body>

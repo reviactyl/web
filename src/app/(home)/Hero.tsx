@@ -1,97 +1,268 @@
-"use client"
-import PanelInstalls from "@/components/PanelInstalls";
-import { motion } from "framer-motion";
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
-import { FaArrowRight } from "react-icons/fa";
-import { FaArrowTurnUp } from "react-icons/fa6";
+import { useCallback, useEffect, useState } from "react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import { FaArrowRight, FaArrowTurnUp } from "react-icons/fa6";
+import PanelInstalls from "@/components/PanelInstalls";
+
+const slides = [
+  {
+    id: "admin-dashboard",
+    title: "Admin Dashboard",
+    href: "/#",
+    image: "/preview/admin_overview.webp",
+  },
+  {
+    id: "admin-monitoring",
+    title: "Node Monitoring",
+    href: "/#",
+    image: "/preview/admin_monitoring.webp",
+  },
+  {
+    id: "admin-servers",
+    title: "Servers Management",
+    href: "/#",
+    image: "/preview/admin_servers.webp",
+  },
+  {
+    id: "dashboard-overview",
+    title: "User Dashboard Overview",
+    href: "/#",
+    image: "/preview/dashboard_overview.webp",
+  },
+  {
+    id: "dashboard-server",
+    title: "User Server Overview",
+    href: "/#",
+    image: "/preview/dashboard_servers.webp",
+  },
+  {
+    id: "dashboard-account",
+    title: "User Account Details",
+    href: "/#",
+    image: "/preview/dashboard_account.webp",
+  },
+  {
+    id: "dashboard-passkeys",
+    title: "User Passkeys",
+    href: "/#",
+    image: "/preview/dashboard_passkeys.webp",
+  }
+];
 
 export default function Hero() {
-//  const [version, setVersion] = useState("v0");
-//
-//  useEffect(() => {
-//    fetch("/api/v26/get-latest")
-//      .then(res => res.json())
-//      .then(data => setVersion(data.version_number))
-//      .catch(() => setVersion("v0"));
-//  }, []);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const next = useCallback(() => {
+    setActiveIndex((current) => (current + 1) % slides.length);
+  }, []);
+
+  const previous = useCallback(() => {
+    setActiveIndex(
+      (current) => (current - 1 + slides.length) % slides.length,
+    );
+  }, []);
+
+  useEffect(() => {
+    const interval = window.setInterval(next, 5000);
+
+    return () => {
+      window.clearInterval(interval);
+    };
+  }, [next]);
+
+  useEffect(() => {
+    const handleKeyboard = (event: KeyboardEvent) => {
+      if (event.key === "ArrowLeft") {
+        previous();
+      }
+
+      if (event.key === "ArrowRight") {
+        next();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyboard);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyboard);
+    };
+  }, [next, previous]);
+
   return (
-    <section className="bg-[radial-gradient(125%_125%_at_50%_10%,_#ffffff_40%,_#ffcccc_100%)] dark:bg-[radial-gradient(125%_125%_at_50%_10%,_#000000_40%,_#2b0707_100%)] rounded-xl">
-      <div className="mx-auto max-w-screen-xl px-4 pt-10 lg:pt-16 lg:px-12 flex flex-col items-center text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-        <Image
-          src="/logo.png"
-          alt="Reviactyl Logo"
-          width={276}
-          height={64}
-          priority
-          className="mb-3 h-15 hidden dark:block w-auto rounded-full"
-        />
-        <Image
-          src="/logo-darker.png"
-          alt="Reviactyl Logo"
-          width={276}
-          height={64}
-          priority
-          className="mb-3 h-15 block dark:hidden w-auto rounded-full"
-        />
-        </motion.div>
-        <h1 className="text-5xl font-bold tracking-tight text-neutral-900 dark:text-white sm:text-6xl lg:text-[5.5rem] lg:leading-[1.0]">
-          <span className="block md:hidden">
-            Managing<br />
-            <span className="bg-gradient-to-r from-neutral-600 to-blue-600 bg-clip-text text-transparent dark:from-neutral-400 dark:to-blue-400">
-              Made Easier!
-            </span>
-          </span>
+    <section className="relative isolate overflow-hidden bg-white text-neutral-950 transition-colors dark:bg-[#080910] dark:text-white">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10"
+      >
+        <div className="absolute left-[48%] top-[-300px] h-[700px] w-[700px] rounded-full bg-violet-500/5 blur-[180px] dark:bg-[#343a8f]/10" />
+        <div className="absolute right-[-100px] top-[100px] h-[650px] w-[650px] rounded-full bg-blue-500/5 blur-[160px] dark:bg-[#1d245c]/10" />
+      </div>
 
-          <span className="hidden md:block">
-            Manage Game Servers<br />
-            <span className="bg-gradient-to-br from-white via-blue-300 to-blue-400 bg-clip-text text-transparent dark:from-neutral-400 dark:to-blue-400">
-              Like Never Before!
-            </span>
-          </span>
-        </h1>
-        <p className="mt-4 max-w-3xl text-xl leading-relaxed text-neutral-600 dark:text-neutral-400 md:text-1xl">
-          <span className="md:hidden">
-            Manage Game Servers like never before
-          </span>
-          <span className="hidden md:inline">
-            Designed with security in mind, Reviactyl runs all game servers in isolated Docker containers while exposing a beautiful and intuitive UI to end users.
-          </span>
-        </p>
+      <div className="relative mx-auto min-h-[700px] max-w-[1440px] px-5 sm:px-8 lg:px-10">
+        <div className="relative flex min-h-[700px] items-center">
+          <div className="relative z-30 w-full pt-16 text-center lg:w-[54%] lg:pt-0 lg:text-left">
+            <h1 className="mx-auto max-w-[600px] text-[42px] font-medium leading-[1.08] tracking-[-0.045em] text-neutral-900 sm:text-[52px] lg:mx-0 lg:text-[58px] xl:text-[62px] dark:text-white">
+              <span className="block">
+                Your Infrastructure.
+              </span>
 
-        <div className="flex flex-col items-center gap-1 mt-8 mb-8">
-          <Link
-            href="/docs"
-            className="group relative inline-flex h-[calc(48px+8px)] cursor-pointer items-center justify-center rounded-full bg-fd-secondary/70 py-1 pl-6 text-lg shadow-lg pr-14"
-          >
-            <span className="relative flex items-center justify-center gap-2 text-fd-accent-foreground">
-              Get Started <span className="border border-gray-300 dark:border-gray-600 px-2 py-1 rounded-xl text-sm font-bold">Free</span>
-            </span>
-            <div className="absolute right-1 inline-flex h-12 w-12 items-center justify-end rounded-full border bg-fd-accent transition-[width] group-hover:w-[calc(100%-8px)]">
-              <div className="mr-3.5 flex items-center justify-center">
-                <FaArrowRight className="h-5 w-5 text-fd-accent-foreground" />
-              </div>
+              <span className="block text-neutral-500 dark:text-[#d8d9e0]">
+                Total Control.
+              </span>
+            </h1>
+
+            <p className="mt-6 max-w-[570px] text-[18px] leading-[1.45] tracking-[-0.01em] text-neutral-600 sm:text-[20px] dark:text-[#9299b5]">
+              15x faster than Pterodactyl.
+              <br />
+              Open-source, secure, and built for the modern hosts.
+            </p>
+
+            <div className="mt-8">
+              <Link
+                href="/docs"
+                className="group relative inline-flex h-[56px] cursor-pointer items-center justify-center rounded-full bg-neutral-900 py-1 pl-6 pr-14 text-lg shadow-lg shadow-black/10 transition hover:bg-neutral-800 dark:bg-white/90 dark:shadow-white/5 dark:hover:bg-white"
+              >
+                <span className="relative z-10 flex items-center justify-center gap-2 text-white dark:text-black">
+                  Get Started
+
+                  <span className="rounded-xl border border-emerald-300 bg-emerald-300/20 px-2 py-1 text-sm font-bold dark:border-emerald-600 dark:bg-emerald-600/20">
+                    Free
+                  </span>
+                </span>
+
+                <div className="absolute right-1 inline-flex h-12 w-12 items-center justify-end rounded-full border border-blue-300 bg-blue-300/20 transition-[width] group-hover:w-[calc(100%-8px)] dark:border-blue-600 dark:bg-blue-600/20">
+                  <div className="mr-3.5 flex items-center justify-center">
+                    <FaArrowRight className="h-5 w-5 text-white dark:text-black" />
+                  </div>
+                </div>
+              </Link>
             </div>
-          </Link>
-          <div className="inline-flex text-sm items-center gap-1 text-black/50 dark:text-white/50">
-            <span className="text-black dark:text-white font-bold"><PanelInstalls />+ panels</span> are using Reviactyl
-            <FaArrowTurnUp />
+
+            <p className="mt-2 inline-flex max-w-[570px] items-center gap-1 text-[13px] leading-[1.8] text-neutral-500 dark:text-[#65708d]">
+              <span className="font-bold text-neutral-900 dark:text-white">
+                <PanelInstalls />+ panels
+              </span>
+
+              <span>are using Reviactyl</span>
+
+              <FaArrowTurnUp className="ml-0.5 h-3 w-3 rotate-90 text-neutral-400 dark:text-neutral-500" />
+            </p>
           </div>
-        </div>
-        <div className="relative inline-block group">
-          <Image
-            className="mx-auto rounded-lg z-1"
-            src="/dashboard-preview.png"
-            alt="preview"
-            width={1920}
-            height={1080}
-          />
+
+          <div className="relative hidden lg:absolute lg:right-[-80px] lg:top-[45px] lg:block lg:h-[610px] lg:w-[875px]">
+            <div className="absolute inset-0">
+              {slides.map((slide, index) => {
+                const isActive = index === activeIndex;
+
+                return (
+                  <div
+                    key={slide.id}
+                    className={[
+                      "absolute inset-0 transition-all duration-700 ease-in-out",
+                      isActive
+                        ? "z-10 opacity-100"
+                        : "pointer-events-none z-0 opacity-0",
+                    ].join(" ")}
+                  >
+                    <Image
+                      src={slide.image}
+                      alt={slide.title}
+                      fill
+                      priority={index === 0}
+                      sizes="875px"
+                      className="object-contain object-left"
+                    />
+                  </div>
+                );
+              })}
+            </div>
+
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-y-0 left-0 z-20 hidden w-[38%] bg-gradient-to-r from-white via-white/70 to-transparent lg:block dark:from-[#080910] dark:via-[#080910]/70"
+            />
+
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-[40%] bg-gradient-to-t from-white via-white/60 to-transparent dark:from-[#080910] dark:via-[#080910]/60"
+            />
+
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-y-0 right-0 z-20 hidden w-[15%] bg-gradient-to-l from-white to-transparent lg:block dark:from-[#080910]"
+            />
+
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-x-0 top-0 z-20 h-[20%] bg-gradient-to-b from-white/50 to-transparent dark:from-[#080910]/50"
+            />
+          </div>
+
+          <div className="absolute bottom-[40px] right-[80px] z-40 hidden w-[320px] lg:block">
+            <div className="mb-5 h-5 text-center text-[14px] text-neutral-500 dark:text-[#747c98]">
+              {slides.map((slide, index) => (
+                <Link
+                  key={slide.id}
+                  href={slide.href}
+                  className={[
+                    "absolute left-0 right-0 transition-all duration-500",
+                    index === activeIndex
+                      ? "translate-y-0 opacity-100"
+                      : "pointer-events-none translate-y-2 opacity-0",
+                  ].join(" ")}
+                >
+                  {slide.title}
+                </Link>
+              ))}
+            </div>
+
+            <div className="flex items-center justify-center gap-5">
+              <button
+                type="button"
+                onClick={previous}
+                aria-label="Previous slide"
+                className="flex h-[31px] w-[31px] items-center justify-center rounded-full border border-neutral-300 bg-white/80 text-neutral-500 backdrop-blur-md transition hover:border-neutral-400 hover:bg-neutral-100 hover:text-neutral-900 dark:border-[#939db8]/20 dark:bg-[#171926]/80 dark:text-[#939db8] dark:hover:border-[#939db8]/40 dark:hover:bg-[#202332] dark:hover:text-white"
+              >
+                <ArrowLeft className="h-3.5 w-3.5" strokeWidth={2.5} />
+              </button>
+
+              <div className="flex items-center gap-[3px]">
+                {slides.map((slide, index) => (
+                  <button
+                    key={slide.id}
+                    type="button"
+                    onClick={() => setActiveIndex(index)}
+                    aria-label={`Go to ${slide.title}`}
+                    aria-current={
+                      index === activeIndex ? "true" : undefined
+                    }
+                    className="group flex h-7 items-center px-[5px]"
+                  >
+                    <span
+                      className={[
+                        "block rounded-full transition-all duration-300",
+                        index === activeIndex
+                          ? "h-[6px] w-[6px] bg-neutral-800 dark:bg-[#aeb6d0]"
+                          : "h-[6px] w-[6px] bg-neutral-300 group-hover:bg-neutral-500 dark:bg-[#252a3a] dark:group-hover:bg-[#626a83]",
+                      ].join(" ")}
+                    />
+                  </button>
+                ))}
+              </div>
+
+              <button
+                type="button"
+                onClick={next}
+                aria-label="Next slide"
+                className="flex h-[31px] w-[31px] items-center justify-center rounded-full border border-neutral-300 bg-white/80 text-neutral-500 backdrop-blur-md transition hover:border-neutral-400 hover:bg-neutral-100 hover:text-neutral-900 dark:border-[#939db8]/20 dark:bg-[#171926]/80 dark:text-[#939db8] dark:hover:border-[#939db8]/40 dark:hover:bg-[#202332] dark:hover:text-white"
+              >
+                <ArrowRight className="h-3.5 w-3.5" strokeWidth={2.5} />
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
