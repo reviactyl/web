@@ -2,8 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import {
-  ChevronLeft,
-  ChevronRight,
   ExternalLink,
   Loader2,
 } from "lucide-react";
@@ -78,15 +76,7 @@ export default function Extensions() {
   return (
     <section
       className="
-        mt-2 mb-2
-        overflow-hidden
-        rounded-xl
-        border
-        border-black/20
-        bg-gradient-to-b
-        from-fd-background/80
-        to-fd-background
-        dark:border-zinc-800
+        bg-white text-neutral-950 transition-colors dark:bg-[#080910] dark:text-white
       "
     >
       <div className="flex w-full items-center justify-center border-x px-2 py-8 md:px-0 md:py-12 lg:py-16">

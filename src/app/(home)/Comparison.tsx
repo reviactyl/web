@@ -64,7 +64,7 @@ export default function Comparison() {
   const hasHiddenRows = hiddenRows.length > 0;
 
   return (
-    <section className="bg-gradient-to-b from-fd-background/80 to-fd-background border-t border-b rounded-xl border-black/20 dark:border-zinc-800 mt-2 mb-2">
+    <section className="bg-white text-neutral-950 transition-colors dark:bg-[#080910] dark:text-white">
       <div className="flex w-full items-center justify-center border-x px-2 py-12 md:px-0 md:py-16 lg:py-20">
         <h2 className="text-pretty text-center text-2xl font-bold dark:opacity-90 dark:drop-shadow-lg sm:text-4xl md:text-5xl lg:text-6xl">
           How Reviactyl stacks up
@@ -210,7 +210,7 @@ export default function Comparison() {
           )}
         </div>
 
-        <div className="mt-8 mb-5 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-neutral-500 dark:text-neutral-500">
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-neutral-500 dark:text-neutral-500">
           <span className="inline-flex items-center gap-1.5">
             <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-600 dark:bg-emerald-400/10 dark:text-emerald-400">
               <Check className="h-2.5 w-2.5" strokeWidth={3} />

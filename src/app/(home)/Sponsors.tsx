@@ -6,7 +6,7 @@ import { LuPlus } from "react-icons/lu";
 
 export default function Sponsors() {
   return (
-    <section className="bg-gradient-to-b from-fd-background/80 to-fd-background border-t border-b rounded-xl border-black/20 dark:border-zinc-800 mt-2 mb-2 overflow-hidden">
+    <section className="bg-white text-neutral-950 transition-colors dark:bg-[#080910] dark:text-white rounded-xl border-black/20 dark:border-zinc-800 overflow-hidden">
       <div className="border-b dark:border-zinc-800">
         <div className="grid items-center divide-y divide-black/20 dark:divide-zinc-800 lg:grid-cols-2 lg:divide-x lg:divide-y-0">
           <div className="flex h-full items-center gap-2 p-4 text-pretty text-2xl font-semibold dark:opacity-90 dark:drop-shadow-lg sm:text-2xl md:text-3xl lg:text-4xl">

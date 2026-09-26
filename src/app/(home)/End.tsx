@@ -3,7 +3,7 @@ import React from "react";
 
 export default function End() {
   return (
-    <section className="bg-[radial-gradient(125%_125%_at_50%_10%,_#ffffff_40%,_#ffcccc_100%)] dark:bg-[radial-gradient(125%_125%_at_50%_10%,_#000000_40%,_#2b0707_100%)] border-t rounded-xl border-black/20 dark:border-zinc-800 mt-2 overflow-hidden">
+    <section className="bg-white text-neutral-950 transition-colors dark:bg-[#080910] dark:text-white mt-2 overflow-hidden">
       <div className="flex w-full flex-col items-center justify-center gap-y-4 px-4 py-8 sm:gap-y-8 sm:px-0 md:py-12 lg:py-16">
         <h2 className="text-pretty text-center text-2xl font-extrabold dark:drop-shadow-lg sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
           What are you Waiting For?
