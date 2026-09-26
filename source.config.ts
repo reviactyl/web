@@ -28,6 +28,16 @@ export const blogPosts = defineCollections({
   }),
 });
 
+export const releasePosts = defineCollections({
+  type: 'doc',
+  dir: 'content/releases',
+  schema: frontmatterSchema.extend({
+    version: z.string(),
+    date: z.iso.date().or(z.date()),
+    image: z.string(),
+  }),
+});
+
 export default defineConfig({
   mdxOptions: {
     // MDX options

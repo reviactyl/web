@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { source, blog } from '@/lib/source';
+import { source, blog, releases } from '@/lib/source';
 
 const baseUrl = 'https://reviactyl.app';
 
@@ -12,6 +12,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const blogPages = blog.getPages().map((page) => ({
+    url: `${baseUrl}${page.url}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.7,
+  }));
+
+  const releasePages = releases.getPages().map((page) => ({
     url: `${baseUrl}${page.url}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
@@ -37,7 +44,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.8,
     },
+    {
+      url: `${baseUrl}/releases`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
   ];
 
-  return [...staticPages, ...docsPages, ...blogPages];
+  return [...staticPages, ...docsPages, ...blogPages, ...releasePages];
 }

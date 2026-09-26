@@ -20,6 +20,7 @@ import { FaCoffee } from "react-icons/fa";
 const mainLinks = [
   { label: "Docs", href: "/docs" },
   { label: "Blog", href: "/blog" },
+  { label: "Releases", href: "/releases" },
   {
     label: "Extensions",
     href: "https://rextstore.app/",

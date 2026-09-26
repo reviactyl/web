@@ -1,4 +1,4 @@
-import { docs, blogPosts } from '@/.source';
+import { docs, blogPosts, releasePosts } from '@/.source';
 import { loader } from 'fumadocs-core/source';
 import { icons } from 'lucide-react';
 import { createElement } from 'react';
@@ -28,3 +28,9 @@ export const blog = loader({
   baseUrl: '/blog',
   source: createMDXSource(blogPosts),
 });
+
+export const releases = loader({
+  baseUrl: '/releases',
+  source: createMDXSource(releasePosts),
+});
+

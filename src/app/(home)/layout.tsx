@@ -21,6 +21,10 @@ export default function Layout({ children }: LayoutProps<'/'>) {
         url: '/blog',
       },
       {
+        text: 'Releases',
+        url: '/releases',
+      },
+      {
         text: 'Get Help',
         url: '/discord',
       },
