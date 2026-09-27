@@ -4,7 +4,10 @@ icon: Earth
 ---
 
 <Callout type="warning" title="Warning">
-  When using the SSL configuration you MUST create SSL certificates, otherwise your webserver will fail to start. See the [Creating SSL Certificates](/docs/tutorial/creating-ssl-certificates) documentation page to learn how to create these certificates before continuing.
+  When using the SSL configuration you MUST create SSL certificates, otherwise
+  your webserver will fail to start. See the [Creating SSL
+  Certificates](/docs/tutorial/creating-ssl-certificates) documentation page to
+  learn how to create these certificates before continuing.
 </Callout>
 
 <Tabs items={['Nginx', 'Apache', 'Caddy']}>
@@ -15,6 +18,7 @@ rm /etc/nginx/sites-enabled/default
 ```
 
 Now, you should paste the contents of the file below, replacing `<domain>` with your domain name being used in a file called `reviactyl.conf` and place the file in `/etc/nginx/sites-available/`, or — if on RHEL, Rocky Linux, or AlmaLinux, `/etc/nginx/conf.d/`.
+
 <Tabs items={['With SSL', 'Without SSL']}>
   <Tab value="With SSL">
 <Callout type="warning" title="Note">
@@ -28,10 +32,9 @@ server {
     return 301 https://$server_name$request_uri;
 }
 
-server {
-    # Replace the example <domain> with your domain name or IP address
-    listen 443 ssl http2;
-    server_name <domain>;
+server { # Replace the example <domain> with your domain name or IP address
+listen 443 ssl http2;
+server_name <domain>;
 
     root /var/www/reviactyl/public;
     index index.php;
@@ -86,11 +89,13 @@ server {
     location ~ /\.ht {
         deny all;
     }
+
 }
-```
+
+````
   </Tab>
   <Tab value="Without SSL">
-```nginx 
+```nginx
 server {
     # Replace the example <domain> with your domain name or IP address
     listen 80;
@@ -136,7 +141,8 @@ server {
         deny all;
     }
 }
-```
+````
+
   </Tab>
 </Tabs>
 ## Enabling Configuration
@@ -145,14 +151,16 @@ server {
 sudo ln -s /etc/nginx/sites-available/reviactyl.conf /etc/nginx/sites-enabled/reviactyl.conf
 
 # You need to restart nginx regardless of OS.
+
 sudo systemctl restart nginx
-```
+
+````
   </Tab>
   <Tab value="Apache">
 First, remove the default Apache configuration.
 ```bash
 a2dissite 000-default default-ssl 000-default-le-ssl
-```
+````
 
 Now, you should paste the contents of the file below, replacing `<domain>` with your domain name being used in a file called `reviactyl.conf` and place the file in `/etc/apache2/sites-available`, or — if on RHEL, Rocky Linux, or AlmaLinux, `/etc/httpd/conf.d/`.
 
@@ -170,7 +178,8 @@ Note: When using Apache, make sure you have the `libapache2-mod-php8.5` package 
 
     RewriteEngine On
     RewriteCond %{HTTPS} !=on
-    RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L] 
+    RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
+
 </VirtualHost>
 
 <VirtualHost *:443>
@@ -191,6 +200,7 @@ Note: When using Apache, make sure you have the `libapache2-mod-php8.5` package 
     SSLEngine on
     SSLCertificateFile /etc/letsencrypt/live/<domain>/fullchain.pem
     SSLCertificateKeyFile /etc/letsencrypt/live/<domain>/privkey.pem
+
 </VirtualHost> 
 ```
   </Tab>
@@ -243,7 +253,8 @@ You should paste the contents of the file below, replacing `<domain>` with your 
 </Callout>
 
 <Callout type="info" title="Info">
-  **You do not have to create SSL certificates manually**, Caddy will take care of it automatically.
+  **You do not have to create SSL certificates manually**, Caddy will take care
+  of it automatically.
 </Callout>
 
 ```nginx
@@ -300,7 +311,8 @@ You should paste the contents of the file below, replacing `<domain>` with your 
 ```
 
 <Callout type="info" title="Info">
-  If you are using Cloudflare DNS in proxy mode, refer to this tutorial, to see how to configure Caddy to use DNS challenge for obtaining SSL certificates.
+  If you are using Cloudflare DNS in proxy mode, refer to this tutorial, to see
+  how to configure Caddy to use DNS challenge for obtaining SSL certificates.
 </Callout>
 
   </Tab>
@@ -315,6 +327,7 @@ You should paste the contents of the file below, replacing `<domain>` with your 
 }
 
 # Replace the example <domain> with your domain name or IP address
+
 <domain>:80 {
     root * /var/www/reviactyl/public
 
@@ -355,8 +368,10 @@ You should paste the contents of the file below, replacing `<domain>` with your 
         }
         level INFO
     }
+
 }
-```
+
+````
   </Tab>
 </Tabs>
 ## Enabling Configuration
@@ -364,6 +379,7 @@ The final step is to restart Caddy.
 
 ```bash
 systemctl restart caddy
-```
+````
+
   </Tab>
 </Tabs>

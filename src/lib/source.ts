@@ -1,13 +1,13 @@
-import { docs, blogPosts, releasePosts } from '@/.source';
-import { loader } from 'fumadocs-core/source';
-import { icons } from 'lucide-react';
-import { createElement } from 'react';
-import { createMDXSource } from 'fumadocs-mdx';
-import { Reviactyl, Development } from '@/components/Logo';
+import { docs, blogPosts, releasePosts } from "@/.source";
+import { loader } from "fumadocs-core/source";
+import { icons } from "lucide-react";
+import { createElement } from "react";
+import { createMDXSource } from "fumadocs-mdx";
+import { Reviactyl, Development } from "@/components/Logo";
 // See https://fumadocs.vercel.app/docs/headless/source-api for more info
 export const source = loader({
   // it assigns a URL to your pages
-  baseUrl: '/docs',
+  baseUrl: "/docs",
   source: docs.toFumadocsSource(),
 
   icon(icon) {
@@ -15,22 +15,21 @@ export const source = loader({
       return;
     }
     switch (icon) {
-      case 'reviactyl':
+      case "reviactyl":
         return Reviactyl();
-      case 'dev':
-        return Development()
+      case "dev":
+        return Development();
     }
     if (icon in icons) return createElement(icons[icon as keyof typeof icons]);
   },
 });
 
 export const blog = loader({
-  baseUrl: '/blog',
+  baseUrl: "/blog",
   source: createMDXSource(blogPosts),
 });
 
 export const releases = loader({
-  baseUrl: '/releases',
+  baseUrl: "/releases",
   source: createMDXSource(releasePosts),
 });
-

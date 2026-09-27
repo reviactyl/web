@@ -1,5 +1,12 @@
 import React from "react";
-import { FaBatteryFull, FaCodeFork, FaLaravel, FaLock, FaPuzzlePiece, FaReact } from "react-icons/fa6";
+import {
+  FaBatteryFull,
+  FaCodeFork,
+  FaLaravel,
+  FaLock,
+  FaPuzzlePiece,
+  FaReact,
+} from "react-icons/fa6";
 
 const features = [
   {
@@ -11,27 +18,32 @@ const features = [
   {
     icon: <FaLock />,
     title: "Security First",
-    description: "Security is a first-class citizen on this platform with bcrypt hashing, AES-256-CBC encryption, and HTTPS support out of the box.",
+    description:
+      "Security is a first-class citizen on this platform with bcrypt hashing, AES-256-CBC encryption, and HTTPS support out of the box.",
   },
   {
     icon: <FaReact />,
     title: "Modern Design",
-    description: "Save the furious clicking and screaming for Overwatch. Reviactyl's interface is designed so well that even Sukuna would be impressed.",
+    description:
+      "Save the furious clicking and screaming for Overwatch. Reviactyl's interface is designed so well that even Sukuna would be impressed.",
   },
   {
     icon: <FaLaravel />,
     title: "Modern Tooling",
-    description: "Built on a modern stack utilizing the best design practices that make it easy to jump in and make modifications.",
+    description:
+      "Built on a modern stack utilizing the best design practices that make it easy to jump in and make modifications.",
   },
   {
     icon: <FaCodeFork />,
     title: "Open Source",
-    description: "Reviactyl is open-source, allowing community contributions and customization to improve server managing experience.",
+    description:
+      "Reviactyl is open-source, allowing community contributions and customization to improve server managing experience.",
   },
   {
     icon: <FaBatteryFull />,
     title: "Batteries Included",
-    description: "Reviactyl offers top-notch features such as Client-Side Theme Selector, Designify Editor, Server Metrics, and much more.",
+    description:
+      "Reviactyl offers top-notch features such as Client-Side Theme Selector, Designify Editor, Server Metrics, and much more.",
   },
 ];
 

@@ -1,8 +1,8 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { releases } from '@/lib/source';
-import Footer from '../Footer';
-import { FaArrowCircleLeft, FaArrowCircleRight } from 'react-icons/fa';
+import Image from "next/image";
+import Link from "next/link";
+import { releases } from "@/lib/source";
+import Footer from "../Footer";
+import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 
 const PER_PAGE = 10;
 
@@ -13,13 +13,16 @@ interface HomeProps {
 export default async function Home({ searchParams }: HomeProps) {
   const { page: pageParam } = await searchParams;
 
-  const posts = releases.getPages().sort(
-    (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
-  );
+  const posts = releases
+    .getPages()
+    .sort(
+      (a, b) =>
+        new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
+    );
 
   const totalPages = Math.ceil(posts.length / PER_PAGE);
   const currentPage = Math.min(
-    Math.max(Number.parseInt(pageParam || '1', 10) || 1, 1),
+    Math.max(Number.parseInt(pageParam || "1", 10) || 1, 1),
     Math.max(totalPages, 1),
   );
 
@@ -52,7 +55,7 @@ export default async function Home({ searchParams }: HomeProps) {
               key={post.url}
               href={post.url}
               className={`group grid grid-cols-1 gap-3 border-t border-neutral-200 py-10 first:border-none sm:grid-cols-[160px_1fr] sm:gap-10 dark:border-neutral-800 ${
-                i === 0 ? 'pt-0' : ''
+                i === 0 ? "pt-0" : ""
               }`}
             >
               <div className="flex flex-row items-center gap-3 sm:flex-col sm:items-start sm:gap-2">
@@ -64,10 +67,10 @@ export default async function Home({ searchParams }: HomeProps) {
                   dateTime={new Date(post.data.date).toISOString()}
                   className="text-sm text-neutral-500 dark:text-neutral-400"
                 >
-                  {new Date(post.data.date).toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
+                  {new Date(post.data.date).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
                   })}
                 </time>
               </div>
@@ -124,7 +127,7 @@ export default async function Home({ searchParams }: HomeProps) {
           ) : null}
 
           <a
-            href='https://github.com/reviactyl/panel/releases'
+            href="https://github.com/reviactyl/panel/releases"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 shadow-sm transition-colors hover:bg-neutral-100 hover:text-neutral-950 dark:border-neutral-800 dark:bg-[#0d0e15] dark:text-neutral-300 dark:hover:bg-neutral-900 dark:hover:text-white"

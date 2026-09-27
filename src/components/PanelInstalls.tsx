@@ -7,8 +7,8 @@ export default function PanelInstalls() {
 
   useEffect(() => {
     fetch("/api/v26/get-installs")
-      .then(res => res.json())
-      .then(data => setInstalls(data.total_unique_ids))
+      .then((res) => res.json())
+      .then((data) => setInstalls(data.total_unique_ids))
       .catch(() => setInstalls(null));
   }, []);
 

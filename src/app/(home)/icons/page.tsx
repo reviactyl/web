@@ -24,7 +24,7 @@ export default function Page() {
         name,
         Component: Comp as IconComponent,
         variant: "outline" as const,
-      })
+      }),
     );
 
     const solidEntries: IconEntry[] = Object.entries(SolidIcons).map(
@@ -32,7 +32,7 @@ export default function Page() {
         name,
         Component: Comp as IconComponent,
         variant: "solid" as const,
-      })
+      }),
     );
 
     return [...outlineEntries, ...solidEntries];

@@ -1,10 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import {
-  ExternalLink,
-  Loader2,
-} from "lucide-react";
+import { ExternalLink, Loader2 } from "lucide-react";
 
 type Resource = {
   title: string;
@@ -45,8 +42,8 @@ export default function Extensions() {
 
         setResources(
           data.resources.filter(
-            (resource) => resource.category_id === data.category_id
-          )
+            (resource) => resource.category_id === data.category_id,
+          ),
         );
       } catch (error) {
         console.error("Failed to fetch extensions:", error);
@@ -58,20 +55,6 @@ export default function Extensions() {
 
     fetchExtensions();
   }, []);
-
-  const scroll = (direction: "left" | "right") => {
-    const container = containerRef.current;
-
-    if (!container) return;
-
-    container.scrollBy({
-      left:
-        direction === "right"
-          ? container.clientWidth
-          : -container.clientWidth,
-      behavior: "smooth",
-    });
-  };
 
   return (
     <section

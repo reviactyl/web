@@ -5,7 +5,6 @@ export default function Info() {
   return (
     <section className="py-5 lg:py-10 rounded-xl bg-white text-neutral-950 transition-colors dark:bg-[#080910] dark:text-white">
       <div className="mx-auto w-full max-w-[1400px] px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-10">
-
         <p className="col-span-full text-2xl md:text-3xl xl:text-4xl leading-snug tracking-tight font-light">
           <span className="font-semibold text-blue-400 dark:text-blue-200">
             Reviactyl
@@ -22,7 +21,8 @@ export default function Info() {
           while providing users with a{" "}
           <span className="font-semibold text-blue-400 dark:text-blue-200">
             clean and intuitive interface
-          </span>.
+          </span>
+          .
         </p>
 
         <div>
@@ -34,7 +34,6 @@ export default function Info() {
             <FaArrowRight />
           </Link>
         </div>
-
       </div>
     </section>
   );

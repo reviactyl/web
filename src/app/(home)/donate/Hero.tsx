@@ -10,10 +10,12 @@ export default function Hero() {
           <FaHeart className="text-red-500 text-2xl" />
         </Link>
         <h1 className="text-5xl font-bold tracking-tight text-neutral-900 dark:text-white sm:text-6xl lg:text-7xl">
-            Support the Development
+          Support the Development
         </h1>
         <p className="mt-4 max-w-3xl text-xl leading-relaxed text-neutral-600 dark:text-neutral-400 md:text-1xl">
-          Help us continue building and maintaining Reviactyl Project. Your support makes a real difference in keeping this project alive and growing.
+          Help us continue building and maintaining Reviactyl Project. Your
+          support makes a real difference in keeping this project alive and
+          growing.
         </p>
       </div>
     </section>

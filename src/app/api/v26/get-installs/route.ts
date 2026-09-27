@@ -7,19 +7,14 @@ interface TelemetryStats {
 
 export async function GET() {
   try {
-    const res = await fetch(
-      "https://telemetry.reviactyl.app/stats.json",
-      {
-        headers: {
-          "User-Agent": "ReviactylFetch",
-        },
-      }
-    );
+    const res = await fetch("https://telemetry.reviactyl.app/stats.json", {
+      headers: {
+        "User-Agent": "ReviactylFetch",
+      },
+    });
 
     if (!res.ok) {
-      return Response.json(
-        { total_unique_ids: 0 }
-      );
+      return Response.json({ total_unique_ids: 0 });
     }
 
     const stats: TelemetryStats = await res.json();
@@ -28,8 +23,6 @@ export async function GET() {
       total_unique_ids: stats.total_unique_ids,
     });
   } catch {
-    return Response.json(
-      { total_unique_ids: 0 }
-    );
+    return Response.json({ total_unique_ids: 0 });
   }
 }

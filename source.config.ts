@@ -4,8 +4,8 @@ import {
   frontmatterSchema,
   metaSchema,
   defineCollections,
-} from 'fumadocs-mdx/config';
-import { z } from 'zod';
+} from "fumadocs-mdx/config";
+import { z } from "zod";
 
 // You can customise Zod schemas for frontmatter and `meta.json` here
 // see https://fumadocs.dev/docs/mdx/collections#define-docs
@@ -19,8 +19,8 @@ export const docs = defineDocs({
 });
 
 export const blogPosts = defineCollections({
-  type: 'doc',
-  dir: 'content/blog',
+  type: "doc",
+  dir: "content/blog",
   schema: frontmatterSchema.extend({
     author: z.string(),
     date: z.iso.date().or(z.date()),
@@ -29,8 +29,8 @@ export const blogPosts = defineCollections({
 });
 
 export const releasePosts = defineCollections({
-  type: 'doc',
-  dir: 'content/releases',
+  type: "doc",
+  dir: "content/releases",
   schema: frontmatterSchema.extend({
     version: z.string(),
     date: z.iso.date().or(z.date()),

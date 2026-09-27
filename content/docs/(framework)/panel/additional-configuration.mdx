@@ -19,6 +19,7 @@ Reviactyl allows you to connect to OAuth providers such as Discord, Google, and 
 7. **Click "Save" to apply the changes.**
 
 ### Google
+
 1. **Open [Google Cloud Console](https://console.cloud.google.com/).**
 2. **Create a new project or select an existing one.**
 3. **Navigate to "APIs & Services" → "Credentials".**
@@ -31,6 +32,7 @@ Reviactyl allows you to connect to OAuth providers such as Discord, Google, and 
 10. **Click "Save" to apply the changes.**
 
 ### GitHub
+
 1. **Open [GitHub Developer Settings](https://github.com/settings/profile)**.
 2. **Click "New OAuth App" and fill in the required details.**
 3. **Set the "Authorization callback URL" to `https://panel.example.com/auth/login/github/callback`.**
@@ -38,7 +40,6 @@ Reviactyl allows you to connect to OAuth providers such as Discord, Google, and 
 5. **Go to your Paymenter Admin Panel → Settings → OAuth.**
 6. **Select "GitHub" as the provider and enter the Client ID and Client Secret from GitHub Developer Settings.**
 7. **Click "Save" to apply the changes.**
-
 
 ## Backups
 
@@ -54,6 +55,7 @@ By default, Reviactyl uses local storage via Agent for backups. That said, this 
 # Sets your panel to use local storage via Wings for backups
 APP_BACKUP_DRIVER=agent
 ```
+
 Do note that, when using local storage via Wings, the destination for backups is set in Wings' `config.yml` with the following setting key:
 
 ```yaml
@@ -146,7 +148,8 @@ The keys can then be applied using the Settings in the admin panel. The reCAPTCH
 ### Disabling reCAPTCHA (via Admin Panel)
 
 <Callout type="warning" title="Security Warning">
-  We do not recommend disabling reCAPTCHA. It is a security mechanism that makes it harder to perform brute-force attacks on user accounts.
+  We do not recommend disabling reCAPTCHA. It is a security mechanism that makes
+  it harder to perform brute-force attacks on user accounts.
 </Callout>
 
 If users have trouble logging in, or your Panel isn't exposed to the internet, it can make sense to disable reCAPTCHA.
@@ -200,4 +203,3 @@ php artisan p:user:disable2fa
 **We (Reviactyl), never collect Telemetry data. All data are collected by Pterodactyl Project.**
 
 [Read more about Telemetry at pterodactyl.io](https://pterodactyl.io/panel/1.0/additional_configuration.html#telemetry)
-

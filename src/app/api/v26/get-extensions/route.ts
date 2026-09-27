@@ -4,29 +4,23 @@ const CACHE_SECONDS = 300;
 
 export async function GET() {
   try {
-    const response = await fetch(
-      "https://rextstore.app/api/v2/resources/1",
-      {
-        next: {
-          revalidate: CACHE_SECONDS,
-        },
-      }
-    );
+    const response = await fetch("https://rextstore.app/api/v2/resources/1", {
+      next: {
+        revalidate: CACHE_SECONDS,
+      },
+    });
 
     if (!response.ok) {
       return NextResponse.json(
         { error: "Failed to fetch extensions" },
-        { status: response.status }
+        { status: response.status },
       );
     }
 
     const data = await response.json();
 
     const resources = (data.resources ?? [])
-      .filter(
-        (resource: { category_id: number }) =>
-          resource.category_id === 1
-      )
+      .filter((resource: { category_id: number }) => resource.category_id === 1)
       .map(
         (resource: {
           title: string;
@@ -44,7 +38,7 @@ export async function GET() {
           author: resource.author?.name ?? null,
           description: resource.description,
           link: resource.link,
-        })
+        }),
       );
 
     return NextResponse.json(
@@ -54,15 +48,14 @@ export async function GET() {
       },
       {
         headers: {
-          "Cache-Control":
-            "public, s-maxage=300, stale-while-revalidate=60",
+          "Cache-Control": "public, s-maxage=300, stale-while-revalidate=60",
         },
-      }
+      },
     );
   } catch {
     return NextResponse.json(
       { error: "Failed to fetch extensions" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

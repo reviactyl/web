@@ -12,12 +12,14 @@ const features = [
   {
     icon: <FaStar />,
     title: "Better Quality",
-    description: "Funding allows us to invest in better infrastructure, testing, and quality assurance.",
+    description:
+      "Funding allows us to invest in better infrastructure, testing, and quality assurance.",
   },
   {
     icon: <FaHeadphonesAlt />,
     title: "Community Growth",
-    description: "Support helps us grow the community and provide better documentation and support.",
+    description:
+      "Support helps us grow the community and provide better documentation and support.",
   },
 ];
 
@@ -36,7 +38,7 @@ export default function Features() {
             <div className="relative" key={index}>
               <div className="h-full border-l border-t px-4 py-5 md:p-8">
                 <div className="mb-3 text-center flex flex-row items-center gap-x-2 md:mb-4 rounded-full border border-neutral-200 bg-white px-4 py-1.5 text-sm font-medium text-neutral-700 shadow-sm dark:border-blue-800/20 dark:bg-blue-900/50 dark:text-neutral-300 backdrop-blur-md">
-                   {feature.icon}
+                  {feature.icon}
                   <h2 className="text-xs font-normal md:text-sm md:font-medium">
                     {feature.title}
                   </h2>

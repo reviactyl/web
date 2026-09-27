@@ -4,7 +4,9 @@ icon: Box
 ---
 
 <Callout type="warning" title="Please Read Before Proceeding">
-  Only use this guide if you don't have a panel already. If you already have Pterodactyl installation, then follow the [migration guide](/docs/panel/migrating-from-pterodactyl).
+  Only use this guide if you don't have a panel already. If you already have
+  Pterodactyl installation, then follow the [migration
+  guide](/docs/panel/migrating-from-pterodactyl).
 </Callout>
 
 This Panel is designed to run on your own web server. You will need to have root access to your server in order to run and use this panel.
@@ -17,19 +19,18 @@ Reviactyl runs on a wide range of operating systems, so pick whichever you are m
 
 This guide primarily focuses on **Ubuntu 26.04 LTS**. Extra Dependencies may or may not needed if you're using different supported OSeS.
 
-| Operating System                     | Status           | Notes                                                                 |
-|-------------------------------------|----------------|----------------------------------------------------------------------|
-| Ubuntu 22.04                         | Fully Supported | Requires additional repositories for PHP                               |
-| Ubuntu 24.04                         | Fully Supported | MariaDB can be installed without the repo setup script.               |
-| Ubuntu 26.04                         | Fully Supported | MariaDB can be installed without the repo setup script.               |
-| Debian 11                            | Fully Supported | Requires additional packages and configuration.                       |
-| Debian 12                            | Fully Supported | Requires additional packages and configuration.                       |
-| Debian 12                            | Fully Supported | Requires additional packages and configuration.                       |
-| Debian 13                            | Fully Supported | Requires additional packages and configuration.                       |
-| RHEL / Rocky Linux / AlmaLinux       | Fully Supported | Extra repos are required.                                             |
-| MacOS 15 and above                   | Partially Supported | Extra configuration needed. (Only for development, not recommended for production.) |
-| Windows 10 & Above                   | Not Supported* | Panel may behave weirdly. (Use macOS or Supported Linux Distros / or WSL)     |
-
+| Operating System               | Status              | Notes                                                                               |
+| ------------------------------ | ------------------- | ----------------------------------------------------------------------------------- |
+| Ubuntu 22.04                   | Fully Supported     | Requires additional repositories for PHP                                            |
+| Ubuntu 24.04                   | Fully Supported     | MariaDB can be installed without the repo setup script.                             |
+| Ubuntu 26.04                   | Fully Supported     | MariaDB can be installed without the repo setup script.                             |
+| Debian 11                      | Fully Supported     | Requires additional packages and configuration.                                     |
+| Debian 12                      | Fully Supported     | Requires additional packages and configuration.                                     |
+| Debian 12                      | Fully Supported     | Requires additional packages and configuration.                                     |
+| Debian 13                      | Fully Supported     | Requires additional packages and configuration.                                     |
+| RHEL / Rocky Linux / AlmaLinux | Fully Supported     | Extra repos are required.                                                           |
+| MacOS 15 and above             | Partially Supported | Extra configuration needed. (Only for development, not recommended for production.) |
+| Windows 10 & Above             | Not Supported\*     | Panel may behave weirdly. (Use macOS or Supported Linux Distros / or WSL)           |
 
 ## Dependencies
 
@@ -102,9 +103,10 @@ php artisan key:generate --force
   Back up your encryption key (`APP_KEY` in the `.env` file).  
   If you lose it, all encrypted data is irrecoverable, even with database backups.
 
-  ```bash
-  grep APP_KEY /var/www/reviactyl/.env
-  ```
+```bash
+grep APP_KEY /var/www/reviactyl/.env
+```
+
 </Callout>
 
 ## Environment Configuration
@@ -170,8 +172,9 @@ WantedBy=multi-user.target
 ```
 
 <Callout type="info">
-If you are using RHEL, Rocky Linux, or AlmaLinux, replace `redis-server.service` with `redis.service`.  
-If you are not using Redis, remove the `After=` line.
+  If you are using RHEL, Rocky Linux, or AlmaLinux, replace
+  `redis-server.service` with `redis.service`. If you are not using Redis,
+  remove the `After=` line.
 </Callout>
 
 ```bash

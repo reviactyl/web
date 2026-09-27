@@ -49,7 +49,7 @@ const slides = [
     title: "User Passkeys",
     href: "/#",
     image: "/preview/dashboard_passkeys.webp",
-  }
+  },
 ];
 
 export default function Hero() {
@@ -60,9 +60,7 @@ export default function Hero() {
   }, []);
 
   const previous = useCallback(() => {
-    setActiveIndex(
-      (current) => (current - 1 + slides.length) % slides.length,
-    );
+    setActiveIndex((current) => (current - 1 + slides.length) % slides.length);
   }, []);
 
   useEffect(() => {
@@ -105,9 +103,7 @@ export default function Hero() {
         <div className="relative flex min-h-[700px] items-center">
           <div className="relative z-30 w-full pt-16 text-center lg:w-[54%] lg:pt-0 lg:text-left">
             <h1 className="mx-auto max-w-[600px] text-[42px] font-medium leading-[1.08] tracking-[-0.045em] text-neutral-900 sm:text-[52px] lg:mx-0 lg:text-[58px] xl:text-[62px] dark:text-white">
-              <span className="block">
-                Your Infrastructure.
-              </span>
+              <span className="block">Your Infrastructure.</span>
 
               <span className="block text-neutral-500 dark:text-[#d8d9e0]">
                 Total Control.
@@ -127,7 +123,6 @@ export default function Hero() {
               >
                 <span className="relative z-10 flex items-center justify-center gap-2 text-white dark:text-black">
                   Get Started
-
                   <span className="rounded-xl border border-emerald-300 bg-emerald-300/20 px-2 py-1 text-sm font-bold dark:border-emerald-600 dark:bg-emerald-600/20">
                     Free
                   </span>
@@ -236,9 +231,7 @@ export default function Hero() {
                     type="button"
                     onClick={() => setActiveIndex(index)}
                     aria-label={`Go to ${slide.title}`}
-                    aria-current={
-                      index === activeIndex ? "true" : undefined
-                    }
+                    aria-current={index === activeIndex ? "true" : undefined}
                     className="group flex h-7 items-center px-[5px]"
                   >
                     <span

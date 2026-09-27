@@ -1,11 +1,14 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { blog } from '@/lib/source';
+import Image from "next/image";
+import Link from "next/link";
+import { blog } from "@/lib/source";
 
 export default function Home() {
-  const posts = blog.getPages().sort(
-    (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
-  );
+  const posts = blog
+    .getPages()
+    .sort(
+      (a, b) =>
+        new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
+    );
 
   return (
     <main className="min-h-screen bg-white text-neutral-950 transition-colors dark:bg-[#080910] dark:text-white">
@@ -48,11 +51,11 @@ export default function Home() {
                   {post.data.description}
                 </p>
                 <p className="mt-3 text-sm text-neutral-500 dark:text-neutral-400">
-                  {post.data.author} &middot;{' '}
-                  {new Date(post.data.date).toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
+                  {post.data.author} &middot;{" "}
+                  {new Date(post.data.date).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
                   })}
                 </p>
               </div>

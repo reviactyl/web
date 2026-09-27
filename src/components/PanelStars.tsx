@@ -7,8 +7,8 @@ export default function PanelStars() {
 
   useEffect(() => {
     fetch("/api/v26/get-stars")
-      .then(res => res.json())
-      .then(data => setStars(data.stars))
+      .then((res) => res.json())
+      .then((data) => setStars(data.stars))
       .catch(() => setStars(null));
   }, []);
 

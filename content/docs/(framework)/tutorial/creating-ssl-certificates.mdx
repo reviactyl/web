@@ -27,7 +27,7 @@ After installing the certbot, we need to generate a certificate. There are a cou
 is to use the web server-specific certbot plugin you just installed. For Wings-only machines that don't need a web server, use the standalone or DNS method of the certbot as you don't need a web server for it.
 
 Then, in the command below, you should replace `example.com` with the domain you would like to generate a certificate
-for.  When you have multiple domains you would like certificates for, simply add more `-d anotherdomain.com` flags to the
+for. When you have multiple domains you would like certificates for, simply add more `-d anotherdomain.com` flags to the
 command. You can also look into generating a wildcard certificate but that is not covered in this tutorial.
 
 When you are using certbot's Nginx/Apache plugin, you won't need to restart your webserver to have the certificate
@@ -64,7 +64,7 @@ Deploy hook would restart the Nginx service to apply a new certificate when it's
 For advanced users, we suggest installing and using [acme.sh](https://acme.sh)
 which provides more options, and is much more powerful than certbot.
 
-``` text
+```text
 0 23 * * * certbot renew --quiet --deploy-hook "systemctl restart nginx"
 ```
 
@@ -92,6 +92,7 @@ Once the process has completed, you can restart the Nginx service:
 ```bash
 systemctl start nginx
 ```
+
 You may also need to restart Wings as not every service is able to automatically apply an updated certificate:
 
 ```bash
@@ -100,7 +101,7 @@ systemctl restart wings
 
 </Tab>
 <Tab value="Method 2: acme.sh (using Cloudflare API)">
-This is for advanced users, whose server systems do not have access to port 80. The command below is for Ubuntu distributions and CloudFlare API (you may google for other APIs for other DNS providers), but you can always check [acme.sh's official site](https://github.com/acmesh-official/acme.sh) for installation instructions. Make sure you read both instructions, as some people may have moved to CloudFlare's [new authorization system](https://blog.cloudflare.com/permissions-best-practices) (Modern), but others [have not](https://cloudflare.tv/event/ea8JJLgR) (Legacy). 
+This is for advanced users, whose server systems do not have access to port 80. The command below is for Ubuntu distributions and CloudFlare API (you may google for other APIs for other DNS providers), but you can always check [acme.sh's official site](https://github.com/acmesh-official/acme.sh) for installation instructions. Make sure you read both instructions, as some people may have moved to CloudFlare's [new authorization system](https://blog.cloudflare.com/permissions-best-practices) (Modern), but others [have not](https://cloudflare.tv/event/ea8JJLgR) (Legacy).
 
 ```bash
 curl https://get.acme.sh | sh
@@ -125,7 +126,6 @@ export CF_Token="Your_CloudFlare_API_Key"
 export CF_Account_ID="Your_CloudFlare_Account_ID"
 export CF_Zone_ID="Your_CloudFlare_Zone_ID"
 ```
-
 
 ### Obtaining CloudFlare API Key (Modern)
 

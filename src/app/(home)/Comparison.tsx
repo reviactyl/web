@@ -16,17 +16,72 @@ const VISIBLE_ROW_COUNT = 6;
 
 const rows: ComparisonRow[] = [
   { label: "Open source", reviactyl: true, pterodactyl: true, pelican: true },
-  { label: "Extensions System", reviactyl: true, pterodactyl: false, pelican: true },
-  { label: "OAuth/SSO Integration", reviactyl: true, pterodactyl: false, pelican: "partial" },
-  { label: "Production-ready", reviactyl: true, pterodactyl: true, pelican: "partial" },
-  { label: "Modern Stacks", reviactyl: true, pterodactyl: false, pelican: true },
-  { label: "Theme/Color Selector", reviactyl: true, pterodactyl: false, pelican: false },
-  { label: "Modern admin panel", reviactyl: true, pterodactyl: false, pelican: true },
-  { label: "Multi-Editor Support", reviactyl: true, pterodactyl: false, pelican: "partial" },
-  { label: "Built-in Theme Customizer", reviactyl: true, pterodactyl: false, pelican: false },
-  { label: "Docker Support", reviactyl: true, pterodactyl: true, pelican: true },
-  { label: "React Frontend", reviactyl: true, pterodactyl: true, pelican: false },
-  { label: "Mature Ecosystem", reviactyl: "partial", pterodactyl: true, pelican: true },
+  {
+    label: "Extensions System",
+    reviactyl: true,
+    pterodactyl: false,
+    pelican: true,
+  },
+  {
+    label: "OAuth/SSO Integration",
+    reviactyl: true,
+    pterodactyl: false,
+    pelican: "partial",
+  },
+  {
+    label: "Production-ready",
+    reviactyl: true,
+    pterodactyl: true,
+    pelican: "partial",
+  },
+  {
+    label: "Modern Stacks",
+    reviactyl: true,
+    pterodactyl: false,
+    pelican: true,
+  },
+  {
+    label: "Theme/Color Selector",
+    reviactyl: true,
+    pterodactyl: false,
+    pelican: false,
+  },
+  {
+    label: "Modern admin panel",
+    reviactyl: true,
+    pterodactyl: false,
+    pelican: true,
+  },
+  {
+    label: "Multi-Editor Support",
+    reviactyl: true,
+    pterodactyl: false,
+    pelican: "partial",
+  },
+  {
+    label: "Built-in Theme Customizer",
+    reviactyl: true,
+    pterodactyl: false,
+    pelican: false,
+  },
+  {
+    label: "Docker Support",
+    reviactyl: true,
+    pterodactyl: true,
+    pelican: true,
+  },
+  {
+    label: "React Frontend",
+    reviactyl: true,
+    pterodactyl: true,
+    pelican: false,
+  },
+  {
+    label: "Mature Ecosystem",
+    reviactyl: "partial",
+    pterodactyl: true,
+    pelican: true,
+  },
 ];
 
 function Cell({ value }: { value: CellValue }) {
@@ -52,7 +107,9 @@ function Cell({ value }: { value: CellValue }) {
     );
   }
   return (
-    <span className="text-sm text-neutral-600 dark:text-neutral-300">{value}</span>
+    <span className="text-sm text-neutral-600 dark:text-neutral-300">
+      {value}
+    </span>
   );
 }
 

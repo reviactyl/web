@@ -4,14 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import {
-  Github,
-  Moon,
-  Sun,
-  Menu,
-  X,
-  ArrowUpRight,
-} from "lucide-react";
+import { Github, Moon, Sun, Menu, X, ArrowUpRight } from "lucide-react";
 import PanelStars from "@/components/PanelStars";
 import Tooltip from "@/components/ui/Tooltip";
 import { FaDiscord, FaHeart } from "react-icons/fa6";
@@ -61,7 +54,7 @@ export default function Navbar() {
 
     const stored = localStorage.getItem("theme");
     const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)"
+      "(prefers-color-scheme: dark)",
     ).matches;
 
     const dark = stored ? stored === "dark" : prefersDark;
@@ -87,9 +80,7 @@ export default function Navbar() {
   };
 
   const themeLabel =
-    mounted && isDark
-      ? "Switch to light mode"
-      : "Switch to dark mode";
+    mounted && isDark ? "Switch to light mode" : "Switch to dark mode";
 
   return (
     <header
@@ -126,19 +117,14 @@ export default function Navbar() {
 
           <ul className="hidden items-center gap-1 md:flex">
             {mainLinks.map((link) => {
-              const active =
-                !link.external && pathname?.startsWith(link.href);
+              const active = !link.external && pathname?.startsWith(link.href);
 
               return (
                 <li key={link.href}>
                   <Link
                     href={link.href}
                     target={link.external ? "_blank" : undefined}
-                    rel={
-                      link.external
-                        ? "noreferrer noopener"
-                        : undefined
-                    }
+                    rel={link.external ? "noreferrer noopener" : undefined}
                     className={`group flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-medium transition-all ${
                       active
                         ? "bg-neutral-100 text-neutral-900 dark:bg-neutral-800 dark:text-white"
@@ -170,10 +156,7 @@ export default function Navbar() {
                   rel="noreferrer noopener"
                   className={`p-2 text-neutral-400 transition-colors dark:text-neutral-500 ${link.hoverColor}`}
                 >
-                  <link.icon
-                    className="h-4 w-4"
-                    aria-hidden="true"
-                  />
+                  <link.icon className="h-4 w-4" aria-hidden="true" />
                   <span className="sr-only">{link.label}</span>
                 </a>
               </Tooltip>
@@ -188,10 +171,7 @@ export default function Navbar() {
                 rel="noreferrer noopener"
                 className="group flex items-center gap-2 rounded-full border border-neutral-200 bg-white py-1 pl-3 pr-1 text-sm font-medium text-neutral-600 transition-all hover:border-neutral-300 hover:text-neutral-900 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-400 dark:hover:border-neutral-700 dark:hover:text-white"
               >
-                <Github
-                  className="h-4 w-4"
-                  aria-hidden="true"
-                />
+                <Github className="h-4 w-4" aria-hidden="true" />
 
                 <span>reviactyl</span>
 
@@ -209,15 +189,9 @@ export default function Navbar() {
                 className="rounded-full p-2 text-neutral-400 transition-colors hover:bg-neutral-100 hover:text-neutral-900 dark:text-neutral-500 dark:hover:bg-neutral-800 dark:hover:text-white"
               >
                 {mounted && isDark ? (
-                  <Sun
-                    className="h-4 w-4"
-                    aria-hidden="true"
-                  />
+                  <Sun className="h-4 w-4" aria-hidden="true" />
                 ) : (
-                  <Moon
-                    className="h-4 w-4"
-                    aria-hidden="true"
-                  />
+                  <Moon className="h-4 w-4" aria-hidden="true" />
                 )}
               </button>
             </Tooltip>
@@ -241,15 +215,9 @@ export default function Navbar() {
             className="rounded-full p-2 text-neutral-500 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-800"
           >
             {mounted && isDark ? (
-              <Sun
-                className="h-5 w-5"
-                aria-hidden="true"
-              />
+              <Sun className="h-5 w-5" aria-hidden="true" />
             ) : (
-              <Moon
-                className="h-5 w-5"
-                aria-hidden="true"
-              />
+              <Moon className="h-5 w-5" aria-hidden="true" />
             )}
           </button>
 
@@ -261,15 +229,9 @@ export default function Navbar() {
             className="rounded-full p-2 text-neutral-500 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-800"
           >
             {mobileOpen ? (
-              <X
-                className="h-5 w-5"
-                aria-hidden="true"
-              />
+              <X className="h-5 w-5" aria-hidden="true" />
             ) : (
-              <Menu
-                className="h-5 w-5"
-                aria-hidden="true"
-              />
+              <Menu className="h-5 w-5" aria-hidden="true" />
             )}
           </button>
         </div>
@@ -284,11 +246,7 @@ export default function Navbar() {
                   <Link
                     href={link.href}
                     target={link.external ? "_blank" : undefined}
-                    rel={
-                      link.external
-                        ? "noreferrer noopener"
-                        : undefined
-                    }
+                    rel={link.external ? "noreferrer noopener" : undefined}
                     onClick={() => setMobileOpen(false)}
                     className="flex items-center justify-between rounded-lg px-3 py-2.5 text-sm font-medium text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-800/60 dark:hover:text-white"
                   >
@@ -322,8 +280,7 @@ export default function Navbar() {
                     label: "GitHub",
                     href: "https://github.com/reviactyl/panel",
                     icon: Github,
-                    hoverColor:
-                      "hover:text-neutral-900 dark:hover:text-white",
+                    hoverColor: "hover:text-neutral-900 dark:hover:text-white",
                   },
                 ].map((link) => (
                   <a
@@ -333,13 +290,8 @@ export default function Navbar() {
                     rel="noreferrer noopener"
                     className={`text-neutral-500 transition-colors ${link.hoverColor}`}
                   >
-                    <link.icon
-                      className="h-5 w-5"
-                      aria-hidden="true"
-                    />
-                    <span className="sr-only">
-                      {link.label}
-                    </span>
+                    <link.icon className="h-5 w-5" aria-hidden="true" />
+                    <span className="sr-only">{link.label}</span>
                   </a>
                 ))}
               </div>

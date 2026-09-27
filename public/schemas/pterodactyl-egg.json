@@ -31,10 +31,7 @@
       "properties": {
         "version": {
           "type": "string",
-          "oneOf": [
-            { "const": "PTDL_v1" },
-            { "const": "PTDL_v2" }
-          ]
+          "oneOf": [{ "const": "PTDL_v1" }, { "const": "PTDL_v2" }]
         },
         "update_url": {
           "type": ["string", "null"]

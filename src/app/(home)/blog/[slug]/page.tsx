@@ -1,10 +1,10 @@
-import { notFound } from 'next/navigation';
-import Link from 'next/link';
-import Image from 'next/image';
-import { InlineTOC } from 'fumadocs-ui/components/inline-toc';
-import defaultMdxComponents from 'fumadocs-ui/mdx';
-import { blog } from '@/lib/source';
-import Footer from '../../Footer';
+import { notFound } from "next/navigation";
+import Link from "next/link";
+import Image from "next/image";
+import { InlineTOC } from "fumadocs-ui/components/inline-toc";
+import defaultMdxComponents from "fumadocs-ui/mdx";
+import { blog } from "@/lib/source";
+import Footer from "../../Footer";
 
 export default async function Page(props: {
   params: Promise<{ slug: string }>;
@@ -16,10 +16,10 @@ export default async function Page(props: {
   const Mdx = page.data.body;
   const date = new Date(page.data.date);
   const initials = page.data.author
-    .split(' ')
+    .split(" ")
     .map((part) => part[0])
     .slice(0, 2)
-    .join('')
+    .join("")
     .toUpperCase();
 
   return (
@@ -76,10 +76,10 @@ export default async function Page(props: {
                   dateTime={date.toISOString()}
                   className="text-fd-muted-foreground"
                 >
-                  {date.toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
+                  {date.toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
                   })}
                 </time>
               </div>
@@ -114,7 +114,7 @@ export async function generateMetadata(props: {
   const page = blog.getPage([params.slug]);
   if (!page) notFound();
   return {
-    title: page.data.title + ' | Reviactyl',
+    title: page.data.title + " | Reviactyl",
     description: page.data.description,
     openGraph: {
       title: page.data.title,

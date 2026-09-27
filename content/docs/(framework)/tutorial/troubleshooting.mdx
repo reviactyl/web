@@ -64,35 +64,35 @@ tail -n 1000 /var/www/reviactyl/storage/logs/laravel-$(date +%F).log | grep "\[$
 
 ### Basic Debugging Steps
 
-* Check that Agent is running, and not reporting errors. Use `systemctl status agent` to check the current status of
+- Check that Agent is running, and not reporting errors. Use `systemctl status agent` to check the current status of
   the process.
-* Check your browser's console by pressing `Ctrl + Shift + J` (in Chrome) or `Cmd + Alt + I` (in Safari). If there is
-a red error in it, chances are that it will narrow down the potential problem.
-* Make sure Agent is properly installed and the active configuration matches the configuration shown under
-`Admin -> Node -> Configuration` in the Panel.
-* Check that the Agent ports are open on your firewall. Agent uses ports `8080` or `8443` for HTTP(s) traffic,
-and `2022` for SFTP traffic.
-* Ensure you have AdBlock disabled or whitelisted for your Panel and Agent domains.
-* Check that the Panel can reach Agent using the domain that is configured on the Panel. Run `curl
+- Check your browser's console by pressing `Ctrl + Shift + J` (in Chrome) or `Cmd + Alt + I` (in Safari). If there is
+  a red error in it, chances are that it will narrow down the potential problem.
+- Make sure Agent is properly installed and the active configuration matches the configuration shown under
+  `Admin -> Node -> Configuration` in the Panel.
+- Check that the Agent ports are open on your firewall. Agent uses ports `8080` or `8443` for HTTP(s) traffic,
+  and `2022` for SFTP traffic.
+- Ensure you have AdBlock disabled or whitelisted for your Panel and Agent domains.
+- Check that the Panel can reach Agent using the domain that is configured on the Panel. Run `curl
 https://domain.com:8080` on the Panel server and ensure that it can successfully connect to Agent.
-* Ensure that you are using the correct HTTP scheme for your Panel and Agent. If the Panel is running over HTTPS
+- Ensure that you are using the correct HTTP scheme for your Panel and Agent. If the Panel is running over HTTPS
   Agent will also need to be running on HTTPS.
-* If using HTTPS for Agent, make sure that the certificates have not expired.
+- If using HTTPS for Agent, make sure that the certificates have not expired.
 
 ### More Advanced Debugging Steps
 
-* Stop Agent and run `agent --debug` to see if there are any errors being output. If so, try resolving them manually,
+- Stop Agent and run `agent --debug` to see if there are any errors being output. If so, try resolving them manually,
   or reach out on [Discord](/discord) for more assistance.
-* Check your DNS and ensure that the response you receive is the one you expect using a tool such as `nslookup` or `dig`.
-* If you use CloudFlare make sure that the orange cloud is disabled for your Agent or Panel `A` records.
-* Make sure when using Agent behind a firewall — pfSense, OpenSwitch, etc. — that the correct NAT settings to access
-the Wing's ports from the outside network are setup.
-* If nothing is working so far, check your own DNS settings and consider switching DNS servers.
-* When running the Panel and Agent on one server it can sometimes help if to add an entry in `/etc/hosts` that directs
-the public IP back to the server. Sometimes the reverse path is also needed, so you may need to add an entry to your
-servers `/etc/hosts` file that points the Panel's domain to the correct IP.
-* When running Agent and the Panel on separate VM's using the same adapter make sure the VM's can connect to each
-other. Promiscuous mode might be needed.
+- Check your DNS and ensure that the response you receive is the one you expect using a tool such as `nslookup` or `dig`.
+- If you use CloudFlare make sure that the orange cloud is disabled for your Agent or Panel `A` records.
+- Make sure when using Agent behind a firewall — pfSense, OpenSwitch, etc. — that the correct NAT settings to access
+  the Wing's ports from the outside network are setup.
+- If nothing is working so far, check your own DNS settings and consider switching DNS servers.
+- When running the Panel and Agent on one server it can sometimes help if to add an entry in `/etc/hosts` that directs
+  the public IP back to the server. Sometimes the reverse path is also needed, so you may need to add an entry to your
+  servers `/etc/hosts` file that points the Panel's domain to the correct IP.
+- When running Agent and the Panel on separate VM's using the same adapter make sure the VM's can connect to each
+  other. Promiscuous mode might be needed.
 
 ## Invalid MAC Exception
 
@@ -102,6 +102,7 @@ ever seen this error occur is when you blindly restore the Panel database from a
 installation of the Panel.
 
 When restoring backups you should _always_ restore the `.env` file!
+
 </Callout>
 
 Sometimes when using the Panel you'll unexpectedly encounter a broken page, and upon checking the logs you'll see

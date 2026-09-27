@@ -1,10 +1,10 @@
-import { notFound } from 'next/navigation';
-import Link from 'next/link';
-import { InlineTOC } from 'fumadocs-ui/components/inline-toc';
-import defaultMdxComponents from 'fumadocs-ui/mdx';
-import { releases } from '@/lib/source';
-import Footer from '../../Footer';
-import { FaArrowCircleLeft } from 'react-icons/fa';
+import { notFound } from "next/navigation";
+import Link from "next/link";
+import { InlineTOC } from "fumadocs-ui/components/inline-toc";
+import defaultMdxComponents from "fumadocs-ui/mdx";
+import { releases } from "@/lib/source";
+import Footer from "../../Footer";
+import { FaArrowCircleLeft } from "react-icons/fa";
 
 export default async function Page(props: {
   params: Promise<{ slug: string }>;
@@ -60,10 +60,10 @@ export default async function Page(props: {
                 Released
               </p>
               <time dateTime={date.toISOString()} className="font-medium">
-                {date.toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric',
+                {date.toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
                 })}
               </time>
             </div>
@@ -95,7 +95,7 @@ export async function generateMetadata(props: {
   const page = releases.getPage([params.slug]);
   if (!page) notFound();
   return {
-    title: page.data.title + ' | Reviactyl',
+    title: page.data.title + " | Reviactyl",
     description: page.data.description,
     openGraph: {
       title: page.data.title,

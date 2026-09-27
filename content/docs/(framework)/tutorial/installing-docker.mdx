@@ -10,7 +10,9 @@ curl -sSL https://get.docker.com/ | CHANNEL=stable sudo sh
 ```
 
 <Callout type="info" title="Installing Docker CE">
-    If the above command does not work, please refer to the [official Docker documentation](https://docs.docker.com/engine/install/) on how to install Docker CE on your server.
+  If the above command does not work, please refer to the [official Docker
+  documentation](https://docs.docker.com/engine/install/) on how to install
+  Docker CE on your server.
 </Callout>
 
 ## Start Docker on Boot
@@ -38,6 +40,7 @@ GRUB_CMDLINE_LINUX_DEFAULT="swapaccount=1"
 ```
 
 <Callout type="info" title="GRUB Configurations">
-    Some Linux distros may ignore `GRUB_CMDLINE_LINUX_DEFAULT`.  
-    Therefore you might have to use `GRUB_CMDLINE_LINUX` instead should the above variable not work for you.
+  Some Linux distros may ignore `GRUB_CMDLINE_LINUX_DEFAULT`. Therefore you
+  might have to use `GRUB_CMDLINE_LINUX` instead should the above variable not
+  work for you.
 </Callout>

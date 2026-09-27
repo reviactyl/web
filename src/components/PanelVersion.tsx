@@ -7,8 +7,8 @@ export default function PanelVersion() {
 
   useEffect(() => {
     fetch("/api/v26/get-latest")
-      .then(res => res.json())
-      .then(data => setVersion(data.version))
+      .then((res) => res.json())
+      .then((data) => setVersion(data.version))
       .catch(() => setVersion("v0"));
   }, []);
 

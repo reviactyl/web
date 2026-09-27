@@ -15,23 +15,18 @@ export async function GET() {
       {
         headers: {
           "User-Agent": "ReviactylFetch",
-          "Accept": "application/vnd.github+json",
+          Accept: "application/vnd.github+json",
         },
-      }
+      },
     );
 
     if (!res.ok) {
-      return Response.json(
-        { version: "Unavailable" },
-        { status: res.status }
-      );
+      return Response.json({ version: "Unavailable" }, { status: res.status });
     }
 
     const releases: GitHubRelease[] = await res.json();
 
-    const latestStable = releases.find(
-      (r) => !r.prerelease && !r.draft
-    );
+    const latestStable = releases.find((r) => !r.prerelease && !r.draft);
 
     if (!latestStable) {
       return Response.json({ version: "Unknown" });
@@ -43,7 +38,7 @@ export async function GET() {
         year: "numeric",
         month: "long",
         day: "2-digit",
-      }
+      },
     );
 
     return Response.json({
@@ -51,9 +46,6 @@ export async function GET() {
       version_number: latestStable.tag_name,
     });
   } catch {
-    return Response.json(
-      { version: "v0 (Unknown)" },
-      { status: 500 }
-    );
+    return Response.json({ version: "v0 (Unknown)" }, { status: 500 });
   }
 }
