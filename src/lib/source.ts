@@ -1,8 +1,8 @@
-import { docs, blogPosts, releasePosts } from "@/.source";
+import { docs, blogPosts, releasePosts } from "@/.source/server";
 import { loader } from "fumadocs-core/source";
+import { toFumadocsSource } from "fumadocs-mdx/runtime/server";
 import { icons } from "lucide-react";
 import { createElement } from "react";
-import { createMDXSource } from "fumadocs-mdx";
 import { Reviactyl, Development } from "@/components/Logo";
 // See https://fumadocs.vercel.app/docs/headless/source-api for more info
 export const source = loader({
@@ -26,10 +26,10 @@ export const source = loader({
 
 export const blog = loader({
   baseUrl: "/blog",
-  source: createMDXSource(blogPosts),
+  source: toFumadocsSource(blogPosts, []),
 });
 
 export const releases = loader({
   baseUrl: "/releases",
-  source: createMDXSource(releasePosts),
+  source: toFumadocsSource(releasePosts, []),
 });

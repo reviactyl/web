@@ -5,7 +5,6 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import {
-  Github,
   Moon,
   Sun,
   Menu,
@@ -21,7 +20,7 @@ import {
 } from "lucide-react";
 import PanelStars from "@/components/PanelStars";
 import Tooltip from "@/components/ui/Tooltip";
-import { FaDiscord, FaHeart } from "react-icons/fa6";
+import { FaDiscord, FaHeart, FaGithub } from "react-icons/fa6";
 import { FaCoffee } from "react-icons/fa";
 
 const mainLinks = [
@@ -319,7 +318,7 @@ export default function Navbar() {
                 rel="noreferrer noopener"
                 className="group flex items-center gap-2 rounded-full border border-neutral-200 bg-white py-1 pl-3 pr-1 text-sm font-medium text-neutral-600 transition-all hover:border-neutral-300 hover:text-neutral-900 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-400 dark:hover:border-neutral-700 dark:hover:text-white"
               >
-                <Github className="h-4 w-4" aria-hidden="true" />
+                <FaGithub className="h-4 w-4" aria-hidden="true" />
 
                 <span>reviactyl</span>
 
@@ -513,7 +512,7 @@ export default function Navbar() {
                     {
                       label: "GitHub",
                       href: "https://github.com/reviactyl/panel",
-                      icon: Github,
+                      icon: FaGithub,
                       hoverColor:
                         "hover:text-neutral-900 dark:hover:text-white",
                     },

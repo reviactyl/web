@@ -17,7 +17,7 @@ export default async function Page(props: {
   const date = new Date(page.data.date);
   const initials = page.data.author
     .split(" ")
-    .map((part) => part[0])
+    .map((part: string) => part[0])
     .slice(0, 2)
     .join("")
     .toUpperCase();
