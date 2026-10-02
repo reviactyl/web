@@ -272,3 +272,33 @@ As of 2026-10-01, the data collected consists of:
     * Kernel Version
     * Operating System (Debian, Fedora, RHEL, Ubuntu, etc.)
     * Operating System Type (bsd, linux, windows, etc.)
+
+### How is the data stored?
+
+Currently, the data is stored with Namecrane Hosting, we ingest all telemetry data with a PHP Worker which does basic processing such as validation and then inserts it into a private directory.
+
+You can get the total unique UUIDS using `GET https://reviactyl.app/api/v26/get-installs` request.
+
+### Enabling Telemetry
+
+Telemetry is enabled by default, if you want to enable it after disabling it, edit your `.env` file
+and either remove the `PTERODACTYL_TELEMETRY_ENABLED` line, or set it to `true`.
+
+```text
+PANEL_TELEMETRY_ENABLED=true
+```
+
+You may also use the `php artisan p:environment:setup` command to enable telemetry, optionally with
+the `--telemetry` flag for a non-interactive setup.
+
+### Disabling Telemetry
+
+To disable telemetry, edit your `.env` file and set `PTERODACTYL_TELEMETRY_ENABLED` to `false`.
+
+```text
+PANEL_TELEMETRY_ENABLED=false
+```
+
+You may also use the `php artisan p:environment:setup` command to disable telemetry, optionally with
+the `--telemetry=false` flag for a non-interactive setup.
+
