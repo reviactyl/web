@@ -7,9 +7,18 @@ This documentation covers the process for updating within the `v26.x.x` series o
 
 ## Automatic Upgrade
 
-Under work. Use the manual upgrade instructions below for now.
+Automatic Upgrades are available starting from `v26.10.0`. Guide will be available soon after `.01`
 
 ## Manual Upgrade
+
+### Delete Old Files
+```sh
+cd /var/www/reviactyl
+find . -mindepth 1 -maxdepth 1 ! -name 'public' ! -name '.env' ! -name 'extensions' ! -name 'storage' ! -name 'database' -exec rm -rf -- {} +
+```
+Recommended to run inorder to fix conflicts.
+
+**RUN THIS COMMAND ON YOUR REVIACTYL ROOT DIRECTORY (Example - `/var/www/reviactyl/`)**
 
 ### Download & Install Latest Version of Reviactyl
 
