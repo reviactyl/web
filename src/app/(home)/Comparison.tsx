@@ -242,7 +242,7 @@ export default function Comparison() {
                     ))}
                   </tbody>
                 </table>
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-white via-white/70 to-transparent dark:from-neutral-950 dark:via-neutral-950/70" />
+                <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-white via-white/70 to-transparent dark:from-neutral-950 dark:via-neutral-950/70" />
               </div>
             )}
           </div>

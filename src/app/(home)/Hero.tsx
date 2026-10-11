@@ -95,14 +95,14 @@ export default function Hero() {
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10"
       >
-        <div className="absolute left-[48%] top-[-300px] h-[700px] w-[700px] rounded-full bg-violet-500/5 blur-[180px] dark:bg-[#343a8f]/10" />
-        <div className="absolute right-[-100px] top-[100px] h-[650px] w-[650px] rounded-full bg-blue-500/5 blur-[160px] dark:bg-[#1d245c]/10" />
+        <div className="absolute left-[48%] -top-75 h-175 w-175 rounded-full bg-violet-500/5 blur-[180px] dark:bg-[#343a8f]/10" />
+        <div className="absolute -right-25 top-25 h-162.5 w-162.5 rounded-full bg-blue-500/5 blur-[160px] dark:bg-[#1d245c]/10" />
       </div>
 
-      <div className="relative mx-auto min-h-[700px] max-w-[1440px] px-5 sm:px-8 lg:px-10">
-        <div className="relative flex min-h-[700px] items-center">
+      <div className="relative mx-auto min-h-175 max-w-360 px-5 sm:px-8 lg:px-10">
+        <div className="relative flex min-h-175 items-center">
           <div className="relative z-30 w-full pt-16 text-center lg:w-[54%] lg:pt-0 lg:text-left">
-            <h1 className="mx-auto max-w-[600px] text-[42px] font-medium leading-[1.08] tracking-[-0.045em] text-neutral-900 sm:text-[52px] lg:mx-0 lg:text-[58px] xl:text-[62px] dark:text-white">
+            <h1 className="mx-auto max-w-150 text-[42px] font-medium leading-[1.08] tracking-[-0.045em] text-neutral-900 sm:text-[52px] lg:mx-0 lg:text-[58px] xl:text-[62px] dark:text-white">
               <span className="block">Your Infrastructure.</span>
 
               <span className="block text-neutral-500 dark:text-[#d8d9e0]">
@@ -110,7 +110,7 @@ export default function Hero() {
               </span>
             </h1>
 
-            <p className="mt-6 max-w-[570px] text-[18px] leading-[1.45] tracking-[-0.01em] text-neutral-600 sm:text-[20px] dark:text-[#9299b5]">
+            <p className="mt-6 max-w-142.5 text-[18px] leading-[1.45] tracking-[-0.01em] text-neutral-600 sm:text-[20px] dark:text-[#9299b5]">
               15x faster than Pterodactyl.
               <br />
               Open-source, secure, and built for the modern hosts.
@@ -119,7 +119,7 @@ export default function Hero() {
             <div className="mt-8">
               <Link
                 href="/docs"
-                className="group relative inline-flex h-[56px] cursor-pointer items-center justify-center rounded-full bg-neutral-900 py-1 pl-6 pr-14 text-lg shadow-lg shadow-black/10 transition hover:bg-neutral-800 dark:bg-white/90 dark:shadow-white/5 dark:hover:bg-white"
+                className="group relative inline-flex h-14 cursor-pointer items-center justify-center rounded-full bg-neutral-900 py-1 pl-6 pr-14 text-lg shadow-lg shadow-black/10 transition hover:bg-neutral-800 dark:bg-white/90 dark:shadow-white/5 dark:hover:bg-white"
               >
                 <span className="relative z-10 flex items-center justify-center gap-2 text-white dark:text-black">
                   Get Started
@@ -136,7 +136,7 @@ export default function Hero() {
               </Link>
             </div>
 
-            <p className="mt-2 inline-flex max-w-[570px] items-center gap-1 text-[13px] leading-[1.8] text-neutral-500 dark:text-[#65708d]">
+            <p className="mt-2 inline-flex max-w-142.5 items-center gap-1 text-[13px] leading-[1.8] text-neutral-500 dark:text-[#65708d]">
               <span className="font-bold text-neutral-900 dark:text-white">
                 <PanelInstalls />+ panels
               </span>
@@ -147,7 +147,7 @@ export default function Hero() {
             </p>
           </div>
 
-          <div className="relative hidden lg:absolute lg:right-[-80px] lg:top-[45px] lg:block lg:h-[610px] lg:w-[875px]">
+          <div className="relative hidden lg:absolute lg:-right-20 lg:top-11.25 lg:block lg:h-152.5 lg:w-218.75">
             <div className="absolute inset-0">
               {slides.map((slide, index) => {
                 const isActive = index === activeIndex;
@@ -177,26 +177,26 @@ export default function Hero() {
 
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-y-0 left-0 z-20 hidden w-[38%] bg-gradient-to-r from-white via-white/70 to-transparent lg:block dark:from-[#080910] dark:via-[#080910]/70"
+              className="pointer-events-none absolute inset-y-0 left-0 z-20 hidden w-[38%] bg-linear-to-r from-white via-white/70 to-transparent lg:block dark:from-[#080910] dark:via-[#080910]/70"
             />
 
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-[40%] bg-gradient-to-t from-white via-white/60 to-transparent dark:from-[#080910] dark:via-[#080910]/60"
+              className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-[40%] bg-linear-to-t from-white via-white/60 to-transparent dark:from-[#080910] dark:via-[#080910]/60"
             />
 
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-y-0 right-0 z-20 hidden w-[15%] bg-gradient-to-l from-white to-transparent lg:block dark:from-[#080910]"
+              className="pointer-events-none absolute inset-y-0 right-0 z-20 hidden w-[15%] bg-linear-to-l from-white to-transparent lg:block dark:from-[#080910]"
             />
 
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-x-0 top-0 z-20 h-[20%] bg-gradient-to-b from-white/50 to-transparent dark:from-[#080910]/50"
+              className="pointer-events-none absolute inset-x-0 top-0 z-20 h-[20%] bg-linear-to-b from-white/50 to-transparent dark:from-[#080910]/50"
             />
           </div>
 
-          <div className="absolute bottom-[40px] right-[80px] z-40 hidden w-[320px] lg:block">
+          <div className="absolute bottom-10 right-20 z-40 hidden w-[320px] lg:block">
             <div className="mb-5 h-5 text-center text-[14px] text-neutral-500 dark:text-[#747c98]">
               {slides.map((slide, index) => (
                 <Link
@@ -219,12 +219,12 @@ export default function Hero() {
                 type="button"
                 onClick={previous}
                 aria-label="Previous slide"
-                className="flex h-[31px] w-[31px] items-center justify-center rounded-full border border-neutral-300 bg-white/80 text-neutral-500 backdrop-blur-md transition hover:border-neutral-400 hover:bg-neutral-100 hover:text-neutral-900 dark:border-[#939db8]/20 dark:bg-[#171926]/80 dark:text-[#939db8] dark:hover:border-[#939db8]/40 dark:hover:bg-[#202332] dark:hover:text-white"
+                className="flex h-7.75 w-7.75 items-center justify-center rounded-full border border-neutral-300 bg-white/80 text-neutral-500 backdrop-blur-md transition hover:border-neutral-400 hover:bg-neutral-100 hover:text-neutral-900 dark:border-[#939db8]/20 dark:bg-[#171926]/80 dark:text-[#939db8] dark:hover:border-[#939db8]/40 dark:hover:bg-[#202332] dark:hover:text-white"
               >
                 <ArrowLeft className="h-3.5 w-3.5" strokeWidth={2.5} />
               </button>
 
-              <div className="flex items-center gap-[3px]">
+              <div className="flex items-center gap-0.75">
                 {slides.map((slide, index) => (
                   <button
                     key={slide.id}
@@ -232,14 +232,14 @@ export default function Hero() {
                     onClick={() => setActiveIndex(index)}
                     aria-label={`Go to ${slide.title}`}
                     aria-current={index === activeIndex ? "true" : undefined}
-                    className="group flex h-7 items-center px-[5px]"
+                    className="group flex h-7 items-center px-1.25"
                   >
                     <span
                       className={[
                         "block rounded-full transition-all duration-300",
                         index === activeIndex
-                          ? "h-[6px] w-[6px] bg-neutral-800 dark:bg-[#aeb6d0]"
-                          : "h-[6px] w-[6px] bg-neutral-300 group-hover:bg-neutral-500 dark:bg-[#252a3a] dark:group-hover:bg-[#626a83]",
+                          ? "h-1.5 w-1.5 bg-neutral-800 dark:bg-[#aeb6d0]"
+                          : "h-1.5 w-1.5 bg-neutral-300 group-hover:bg-neutral-500 dark:bg-[#252a3a] dark:group-hover:bg-[#626a83]",
                       ].join(" ")}
                     />
                   </button>
@@ -250,7 +250,7 @@ export default function Hero() {
                 type="button"
                 onClick={next}
                 aria-label="Next slide"
-                className="flex h-[31px] w-[31px] items-center justify-center rounded-full border border-neutral-300 bg-white/80 text-neutral-500 backdrop-blur-md transition hover:border-neutral-400 hover:bg-neutral-100 hover:text-neutral-900 dark:border-[#939db8]/20 dark:bg-[#171926]/80 dark:text-[#939db8] dark:hover:border-[#939db8]/40 dark:hover:bg-[#202332] dark:hover:text-white"
+                className="flex h-7.75 w-7.75 items-center justify-center rounded-full border border-neutral-300 bg-white/80 text-neutral-500 backdrop-blur-md transition hover:border-neutral-400 hover:bg-neutral-100 hover:text-neutral-900 dark:border-[#939db8]/20 dark:bg-[#171926]/80 dark:text-[#939db8] dark:hover:border-[#939db8]/40 dark:hover:bg-[#202332] dark:hover:text-white"
               >
                 <ArrowRight className="h-3.5 w-3.5" strokeWidth={2.5} />
               </button>
