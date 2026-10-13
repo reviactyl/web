@@ -15,8 +15,8 @@
 }
 
 @theme inline {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-poppins);
+  --font-mono: var(--font-ibm-plex-mono);
 
   --color-gray-50: rgb(var(--color-50));
   --color-gray-100: rgb(var(--color-100));
