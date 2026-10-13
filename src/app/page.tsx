@@ -1,4 +1,5 @@
 "use client"
+import Features from '@/components/Features';
 import Hero from '@/components/Hero';
 import { useEffect } from "react";
 
@@ -10,6 +11,7 @@ export default function Home() {
     <>
     <div className="min-h-screen bg-gray-950 flex flex-col text-center">
       <Hero />
+      <Features />
     </div>
     </>
   );
