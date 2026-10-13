@@ -18,17 +18,17 @@
   --font-sans: var(--font-poppins);
   --font-mono: var(--font-ibm-plex-mono);
 
-  --color-gray-50: rgb(var(--color-50));
-  --color-gray-100: rgb(var(--color-100));
-  --color-gray-200: rgb(var(--color-200));
-  --color-gray-300: rgb(var(--color-300));
-  --color-gray-400: rgb(var(--color-400));
-  --color-gray-500: rgb(var(--color-500));
-  --color-gray-600: rgb(var(--color-600));
-  --color-gray-700: rgb(var(--color-700));
-  --color-gray-800: rgb(var(--color-800));
-  --color-gray-900: rgb(var(--color-900));
-  --color-gray-950: rgb(var(--color-950));
+  --color-gray-50: var(--color-50);
+  --color-gray-100: var(--color-100);
+  --color-gray-200: var(--color-200);
+  --color-gray-300: var(--color-300);
+  --color-gray-400: var(--color-400);
+  --color-gray-500: var(--color-500);
+  --color-gray-600: var(--color-600);
+  --color-gray-700: var(--color-700);
+  --color-gray-800: var(--color-800);
+  --color-gray-900: var(--color-900);
+  --color-gray-950: var(--color-950);
 }
 
 body {
