@@ -2,6 +2,7 @@
 import Features from '@/components/sections/Features';
 import Customization from '@/components/sections/features/Customization';
 import Extensive from '@/components/sections/features/Extensive';
+import Footer from '@/components/sections/Footer';
 import Hero from '@/components/sections/Hero';
 import Info from '@/components/sections/Info';
 import Sponsors from '@/components/sections/Sponsors';
@@ -21,6 +22,7 @@ export default function Home() {
       <Extensive />
       <Sponsors />
     </div>
+    <Footer />
     </>
   );
 }
