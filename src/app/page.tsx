@@ -1,5 +1,7 @@
 "use client"
 import Features from '@/components/sections/Features';
+import Customization from '@/components/sections/features/Customization';
+import Extensive from '@/components/sections/features/Extensive';
 import Hero from '@/components/sections/Hero';
 import Info from '@/components/sections/Info';
 import { useEffect } from "react";
@@ -14,6 +16,8 @@ export default function Home() {
       <Hero />
       <Info />
       <Features />
+      <Customization />
+      <Extensive />
     </div>
     </>
   );
