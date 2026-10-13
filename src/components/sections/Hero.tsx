@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useMemo, useRef } from "react";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/sections/Navbar";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { FaShieldAlt, FaBolt, FaChevronRight } from "react-icons/fa";
 import Button from "@/components/ui/Button";

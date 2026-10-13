@@ -1,6 +1,6 @@
 "use client"
-import Features from '@/components/Features';
-import Hero from '@/components/Hero';
+import Features from '@/components/sections/Features';
+import Hero from '@/components/sections/Hero';
 import { useEffect } from "react";
 
 export default function Home() {
