@@ -27,8 +27,8 @@ export default function Footer() {
                     <div className="max-w-sm">
                         <Link href="/" className="inline-block">
                             <span className="kawaii-logo-stack inline-grid">
-                                <Image src="/logo.png" alt="Reviactyl" width={200} height={50} className="col-start-1 row-start-1 h-12 w-auto kawaii-logo-normal" />
-                                <Image src="/kawaii/logo.png" alt="Reviactyl" width={200} height={50} className="col-start-1 row-start-1 h-12 w-auto kawaii-logo-active" />
+                                <Image src="/logo.png" alt="Reviactyl" width={200} height={50} className="col-start-1 row-start-1 h-12 w-auto kawaii-logo-normal" loading="eager" />
+                                <Image src="/kawaii/logo.png" alt="Reviactyl" width={200} height={50} className="col-start-1 row-start-1 h-12 w-auto kawaii-logo-active" loading="lazy" />
                             </span>
                         </Link>
                         <p className="m-0 mt-4 text-sm leading-relaxed text-gray-500">

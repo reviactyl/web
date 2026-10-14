@@ -140,7 +140,7 @@ const Hero: React.FC = () => {
                                     animate={{ opacity: 1, filter: "blur(0px)" }}
                                     exit={{ opacity: 0, filter: "blur(12px)" }}
                                     transition={{ duration: 0.45, ease: "easeOut" }}
-                                    className="absolute inset-0 h-full w-full object-cover"
+                                    className="absolute inset-0 h-full w-full object-cover pointer-events-none"
                                 />
                             </AnimatePresence>
                         </div>

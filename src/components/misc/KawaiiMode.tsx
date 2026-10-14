@@ -40,7 +40,7 @@ export default function KawaiiMode() {
                 }}
                 className="kawaii-mode-link mt-2 inline-flex min-h-6 cursor-pointer items-center gap-1.5 rounded-sm border-0 bg-transparent p-0 text-[10px] tracking-[0.12em] text-gray-500 transition-colors hover:text-gray-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-300"
             >
-                <Image src="/kawaii/logo_art.png" alt="" aria-hidden width={100} height={50} style={{ width: 'auto', height: 'auto' }} className="opacity-70" />
+                <Image loading="lazy" src="/kawaii/logo_art.png" alt="" aria-hidden width={100} height={50} style={{ width: 'auto', height: 'auto' }} className="opacity-70" />
             </button>
             <audio ref={audioRef} src="/kawaii/music.mp3" loop preload="auto" aria-hidden="true" />
         </>
