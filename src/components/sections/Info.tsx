@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FaArrowRight } from "react-icons/fa6";
+import { FaArrowRight, FaBrush, FaDocker, FaGamepad } from "react-icons/fa6";
 
 export default function Info() {
   return (
@@ -11,16 +11,16 @@ export default function Info() {
           </span>{" "}
           is a modern and open-source{" "}
           <span className="font-semibold text-primary">
-            game server management panel
+            <FaGamepad className="inline-flex" /> game server management panel
           </span>{" "}
           built using Laravel, React, FilamentPHP, Vite, and Go. It focuses on
           security and performance by running every game server inside{" "}
           <span className="font-semibold text-primary">
-            isolated Docker containers
+            isolated <FaDocker className="inline-flex" /> Docker containers
           </span>{" "}
           while providing users with a{" "}
           <span className="font-semibold text-primary">
-            clean and intuitive interface
+            clean and <FaBrush className="inline-flex" /> intuitive interface
           </span>
           .
         </p>

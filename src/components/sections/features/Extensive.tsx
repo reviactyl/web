@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ShikiHighlighter from "react-shiki";
 import Button from "@/components/ui/Button";
+import { FaPuzzlePiece } from "react-icons/fa6";
 
 const files = [
     {
@@ -70,7 +71,7 @@ const Extensive: React.FC = () => {
                     className="flex flex-col gap-4 text-left"
                 >
                     <h2 className="bg-linear-to-b from-gray-50 to-gray-400 bg-clip-text pb-1 text-4xl font-semibold tracking-tight text-transparent sm:text-5xl">
-                        Extend it <br /> without modifying core
+                        Extend it <FaPuzzlePiece className="h-14 text-gray-50 inline-flex -rotate-12" /> <br /> without modifying core
                     </h2>
                     <p className="max-w-md text-base leading-relaxed text-gray-400">
                         Build features as self-contained extensions instead of patching the panel through <code className="bg-gray-900 border border-gray-800 font-mono text-gray-300 px-2 py-1 rounded">.rext</code>. Add routes, pages

@@ -3,6 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import ShikiHighlighter from "react-shiki";
 import Button from "@/components/ui/Button";
+import { FaCode } from "react-icons/fa6";
 
 const requestCode = `curl --request GET \\
   --url "https://reviactyl.test/api/client/account" \\
@@ -40,7 +41,7 @@ const Integration: React.FC = () => {
                     className="flex flex-col gap-4 text-left"
                 >
                     <h2 className="bg-linear-to-b from-gray-50 to-gray-400 bg-clip-text pb-1 text-4xl font-semibold tracking-tight text-transparent sm:text-5xl">
-                        External Integration <br /> through API
+                        External Integration <br /> through API <FaCode className="h-10 text-gray-50 inline-flex rotate-12" />
                     </h2>
                     <p className="max-w-md text-base leading-relaxed text-gray-400">
                         Connect Reviactyl to your billing system, Discord bot or custom dashboard. Manage servers,
