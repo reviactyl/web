@@ -1,6 +1,8 @@
+
 @import "tailwindcss";
 
 :root {
+  --color-primary: #60a5fa;
   --color-50: #FAFAFA;
   --color-100: #F4F4F5;
   --color-200: #E4E4E7;
@@ -14,9 +16,26 @@
   --color-950: #09090B;
 }
 
+:root[data-kawaii="true"] {
+  --color-primary: #BE185D;
+  --color-50: #FFF7FB;
+  --color-100: #FCE7F3;
+  --color-200: #FBCFE8;
+  --color-300: #F9A8D4;
+  --color-400: #F472B6;
+  --color-500: #EC4899;
+  --color-600: #DB2777;
+  --color-700: #BE185D;
+  --color-800: #9D174D;
+  --color-900: #831843;
+  --color-950: #500724;
+}
+
 @theme inline {
   --font-sans: var(--font-poppins);
   --font-mono: var(--font-ibm-plex-mono);
+
+  --color-primary: var(--color-primary);
 
   --color-gray-50: var(--color-50);
   --color-gray-100: var(--color-100);
@@ -35,4 +54,19 @@ body {
   background: var(--color-gray-950);
   color: var(--color-gray-50);
   font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 250ms ease, color 250ms ease;
+}
+
+:root[data-kawaii="true"] body {
+  font-family: var(--font-kawaii), sans-serif;
+}
+
+.kawaii-logo-stack .kawaii-logo-normal { display: block; }
+.kawaii-logo-stack .kawaii-logo-active { display: none; }
+:root[data-kawaii="true"] .kawaii-logo-stack .kawaii-logo-normal { display: none; }
+:root[data-kawaii="true"] .kawaii-logo-stack .kawaii-logo-active { display: block; }
+
+@media (prefers-reduced-motion: reduce) {
+  body { transition: none; }
+  .kawaii-mode-link { transition: none; }
 }

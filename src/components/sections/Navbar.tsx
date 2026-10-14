@@ -60,7 +60,10 @@ export default function Navbar() {
                 >
                     <div className="flex h-14 items-center justify-between pl-5 pr-2">
                         <Link href="/" className="flex shrink-0 items-center">
-                            <img src="/logo.png" alt="Reviactyl Logo" className="h-8 w-auto" />
+                            <span className="kawaii-logo-stack inline-grid">
+                                <img src="/logo.png" alt="Reviactyl Logo" className="col-start-1 row-start-1 h-8 w-auto kawaii-logo-normal" />
+                                <img src="/kawaii/logo.png" alt="Reviactyl Logo" className="col-start-1 row-start-1 h-8 w-auto kawaii-logo-active" />
+                            </span>
                         </Link>
 
                         <div className="hidden items-center gap-0.5 lg:flex">
