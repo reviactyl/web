@@ -1,4 +1,4 @@
-import { redirect } from 'next/navigation';
+import { permanentRedirect } from 'next/navigation';
 export const dynamic = 'force-dynamic';
 
 type PageProps = {
@@ -12,22 +12,22 @@ export default async function DocsRedirect({ params }: PageProps) {
 
     if (slug[0] === 'development') {
         if (slug[1] === 'extensions') {
-            redirect(
+            permanentRedirect(
                 'https://docs.reviactyl.app/development/extensions/getting-started'
             );
         }
 
-        redirect('https://docs.reviactyl.app/development/');
+        permanentRedirect('https://docs.reviactyl.app/development/');
     }
 
     if (
         slug[0] === 'panel' &&
         slug[1] === 'fresh-installation'
     ) {
-        redirect(
+        permanentRedirect(
             'https://docs.reviactyl.app/project/panel/getting-started'
         );
     }
 
-    redirect(`https://docs.reviactyl.app/project/${slug.join('/')}`);
+    permanentRedirect(`https://docs.reviactyl.app/project/${slug.join('/')}`);
 }
