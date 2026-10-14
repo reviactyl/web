@@ -60,7 +60,7 @@ const Extensive: React.FC = () => {
     const activeFile = files[activeIndex];
 
     return (
-        <section className="relative overflow-hidden border-b border-gray-50/10 bg-gray-950 text-gray-50">
+        <section className="relative overflow-hidden border-gray-50/10 bg-gray-950 text-gray-50">
             <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-6 py-4 md:grid-cols-2 mb-12 md:gap-16 md:py-2">
                 <motion.div
                     initial={{ opacity: 0, y: 24 }}
