@@ -1,4 +1,5 @@
 import { redirect } from 'next/navigation';
+export const dynamic = 'force-dynamic';
 
 type PageProps = {
     params: Promise<{
@@ -28,7 +29,5 @@ export default async function DocsRedirect({ params }: PageProps) {
         );
     }
 
-    redirect(
-        `https://docs.reviactyl.app/project/${slug.join('/')}`
-    );
+    redirect(`https://docs.reviactyl.app/project/${slug.join('/')}`);
 }
