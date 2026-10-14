@@ -5,6 +5,7 @@ import Extensive from '@/components/sections/features/Extensive';
 import Footer from '@/components/sections/Footer';
 import Hero from '@/components/sections/Hero';
 import Info from '@/components/sections/Info';
+import Reviews from '@/components/sections/Reviews';
 import Sponsors from '@/components/sections/Sponsors';
 import { useEffect } from "react";
 
@@ -21,6 +22,7 @@ export default function Home() {
       <Customization />
       <Extensive />
       <Sponsors />
+      <Reviews />
     </div>
     <Footer />
     </>
