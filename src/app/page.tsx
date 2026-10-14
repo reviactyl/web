@@ -1,4 +1,5 @@
 "use client"
+import Ecosystem from '@/components/sections/Ecosystem';
 import Features from '@/components/sections/Features';
 import Customization from '@/components/sections/features/Customization';
 import Extensive from '@/components/sections/features/Extensive';
@@ -23,6 +24,7 @@ export default function Home() {
       <Customization />
       <Extensive />
       <Integration />
+      <Ecosystem />
       <Sponsors />
       <Reviews />
     </div>
