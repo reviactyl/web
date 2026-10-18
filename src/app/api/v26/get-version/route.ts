@@ -3,8 +3,8 @@ import { NextResponse } from "next/server";
 export async function GET() {
   return NextResponse.json({
     status: "OK",
-    panel: "26.10.0",
-    agent: "26.10.0",
+    panel: "26.10.01",
+    agent: "26.10.01",
     sftp: "1.0.5",
     cli: "2.1.1",
     discord: "https://reviactyl.app/discord",
