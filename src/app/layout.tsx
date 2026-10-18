@@ -1,36 +1,38 @@
-import "@/app/global.css";
-import { RootProvider } from 'fumadocs-ui/provider/next';
-import { Inter, Fira_Code } from "next/font/google";
 import type { Metadata } from "next";
+import { Poppins, IBM_Plex_Mono, M_PLUS_Rounded_1c } from "next/font/google";
+import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-sans",
+const poppins = Poppins({
+  variable: "--font-poppins",
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
 });
 
-const firaCode = Fira_Code({
-  variable: "--font-mono",
+const ibmPlexMono = IBM_Plex_Mono({
+  variable: "--font-ibm-plex-mono",
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
-  weight: ["400", "500"],
+});
+
+const kawaiiFont = M_PLUS_Rounded_1c({
+    variable: "--font-kawaii",
+    subsets: ["latin"],
+    weight: ["400", "500", "700", "800"],
+    display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Reviactyl",
-  description:
-    "Fast, Open & Powerful alternative to Pterodactyl Panel. Manage your game servers with ease and efficiency.",
+  title: "Reviactyl - Open Source Game Panel",
+  description: "Reviactyl is an open-source game management panel for modern hosts, developers, and communities.",
 };
 
-export default function Layout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${firaCode.variable} antialiased`}
-      suppressHydrationWarning
+      className={`${poppins.variable} ${ibmPlexMono.variable} ${kawaiiFont.variable} h-full antialiased`}
     >
-      <body className="flex flex-col min-h-screen">
-        <RootProvider>{children}</RootProvider>
-      </body>
+      <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
 }

@@ -1,28 +1,33 @@
-export const runtime = "nodejs";
-export const dynamic = "force-dynamic";
+import { NextResponse } from "next/server";
 
-interface TelemetryStats {
-  total_unique_ids: number;
-}
+const CACHE_SECONDS = 300;
 
 export async function GET() {
   try {
-    const res = await fetch("https://telemetry.reviactyl.app/stats.json", {
+    const response = await fetch("https://telemetry.reviactyl.app/stats.json", {
       headers: {
         "User-Agent": "ReviactylFetch",
       },
+      next: {
+        revalidate: CACHE_SECONDS,
+      },
     });
 
-    if (!res.ok) {
-      return Response.json({ total_unique_ids: 0 });
+    if (!response.ok) {
+      return NextResponse.json({ total_unique_ids: 0 });
     }
 
-    const stats: TelemetryStats = await res.json();
+    const stats = await response.json();
 
-    return Response.json({
-      total_unique_ids: stats.total_unique_ids,
-    });
+    return NextResponse.json(
+      { total_unique_ids: stats.total_unique_ids },
+      {
+        headers: {
+          "Cache-Control": "public, s-maxage=300, stale-while-revalidate=60",
+        },
+      },
+    );
   } catch {
-    return Response.json({ total_unique_ids: 0 });
+    return NextResponse.json({ total_unique_ids: 0 });
   }
 }
