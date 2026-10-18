@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FaDiscord, FaCoffee, FaShoppingCart } from 'react-icons/fa';
 import Button from "@/components/ui/Button";
 import { FaBars, FaBook, FaChevronRight, FaGithub, FaX } from 'react-icons/fa6';
+import PanelStars from '@/components/api/PanelStars';
 
 const navItems = [
     { href: 'https://docs.reviactyl.app', label: 'Documentation', icon: FaBook },
@@ -81,8 +82,8 @@ export default function Navbar() {
 
                         <div className="hidden items-center gap-2 lg:flex">
                             <div className="relative gap-2 flex">
-                                <Button.Secondary className="px-5! py-2! font-mono" to="https://demo.reviactyl.app/">
-                                    <FaGithub /> reviactyl/panel
+                                <Button.Secondary className="px-5! py-2! font-mono inline-flex" to="https://github.com/reviactyl/panel">
+                                    <FaGithub /> reviactyl/panel <span className="ml-1 inline-flex items-center gap-1 rounded-full bg-gray-50/5 px-2 py-0.5 text-[10px] font-medium text-gray-300"> <PanelStars /> </span>
                                 </Button.Secondary>
                                 <Button.Primary className="px-5! py-2!" to="https://demo.reviactyl.app/">
                                     Live Demo <FaChevronRight className="h-3" />
@@ -135,8 +136,8 @@ export default function Navbar() {
                                     Live Demo
                                 </div>
                                 <div className="relative gap-2 flex">
-                                    <Button.Secondary className="px-5! py-2! font-mono" to="https://demo.reviactyl.app/">
-                                        <FaGithub /> reviactyl/panel
+                                    <Button.Secondary className="px-5! py-2! font-mono inline-flex" to="https://github.com/reviactyl/panel">
+                                        <FaGithub /> reviactyl/panel <span className="ml-1 inline-flex items-center gap-1 rounded-full bg-gray-50/5 px-2 py-0.5 text-[10px] font-medium text-gray-300"> <PanelStars /> </span>
                                     </Button.Secondary>
                                     <Button.Primary className="px-5! py-2!" to="https://demo.reviactyl.app/">
                                         Live Demo <FaChevronRight className="h-3" />

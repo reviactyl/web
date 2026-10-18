@@ -9,6 +9,7 @@ import Hero from '@/components/sections/Hero';
 import Info from '@/components/sections/Info';
 import Reviews from '@/components/sections/Reviews';
 import Sponsors from '@/components/sections/Sponsors';
+import Stats from '@/components/sections/Stats';
 import { useEffect } from "react";
 
 export default function Home() {
@@ -26,6 +27,7 @@ export default function Home() {
       <Integration />
       <Ecosystem />
       <Sponsors />
+      <Stats />
       <Reviews />
     </div>
     <Footer />

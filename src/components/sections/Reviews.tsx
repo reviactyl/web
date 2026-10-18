@@ -5,7 +5,7 @@ import { FaChevronRight } from "react-icons/fa";
 import { FaStar } from "react-icons/fa6";
 import Button from "@/components/ui/Button";
 
-const summary = { score: "4.0", total: "3" };
+const summary = { score: "4.2", total: "6" };
 
 const reviews = [
     { name: "Aymen", date: "October 13, 2026", rating: 5, title: "This project can truly be described as..", body: "This project can truly be described as magnificent however i believe it requires more time and a focus on the developers work." },
