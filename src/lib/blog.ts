@@ -1,7 +1,7 @@
 const API_URL = "https://dev.to/api";
 const USERNAME = "bijjuxd";
 
-export const REVALIDATE = 3600;
+export const REVALIDATE = 60;
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://reviactyl.app";
 
 export interface Article {

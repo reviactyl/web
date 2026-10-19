@@ -5,7 +5,7 @@ import Navbar from "@/components/sections/Navbar";
 import { FaArrowLeft, FaClock } from "react-icons/fa6";
 import { SITE_URL, cleanSlug, formatDate, getArticle, getArticles } from "@/lib/blog";
 
-export const revalidate = 3600;
+export const revalidate = 60;
 
 interface PageProps {
     params: Promise<{ slug: string }>;
