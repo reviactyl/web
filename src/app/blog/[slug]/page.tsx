@@ -3,9 +3,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Navbar from "@/components/sections/Navbar";
 import { FaArrowLeft, FaClock } from "react-icons/fa6";
-import { SITE_URL, cleanSlug, formatDate, getArticle, getArticles } from "@/lib/blog";
+import { SITE_URL, cleanSlug, formatDate, getArticle } from "@/lib/blog";
 
-export const revalidate = 60;
+export const dynamic = "force-dynamic";
 
 interface PageProps {
     params: Promise<{ slug: string }>;
@@ -29,15 +29,6 @@ const prose = [
     "[&_th]:border [&_th]:border-gray-50/10 [&_th]:bg-gray-900/80 [&_th]:px-3 [&_th]:py-2 [&_th]:text-left [&_th]:text-gray-50",
     "[&_td]:border [&_td]:border-gray-50/10 [&_td]:px-3 [&_td]:py-2",
 ].join(" ");
-
-export async function generateStaticParams() {
-    try {
-        const articles = await getArticles();
-        return articles.map((article) => ({ slug: cleanSlug(article.slug) }));
-    } catch {
-        return [];
-    }
-}
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
     const { slug } = await params;

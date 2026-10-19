@@ -4,7 +4,7 @@ import Navbar from "@/components/sections/Navbar";
 import { FaClock } from "react-icons/fa6";
 import { SITE_URL, cleanSlug, formatDate, getArticles } from "@/lib/blog";
 
-export const revalidate = 60;
+export const dynamic = "force-dynamic";
 
 const title = "Reviactyl - Blog";
 

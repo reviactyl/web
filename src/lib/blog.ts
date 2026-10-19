@@ -1,7 +1,6 @@
 const API_URL = "https://dev.to/api";
 const USERNAME = "bijjuxd";
 
-export const REVALIDATE = 60;
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://reviactyl.app";
 
 export interface Article {
@@ -31,7 +30,7 @@ export const cleanSlug = (slug: string) => slug.replace(/-[a-z0-9]+$/, "");
 
 export const getArticles = async (): Promise<Article[]> => {
     const response = await fetch(`${API_URL}/articles?username=${USERNAME}&per_page=100`, {
-        next: { revalidate: REVALIDATE },
+        cache: "no-store",
     });
 
     if (!response.ok) throw new Error("Failed to load articles");
@@ -45,7 +44,7 @@ export const getArticle = async (slug: string): Promise<ArticleDetail | undefine
     if (!match) return undefined;
 
     const response = await fetch(`${API_URL}/articles/${match.id}`, {
-        next: { revalidate: REVALIDATE },
+        cache: "no-store",
     });
 
     if (!response.ok) throw new Error("Failed to load article");
