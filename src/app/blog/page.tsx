@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/sections/Navbar";
 import { FaClock } from "react-icons/fa6";
-import { REVALIDATE, SITE_URL, cleanSlug, formatDate, getArticles } from "@/lib/blog";
+import { SITE_URL, cleanSlug, formatDate, getArticles } from "@/lib/blog";
 
-export const revalidate = REVALIDATE;
+export const revalidate = 3600;
 
 const title = "Reviactyl - Blog";
 

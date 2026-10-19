@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
-import { REVALIDATE, SITE_URL, cleanSlug, getArticles } from "@/lib/blog";
+import { SITE_URL, cleanSlug, getArticles } from "@/lib/blog";
 
-export const revalidate = REVALIDATE;
+export const revalidate = 3600;
 
 const staticPages: MetadataRoute.Sitemap = [
     {

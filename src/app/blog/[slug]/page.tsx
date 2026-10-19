@@ -3,9 +3,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Navbar from "@/components/sections/Navbar";
 import { FaArrowLeft, FaClock } from "react-icons/fa6";
-import { REVALIDATE, SITE_URL, cleanSlug, formatDate, getArticle, getArticles } from "@/lib/blog";
+import { SITE_URL, cleanSlug, formatDate, getArticle, getArticles } from "@/lib/blog";
 
-export const revalidate = REVALIDATE;
+export const revalidate = 3600;
 
 interface PageProps {
     params: Promise<{ slug: string }>;
