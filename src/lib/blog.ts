@@ -30,7 +30,7 @@ export interface ArticleDetail extends Omit<Article, "tag_list"> {
 export const cleanSlug = (slug: string) => slug.replace(/-[a-z0-9]+$/, "");
 
 export const getArticles = async (): Promise<Article[]> => {
-    const response = await fetch(`${API_URL}/articles?username=${USERNAME}&per_page=100`, {
+    const response = await fetch(`${API_URL}/articles?username=${USERNAME}&per_page=100?v=reviactyl1910`, {
         next: { revalidate: REVALIDATE },
     });
 
@@ -44,7 +44,7 @@ export const getArticle = async (slug: string): Promise<ArticleDetail | undefine
     const match = articles.find((article) => cleanSlug(article.slug) === slug);
     if (!match) return undefined;
 
-    const response = await fetch(`${API_URL}/articles/${match.id}`, {
+    const response = await fetch(`${API_URL}/articles/${match.id}?v=1910`, {
         next: { revalidate: REVALIDATE },
     });
 
