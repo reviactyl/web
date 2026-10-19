@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL, cleanSlug, getArticles } from "@/lib/blog";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
 
 const staticPages: MetadataRoute.Sitemap = [
     {
