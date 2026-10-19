@@ -6,9 +6,7 @@ import { REVALIDATE, SITE_URL, cleanSlug, formatDate, getArticles } from "@/lib/
 
 export const revalidate = REVALIDATE;
 
-const title = "Blog";
-const description =
-    "News, release notes and deep dives from the Reviactyl team on game server hosting, Pterodactyl alternatives and open-source panel development.";
+const title = "Reviactyl - Blog";
 
 export async function generateMetadata(): Promise<Metadata> {
     const articles = await getArticles();
@@ -16,11 +14,9 @@ export async function generateMetadata(): Promise<Metadata> {
 
     return {
         title,
-        description,
         alternates: { canonical: `${SITE_URL}/blog` },
         openGraph: {
-            title: `${title} - Reviactyl`,
-            description,
+            title: `${title} - Reviactyl Blog`,
             url: `${SITE_URL}/blog`,
             siteName: "Reviactyl",
             locale: "en_US",
@@ -29,8 +25,7 @@ export async function generateMetadata(): Promise<Metadata> {
         },
         twitter: {
             card: "summary_large_image",
-            title: `${title} - Reviactyl`,
-            description,
+            title: `${title} - Reviactyl Blog`,
             images: image ? [image] : undefined,
         },
     };
@@ -43,7 +38,6 @@ export default async function BlogPage() {
         "@context": "https://schema.org",
         "@type": "Blog",
         name: "Reviactyl Blog",
-        description,
         url: `${SITE_URL}/blog`,
         blogPost: articles.map((article) => ({
             "@type": "BlogPosting",
