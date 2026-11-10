@@ -6,7 +6,7 @@ import Button from "@/components/ui/Button";
 
 const sponsors = [
     { name: "Cloud-Exa", href: "https://cloudexa-hosting.com/", logo: "/sponsors/cloudexa.webp" },
-    { name: "Tietokettu", href: "https://tietokettu.net", logo: "/sponsors/tietokettu.png" },
+    { name: "Amazon Web Services", href: "https://aws.amazon.com/", logo: "/sponsors/aws.png" },
     { name: "not yet sponsored 0", href: "https://github.com/sponsors/reviactyl", logo: "https://placehold.co/240x80/111827/9ca3af?text=Add+yours" },
     { name: "not yet sponsored 1", href: "https://github.com/sponsors/reviactyl", logo: "https://placehold.co/240x80/111827/9ca3af?text=Add+yours" },
     { name: "not yet sponsored 2", href: "https://github.com/sponsors/reviactyl", logo: "https://placehold.co/240x80/111827/9ca3af?text=Add+yours" },
