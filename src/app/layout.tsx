@@ -1,5 +1,7 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Poppins, IBM_Plex_Mono, M_PLUS_Rounded_1c } from "next/font/google";
+import { SITE_URL } from "@/lib/blog";
+import { EMBED_ACCENT, PREVIEW_IMAGE, SITE_DESCRIPTION, SITE_TITLE } from "@/lib/discord-embed";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -22,9 +24,25 @@ const kawaiiFont = M_PLUS_Rounded_1c({
 });
 
 export const metadata: Metadata = {
-  title: "Reviactyl - Open Source Game Panel",
-  description: "Reviactyl is an open-source game management panel for modern hosts, developers, and communities.",
+  metadataBase: new URL(SITE_URL),
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
+  openGraph: {
+    type: "website",
+    siteName: "Reviactyl",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: [PREVIEW_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: [PREVIEW_IMAGE.url],
+  },
 };
+
+export const viewport: Viewport = { themeColor: EMBED_ACCENT };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (

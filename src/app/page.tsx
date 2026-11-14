@@ -11,6 +11,7 @@ import Reviews from '@/components/sections/Reviews';
 import Sponsors from '@/components/sections/Sponsors';
 import Stats from '@/components/sections/Stats';
 import { useEffect } from "react";
+import { DISCORD_EMBED_URL } from "@/lib/discord-embed";
 
 export default function Home() {
   useEffect(() => {
@@ -18,6 +19,7 @@ export default function Home() {
   }, []); 
   return (
     <>
+    <link rel="discord:component-embed" type="application/json" href={DISCORD_EMBED_URL} />
     <div className="min-h-screen bg-gray-950 flex flex-col text-center">
       <Hero />
       <Info />
